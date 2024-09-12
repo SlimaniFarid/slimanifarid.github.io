@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="module_category_erp_data" model="ir.module.category">
+        <field name="name">ERP DATA</field>
+        <field name="description">Catégorie pour les donnees de base de l'ERp</field>
+    </record>
+
+    <record id="group_user" model="res.groups">
+        <field name="name">Utilisateur</field>
+        <field name="category_id" ref="module_category_erp_data"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <record id="group_manager" model="res.groups">
+        <field name="name">Manager</field>
+        <field name="category_id" ref="module_category_erp_data"/>
+        <field name="implied_ids" eval="[(4, ref('erp_data.group_user'))]"/>
+    </record>
+
+
+    </odoo>

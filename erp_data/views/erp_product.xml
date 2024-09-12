@@ -1,0 +1,43 @@
+<odoo>
+ <data>
+
+    <record model="ir.ui.view" id="erp_product_view">
+        <field name="name">erp_product_view</field>
+        <field name="model">data.erp_product</field>
+        <field name="arch" type="xml">
+            <form string="Article">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="default_code"/> 
+                    </group>
+                    <group>
+                        <field name="standard_price"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="erp_product_tree">
+        <field name="name">erp_product_tree</field>
+        <field name="model">data.erp_product</field>
+        <field name="arch" type="xml">
+            <tree string="Article">
+                <field name="name"/>
+                        <field name="default_code"/> 
+                <field name="standard_price"/>
+            </tree>
+        </field>
+    </record>
+
+
+
+    <record model="ir.actions.act_window" id="erp_product_action">
+        <field name="name">Article</field>
+        <field name="res_model">data.erp_product</field>
+        <field name="view_mode">tree,form</field>   
+    </record>
+
+ </data>
+</odoo>

@@ -1,0 +1,112 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="res_wcar_tree_view">
+      <field name="name">res.wcar.tree.view</field>
+      <field name="model">res.wcar</field>
+      <field name="arch" type="xml">
+        <tree string="Voitures">
+            <field name="name"/>
+            <field name="verification_code"/>
+            <field name="series_id"/>
+            <field name="designation_serie"/>
+            <field name="state"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="res_wcar_form_view">
+      <field name="name">res.wcar.form.view</field>
+      <field name="model">res.wcar</field>
+      <field name="arch" type="xml">
+        <form string="Wagon">
+          <header>
+            <field name="state" widget="statusbar" clickable = "True" statusbar_visible="loaded,unloaded"/>
+          </header>
+           <sheet>
+                <!-- to create all wagong and series -->
+                <!-- <button string='Test' name="test" type="object" /> -->
+              <group col="3">
+                  <group>
+                      <field name="name"/>
+                      <field name="series_id"/>
+                      <field name="verification_code"/>
+                      <field name="designation_serie"/>
+                  </group>
+                  <group>
+                      <field name="interchangeable_code"/> 
+                      <field name="reseau_sntf"/> 
+                  </group>
+                  <group>
+                      <field name="boggie"/> 
+                      <field name="axle"/> 
+                      <field name="volume"/>
+                      <field name="max_tonnage"/>
+                  </group>
+              </group>
+              <notebook>
+                <page string="Localisation géographique">
+                  <group>
+                    <group>
+                        <field name="station_id"/>
+                        <field name="state_id" readonly="1" force_save="1"/>
+                        <field name="region_id" readonly="1" force_save="1"/> 
+                    </group>
+                    <group>
+                        <field name="latitude"/>
+                        <field name="longitude"/>
+                    </group>
+                  </group>
+                </page>
+              </notebook>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record id="res_wcarview_graph" model="ir.ui.view">
+      <field name="name">res.wcar.view.graph</field>
+      <field name="model">res.wcar</field>
+      <field name="arch" type="xml">
+        <graph string="Wagons" type="bar">
+            <field name="region_id"/>
+        </graph>
+      </field>
+    </record>
+    
+    <record id="view_res_wcar_filter" model="ir.ui.view">
+        <field name="name">res.wcar.search</field>
+        <field name="model">res.wcar</field>
+        <field name="arch" type="xml">
+          <search string="Wagons">
+            <field string="Numéro de wagon" name="name" />
+            <field string="Code de vérification" name="verification_code" />
+            <field string="Série" name="series_id" />
+            <field string="Désignation série" name="designation_serie" />
+            <field string="Gare" name="station_id" />
+            <filter string="Chargé" name="state" domain="[('state', '=', 'loaded')]"/>
+            <filter string="Déchargé" name="state" domain="[('state', '=', 'unloaded')]"/>
+            <group expand="0" string="Group By">
+                <filter string="Série" name="series_id" context="{'group_by': 'series_id'}"/>
+                <filter string="Gare" name="station_id" context="{'group_by': 'station_id'}"/>
+                <filter string="wilaya Desservie	" name="state_id" context="{'group_by': 'state_id'}"/>
+                <filter string="Région" name="region_id" context="{'group_by': 'region_id'}"/>
+            </group>
+
+          </search>
+        </field>
+    </record>
+
+
+
+
+
+    <record model="ir.actions.act_window" id="res_wcar_action_window">
+      <field name="name">Wagons</field>
+      <field name="res_model">res.wcar</field>
+      <field name="view_mode">tree,form,graph</field>
+    </record>
+
+  </data>
+</odoo>

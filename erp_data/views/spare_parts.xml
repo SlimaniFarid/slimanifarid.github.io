@@ -1,0 +1,59 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="spare_parts_tree_view">
+      <field name="name">spare.parts.tree.view</field>
+      <field name="model">product.product</field>
+      <field name="arch" type="xml">
+        <tree string="Pièces de rechanges">
+            <field name="name"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="spare_parts_form_view">
+      <field name="name">spare.parts.form.view</field>
+      <field name="model">product.product</field>
+      <field name="arch" type="xml">
+        <form string="Pièce de rechange">
+          <sheet>
+            <group>
+              <group>
+                  <field name="name"/>
+              </group>
+              <group>
+            
+              </group>
+            </group>
+          
+          </sheet>
+        </form>
+      </field>
+    </record>
+    <record id="spare_parts_search" model="ir.ui.view">
+        <field name="name">spare.parts.search</field>
+        <field name="model">product.product</field>
+        <field name="arch" type="xml">
+            <search string="Pièces de rechanges">
+                <field name="name"/>
+            </search>
+        </field>
+    </record>  
+
+    <record model="ir.actions.act_window" id="spare_parts_action_window">
+      <field name="name">Pièces de rechanges</field>
+      <field name="res_model">product.product</field>
+      <field name="view_mode">tree,form</field>
+      <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('spare_parts_tree_view')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('spare_parts_form_view')})]"/>
+
+      <field name="search_view_id" ref="spare_parts_search"/>
+      <field name="context">{'default_is_spare_part': True}</field>
+      <field name="domain">[('is_spare_part', '=', True)]</field>
+
+    </record>
+
+  </data>
+</odoo>

@@ -1,0 +1,69 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="res_wcar_series_tree_view">
+      <field name="name">res.wcar.series.tree.view</field>
+      <field name="model">res.wcar.series</field>
+      <field name="arch" type="xml">
+        <tree string="Séries des wagons">
+            <field name="name"/>
+            <field name="category"/>
+            <field name="type"/>
+            <field name="start_wcar_number"/>
+            <field name="end_wcar_number"/>
+        </tree>
+      </field>
+    </record>
+
+    <record id="res_wcar_series_view_form" model="ir.ui.view">
+      <field name="name">res.wcar.series.form</field>
+      <field name="model">res.wcar.series</field>
+      <field name="arch" type="xml">
+        <form string="Série des wagons">
+          <sheet>
+              <group>
+                <group>
+                    <field name="name"/>
+                    <field name="category"/>
+                    <field name="type"/>
+                </group>
+                <group>
+                    <field name="start_wcar_number"/>
+                    <field name="end_wcar_number"/>
+                </group>
+              </group>
+              <notebook>
+                <page name="wcar_ids" string="Wagons">
+                    <field name="wcar_ids" />
+                </page>
+              </notebook>  
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+
+        
+
+
+    <record id="view_res_wcar_series_filter" model="ir.ui.view">
+      <field name="name">res.wcar.series.search</field>
+      <field name="model">res.wcar.series</field>
+      <field name="arch" type="xml">
+        <search string="Séries des wagons">
+            <field string="N° de la série" name="name" />
+            <field string="Catégorie" name="category" />
+        </search>
+      </field>
+    </record>
+
+
+    <record model="ir.actions.act_window" id="res_wcar_series_action_window">
+      <field name="name">Séries des wagons</field>
+      <field name="res_model">res.wcar.series</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+  </data>
+</odoo>

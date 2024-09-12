@@ -1,0 +1,23 @@
+<odoo>
+  <data>
+
+    <record model="ir.ui.view" id="service_type_tree_view">
+        <field name="name">service_type_tree_view</field>
+        <field name="model">data.service_type</field>
+        <field name="arch" type="xml">
+            <tree string="Type de préstation" editable="top">
+                <field name="name" modifiers="{&quot;required&quot;: true}"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="service_type_action">
+      <field name="name">Type de préstation</field>
+      <field name="res_model">data.service_type</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+  </data>
+</odoo>

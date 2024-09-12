@@ -1,0 +1,63 @@
+<odoo>
+  <data>
+    <record model="ir.ui.view" id="res_car_tree_view">
+      <field name="name">res.car.tree.view</field>
+      <field name="model">res.car</field>
+      <field name="arch" type="xml">
+        <tree string="Voitures">
+            <field name="name"/>
+            <field name="type_id"/>
+            <field name="series_id"/>
+            <field name="department_id"/>
+            <field name="state"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="res_car_form_view">
+      <field name="name">res.car.form.view</field>
+      <field name="model">res.car</field>
+      <field name="arch" type="xml">
+        <form string="Voiture">
+           <sheet>
+              <group>
+                  <group>
+                      <field name="name"/>
+                      <field name="type_id"/>
+                      <field name="series_id"/>
+                  </group>
+                  <group>
+                     <field name="department_id"/>
+                     <field name="state"/>
+                  </group>
+              </group>
+            
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="res_car_action_window">
+      <field name="name">Voitures</field>
+      <field name="res_model">res.car</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+ 
+
+    <record model="ir.actions.act_window" id="res_type_car_action_window">
+      <field name="name">Type des Voitures</field>
+      <field name="res_model">res.type.car</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    <record model="ir.actions.act_window" id="res_series_car_action_window">
+      <field name="name">Série des Voitures</field>
+      <field name="res_model">res.series.car</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+
+
+  </data>
+</odoo>
