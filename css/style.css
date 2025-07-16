@@ -100,9 +100,7 @@ a:hover {
   background-position: center center;
 }
 
-.overlay-mf {
-  background-color: #714b68;
-}
+
 
 .overlay-mf {
   position: absolute;
@@ -720,6 +718,7 @@ a:hover {
   padding: 2.5rem 1.3rem;
   border-radius: 1rem;
   margin-bottom: 3rem;
+  min-height: 400px;
 }
 
 .service-box:hover .ico-circle {
@@ -755,7 +754,7 @@ a:hover {
 ======================================*/
 
 .counter-box {
-  color: #fff;
+  color: #000;
   text-align: center;
 }
 
@@ -767,7 +766,8 @@ a:hover {
   height: 60px;
   width: 60px;
   line-height: 1.8;
-  box-shadow: 0 0 0 10px #cde1f8;
+  box-shadow: 0 0 0 10px #714b68;
+  color: black;
 }
 
 .counter-num .counter {

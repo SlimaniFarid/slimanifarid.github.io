@@ -1,38 +1,331 @@
-<div class="overlay-mf"></div>
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-4 col-lg-4">
-          <div class="counter-box">
-            <div class="counter-ico">
-              <span class="ico-circle"><i class="ion-checkmark-round"></i></span>
-            </div>
-            <div class="counter-num">
-              <p class="counter">45</p>
-              <span class="counter-text">PROJETS RÉALISÉS</span>
-            </div>
-          </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="title-box text-center">
+          <h3 class="title-a">Mes Réalisations</h3>
+          <p class="subtitle-a">Survolez un projet pour en découvrir les détails</p>
+          <div class="line-mf"></div>
         </div>
-        <div class="col-sm-4 col-lg-4">
-          <div class="counter-box pt-4 pt-md-0">
-            <div class="counter-ico">
-              <span class="ico-circle"><i class="ion-ios-calendar-outline"></i></span>
-            </div>
-            <div class="counter-num">
-              <p class="counter">8</p>
-              <span class="counter-text">ANNÉES D'EXPÉRIENCE</span>
-            </div>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-sm-12">
+        <div class="project-notebook-box">
+          <div class="project-list">
+            <ul>
+              <li data-project="marchandise">Transport Marchandises</li>
+              <li data-project="voyageurs">Billetterie Voyageurs</li>
+              <li data-project="stock">Gestion de Stock</li>
+              <li data-project="archivage">Archivage Documentaire</li>
+              <li data-project="incidents">Incidents Ferroviaires</li>
+              <li data-project="api">Développement d'APIs</li>
+              <li data-project="openprod">Intégration Odoo → Open-prod</li>
+              <li data-project="factures">Conversion PDF → Excel</li>
+              <li data-project="erp-medical">ERP pour Entreprise Médicale</li>
+              <li data-project="voyage">ERP Agence de Voyage</li>
+              <li data-project="location">ERP Location de Véhicules</li>
+              <li data-project="import">ERP Import / Export</li>
+              <li data-project="modules">Modules Odoo personnalisés</li>
+            </ul>
           </div>
-        </div>
-        <div class="col-sm-4 col-lg-4">
-          <div class="counter-box pt-4 pt-md-0">
-            <div class="counter-ico">
-              <span class="ico-circle"><i class="ion-ios-people"></i></span>
+          <div class="project-preview">
+            <div id="marchandise" class="preview-content">
+                <h4 class="mb-2">Transport Marchandises</h4>
+                <p><strong>Contexte :</strong> Projet interne à la SNTF pour gérer le transport des marchandises sur tout le réseau national.</p>
+                <p><strong>Objectif :</strong> Digitaliser le suivi des wagons, des trajets et des recettes gares.</p>
+                <p><strong>Solutions :</strong></p>
+                <ul>
+                  <li>Module Odoo pour la gestion complète des wagons (référencement, suivi, statut, rotation)</li>
+                  <li>Tarification dynamique selon la distance et le type de marchandise</li>
+                  <li>Saisie des recettes par gare et par parcours</li>
+                </ul>
+                <p><strong>Technologies :</strong> Odoo, PostgreSQL, Python</p>
+                <p><strong>Impact :</strong> Meilleure traçabilité logistique, réduction des erreurs de saisie, automatisation de la facturation</p>
             </div>
-            <div class="counter-num">
-              <p class="counter">30</p>
-              <span class="counter-text">TOTAL CLIENTS</span>
+
+            <div id="voyageurs" class="preview-content">
+                <h4 class="mb-2">Billetterie Voyageurs – Système de vente ferroviaire</h4>
+                <p><strong>Contexte :</strong> Projet pour digitaliser la vente de billets et le calcul des recettes voyageurs à la SNTF.</p>
+                <p><strong>Objectif :</strong> Suivre les parcours, automatiser la tarification, centraliser les données de guichet.</p>
+                <ul>
+                  <li>Création d'un module Odoo “Billetterie” avec points de vente par gare</li>
+                  <li>Calcul automatique des recettes voyageurs et synchronisation des caisses</li>
+                  <li>Rapports de vente quotidiens et synthèse par ligne</li>
+                </ul>
+                <p><strong>Technologies :</strong> Odoo, QWeb, PostgreSQL</p>
+                <p><strong>Impact :</strong> Réduction des erreurs de caisse, meilleur contrôle des flux voyageurs</p>              
+                <span class="badge">Odoo</span>
+                <span class="badge">Transport</span>
+                <span class="badge">Point de vente</span>
             </div>
+
+            <div id="stock" class="preview-content">
+                <h4 class="mb-2">Gestion de Stock – Multi-entreprises</h4>
+                <p><strong>Contexte :</strong> Besoin de centraliser la gestion de plusieurs dépôts avec suivi rigoureux des mouvements.</p>
+                <p><strong>Objectif :</strong> Automatiser le réapprovisionnement et sécuriser les inventaires.</p>
+                <ul>
+                  <li>Modules stock personnalisés avec seuils d'alerte</li>
+                  <li>Inventaire automatique, bons d'entrée/sortie, multi-entrepôts</li>
+                </ul>
+                <p><strong>Technologies :</strong> Odoo, Python, PostgreSQL</p>
+                <p><strong>Impact :</strong> Meilleure maîtrise des quantités, réduction des ruptures</p>
+                <span class="badge">Odoo</span>
+                <span class="badge">Logistique</span>
+                <span class="badge">Inventaire</span>
+            </div>
+
+            <div id="archivage" class="preview-content">
+                <h4 class="mb-2">Archivage des Documents</h4>
+                <p><strong>Contexte :</strong> Besoin de digitaliser et structurer les documents internes (RH, contrats, demandes).</p>
+                <p><strong>Objectif :</strong> Remplacer les classeurs papier par un système sécurisé et facilement consultable.</p>
+                <ul>
+                  <li>Création d'un module d'archivage par catégorie, date, type et utilisateur</li>
+                  <li>Système d'autorisation d'accès et notifications</li>
+                  <li>Indexation et recherche multi-critères</li>
+                </ul>
+                <p><strong>Technologies :</strong> Odoo, QWeb, ACL</p>
+                <p><strong>Impact :</strong> Gain de temps pour la recherche documentaire et réduction de l'usage papier</p>
+                <span class="badge">Odoo</span>
+                <span class="badge">Archivage</span>
+                <span class="badge">Document</span>
+            </div>
+
+            <div id="incidents" class="preview-content">
+                <h4 class="mb-2">Synthèse des Incidents Ferroviaires</h4>
+                <p><strong>Contexte :</strong> Suivi quotidien des perturbations et incidents sur le réseau ferroviaire national.</p>
+                <p><strong>Objectif :</strong> Centraliser les déclarations d'incident et générer des rapports décisionnels.</p>
+                <ul>
+                  <li>Création d'un module “Incident & Rapport journalier”</li>
+                  <li>Filtres par ligne, région, heure, cause et gravité</li>
+                  <li>Génération automatique de rapports PDF ou Excel</li>
+                </ul>
+                <p><strong>Technologies :</strong> Odoo, Reporting QWeb, Python</p>
+                <p><strong>Impact :</strong> Meilleure réactivité opérationnelle, suivi historique, statistiques précises pour la direction</p>
+
+                <span class="badge">Odoo</span>
+                <span class="badge">Maintenance</span>
+                <span class="badge">Analyse</span>
+            </div>
+
+            <div id="api" class="preview-content">
+                <h4 class="mb-2">Développement d'APIs (REST)</h4>
+                <p><strong>Contexte :</strong> Interconnexion d'Odoo avec des applications mobiles ou des systèmes externes.</p>
+                <p><strong>Objectif :</strong> Permettre l'échange de données sécurisé entre Odoo et des plateformes tierces.</p>
+                <ul>
+                  <li>Création d'API REST en JSON pour lecture et écriture de données</li>
+                  <li>Authentification par tokens sécurisés</li>
+                  <li>Documentation et endpoints dynamiques</li>
+                </ul>
+                <p><strong>Technologies :</strong> Odoo, Flask REST, Python, JWT</p>
+                <p><strong>Impact :</strong> Synchronisation fiable, applications mobiles connectées, automatisation des flux</p>
+                <span class="badge">Interopérabilité</span>
+            </div>
+
+            <div id="openprod" class="preview-content">
+                <h4 class="mb-2">Intégration Odoo avec Open-Prod</h4>
+                <p><strong>Contexte :</strong> Projet d'intégration de modules Odoo dans l'ERP industriel Open-Prod.</p>
+                <p><strong>Objectif :</strong> Reproduire les fonctionnalités RH et paie dans un environnement différent.</p>
+                <ul>
+                  <li>Adaptation du module paie (contrats, règles, bulletins)</li>
+                  <li>Migration des données RH (employés, salaires, congés)</li>
+                  <li>Mapping technique entre ORM Odoo et Open-Prod</li>
+                </ul>
+                <p><strong>Technologies :</strong> Odoo, Open-Prod, PostgreSQL</p>
+                <p><strong>Impact :</strong> Cohérence entre deux ERP, transfert réussi sans perte de fonctionnalités</p>
+                <span class="badge">Odoo</span>
+                <span class="badge">Open-Prod</span>
+                <span class="badge">RH</span>
+            </div>
+
+            <div id="factures" class="preview-content">
+                <h4 class="mb-2">Conversion automatique PDF → Excel</h4>
+                <p><strong>Contexte :</strong> Besoin interne de retraiter rapidement les factures fournisseurs en tableur.</p>
+                <p><strong>Objectif :</strong> Gagner du temps et éviter la ressaisie manuelle de données PDF.</p>
+                <ul>
+                  <li>Script Python pour parsing de PDF (texte & structure)</li>
+                  <li>Transformation en tableau Excel formaté (.xlsx)</li>
+                  <li>Interface Odoo de dépôt et téléchargement</li>
+                </ul>
+                <p><strong>Technologies :</strong> Python, PDFMiner, Pandas, Odoo</p>
+                <p><strong>Impact :</strong> Réduction du temps de traitement, fiabilité des données extraites</p>
+                <span class="badge">Python</span>
+                <span class="badge">PDF</span>
+                <span class="badge">Automatisation</span>
+            </div>
+
+            <div id="erp-medical" class="preview-content">
+                <h4 class="mb-2">ERP Médical Personnalisé</h4>
+                <p><strong>Contexte :</strong> Mise en place d'un ERP complet pour une entreprise biomédicale nationale.</p>
+                <p><strong>Objectif :</strong> Automatiser les achats, ventes, RH, gestion du stock et comptabilité.</p>
+                <ul>
+                  <li>Implémentation multi-modules (Odoo)</li>
+                  <li>Suivi des commandes, inventaire et gestion de parc matériel</li>
+                  <li>Gestion RH avec paie mensuelle et congés</li>
+                </ul>
+                <p><strong>Technologies :</strong> Odoo (V14-V16), PostgreSQL, Python</p>
+                <p><strong>Impact :</strong> Amélioration des flux internes, gain de productivité et traçabilité</p>
+                <span class="badge">Odoo</span>
+                <span class="badge">Santé</span>
+                <span class="badge">Multi-modules</span>
+            </div>
+
+            <div id="voyage" class="preview-content">
+                <h4 class="mb-2">ERP pour Agence de Voyage</h4>
+                <p><strong>Contexte :</strong> L'agence souhaitait automatiser la lecture des mails de réservation et la gestion des offres.</p>
+                <p><strong>Objectif :</strong> Générer automatiquement les réservations depuis les fichiers email XML.</p>
+                <ul>
+                  <li>Parsing de mails Bedsonline & expéditions XML (fichiers AIR)</li>
+                  <li>Création automatique de produits, offres, billets</li>
+                  <li>Suivi des paiements clients</li>
+                </ul>
+                <p><strong>Technologies :</strong> Odoo, Python, IMAP, XML</p>
+                <p><strong>Impact :</strong> Réduction de 80% des tâches manuelles, centralisation des données</p>
+                <span class="badge">Odoo</span>
+                <span class="badge">Voyage</span>
+                <span class="badge">Email Parsing</span>
+            </div>
+
+            <div id="location" class="preview-content">
+                <h4 class="mb-2">ERP Location de Véhicules</h4>
+                <p><strong>Contexte :</strong> Développement d'un système complet de gestion pour une société de location automobile.</p>
+                <p><strong>Objectif :</strong> Gérer contrats, clients, réservations, état des véhicules et facturation.</p>
+                <ul>
+                  <li>Module Odoo pour gestion parc & contrats</li>
+                  <li>Suivi des états (carburant, kilométrage, maintenance)</li>
+                  <li>Automatisation de la facturation à la restitution</li>
+                </ul>
+                <p><strong>Technologies :</strong> Odoo, PostgreSQL, QWeb</p>
+                <p><strong>Impact :</strong> Meilleure visibilité du parc et gains sur la facturation</p>
+                <span class="badge">Odoo</span>
+                <span class="badge">Location</span>
+                <span class="badge">Planification</span>
+            </div>
+
+            <div id="import" class="preview-content">
+                <h4 class="mb-2">ERP Import / Export</h4>
+                <p><strong>Contexte :</strong> Société spécialisée dans les flux internationaux souhaitant digitaliser la gestion douanière.</p>
+                <p><strong>Objectif :</strong> Centraliser les opérations, calculs de frais, suivi des livraisons.</p>
+                <ul>
+                  <li>Modules Odoo pour suivi des conteneurs, D15, TVA douane</li>
+                  <li>Calcul des frais d'approche automatisé</li>
+                  <li>Suivi multi-devises et partenaires</li>
+                </ul>
+                <p><strong>Technologies :</strong> Odoo, Python, Multi-currency</p>
+                <p><strong>Impact :</strong> Réduction des erreurs comptables, visibilité sur les marges importées</p>
+                <span class="badge">Odoo</span>
+                <span class="badge">Commerce international</span>
+                <span class="badge">Comptabilité</span>
+            </div>
+
+            <div id="modules" class="preview-content">
+                <h4 class="mb-2">Modules Odoo personnalisés</h4>
+                <p><strong>Contexte :</strong> Missions continues d'adaptation des modules standards Odoo pour des besoins métiers spécifiques.</p>
+                <p><strong>Objectif :</strong> Étendre les fonctionnalités existantes ou corriger les limitations des modules de base.</p>
+                <ul>
+                  <li>Ajouts de champs, workflows, règles métiers sur CRM, RH, Vente, Achat, Projet, etc.</li>
+                  <li>Création de rapports personnalisés (QWeb, Excel, PDF)</li>
+                  <li>Intégration avec d'autres apps (SMS, API externes, etc.)</li>
+                </ul>
+                <p><strong>Technologies :</strong> Odoo V12 à V17, Python, QWeb, XML, JS</p>
+                <p><strong>Impact :</strong> Des dizaines d'entreprises équipées avec des outils Odoo mieux adaptés à leur fonctionnement</p>
+                <span class="badge">Odoo</span>
+                <span class="badge">Personnalisation</span>
+                <span class="badge">Fullstack</span>
+            </div>
+
           </div>
         </div>
       </div>
-</div>
+    </div>
+  </div>
+
+<style>
+  .project-notebook-box {
+  display: flex;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  min-height: 300px;
+}
+
+.project-list {
+  width: 35%;
+  background-color: #f7f7f7;
+  border-right: 1px solid #ddd;
+}
+
+.project-list ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 350px;
+  overflow: overlay;
+  background-color: #fdfdfd;
+  box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.03);
+
+
+}
+
+.project-list li {
+  padding: 15px 20px;
+  border-bottom: 1px solid #e0e0e0;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.project-list li:hover,
+.project-list li.active {
+  background-color: #e6eaf2;
+  font-weight: bold;
+  color: #4a3c78;
+}
+
+.project-preview {
+  width: 65%;
+  padding: 25px;
+  background-color: #ffffff;
+  max-height: 350px;
+  overflow: overlay;
+}
+
+.preview-content {
+  display: none;
+}
+
+.preview-content.active {
+  display: block;
+}
+
+.badge {
+  display: inline-block;
+  background-color: #714b68;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 13px;
+  margin-right: 5px;
+}
+
+</style>
+<script>
+
+  const items = document.querySelectorAll('.project-list li');
+  const previews = document.querySelectorAll('.preview-content');
+
+  items.forEach(item => {
+    item.addEventListener('mouseover', () => {
+      const projectId = item.getAttribute('data-project');
+
+      // reset active classes
+      items.forEach(i => i.classList.remove('active'));
+      previews.forEach(p => p.classList.remove('active'));
+
+      // activate selected
+      item.classList.add('active');
+      document.getElementById(projectId).classList.add('active');
+    });
+  });
+
+
+</script>
