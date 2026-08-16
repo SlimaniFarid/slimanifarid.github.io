@@ -111,6 +111,36 @@
   @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-indigo-50 text-indigo-700 ring-1 ring-inset ring-indigo-200;
 }
 
+/* ---------- Blog content ---------- */
+.blog-content {
+  @apply text-slate-600 leading-relaxed text-[1.05rem];
+}
+.blog-content h1,
+.blog-content h2,
+.blog-content h3,
+.blog-content h4 {
+  @apply font-display font-bold text-slate-900 mt-10 mb-4 tracking-tight;
+}
+.blog-content h1 { @apply text-3xl; }
+.blog-content h2 { @apply text-2xl; }
+.blog-content h3 { @apply text-xl; }
+.blog-content p { @apply my-4; }
+.blog-content a { @apply text-primary font-medium underline decoration-indigo-200 underline-offset-2 hover:decoration-primary; }
+.blog-content strong { @apply text-slate-900 font-semibold; }
+.blog-content ul { @apply my-4 space-y-2 list-disc list-inside pl-2; }
+.blog-content ol { @apply my-4 space-y-2 list-decimal list-inside pl-2; }
+.blog-content blockquote {
+  @apply my-6 border-l-4 border-primary pl-5 py-3 italic bg-slate-50 rounded-r-xl text-slate-700;
+}
+.blog-content code {
+  @apply bg-slate-100 text-indigo-800 rounded px-1.5 py-0.5 text-sm font-mono;
+}
+.blog-content pre {
+  @apply my-6 bg-slate-900 text-slate-100 rounded-xl p-5 overflow-x-auto text-sm;
+}
+.blog-content pre code { @apply bg-transparent text-inherit p-0; }
+.blog-content hr { @apply my-10 border-slate-200; }
+
 /* ---------- Scroll progress bar ---------- */
 #scrollProgress {
   position: fixed;

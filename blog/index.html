@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog — Farid Slimani</title>
+  <meta name="description" content="Expert Odoo — blog, conseils et bonnes pratiques">
+  <meta name="theme-color" content="#0B1220">
+  <meta property="og:title" content="Blog">
+  <meta property="og:description" content="Expert Odoo — blog, conseils et bonnes pratiques">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%234F46E5'/%3E%3Ctext x='32' y='42' font-family='Arial,sans-serif' font-size='26' font-weight='bold' fill='white' text-anchor='middle'%3EFS%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased">
+  <div id="scrollProgress" aria-hidden="true"></div>
+  <nav class="fixed w-full bg-white/85 backdrop-blur-md z-50 border-b border-slate-200/70">
+    <div class="container-x">
+      <div class="flex justify-between items-center h-16">
+        <a href="../index.html" class="flex items-center gap-2 group">
+          <span class="w-9 h-9 rounded-xl bg-gradient-to-br from-indigo-600 to-violet-600 text-white flex items-center justify-center font-bold font-display text-sm shadow-md shadow-indigo-600/30">FS</span>
+          <span class="font-display font-bold text-slate-900 tracking-tight group-hover:text-primary transition">Farid Slimani</span>
+        </a>
+        <div class="hidden md:flex items-center space-x-6 text-sm font-medium">
+          <a href="../index.html#about" class="nav-link hover:text-primary transition">À propos</a>
+          <a href="../index.html#services" class="nav-link hover:text-primary transition">Services</a>
+          <a href="../index.html#projects" class="nav-link hover:text-primary transition">Projets</a>
+          <a href="../index.html#odoo-apps" class="nav-link hover:text-primary transition">Odoo Apps</a>
+          <a href="index.html" class="nav-link active hover:text-primary transition">Blog</a>
+          <a href="../index.html#contact" class="btn-outline-primary px-5 py-2 text-sm">Contact</a>
+        </div>
+        <button id="menuBtn" class="md:hidden text-xl text-slate-700" aria-label="Ouvrir le menu"><i class="fas fa-bars"></i></button>
+      </div>
+    </div>
+    <div id="mobileMenu" class="hidden md:hidden bg-white/95 backdrop-blur border-t border-slate-200 p-4 space-y-3 shadow-xl">
+      <a href="../index.html#about" class="block py-1.5 hover:text-primary transition">À propos</a>
+      <a href="../index.html#services" class="block py-1.5 hover:text-primary transition">Services</a>
+      <a href="../index.html#projects" class="block py-1.5 hover:text-primary transition">Projets</a>
+      <a href="../index.html#odoo-apps" class="block py-1.5 hover:text-primary transition">Odoo Apps</a>
+      <a href="index.html" class="block py-1.5 text-primary font-semibold hover:text-primary transition">Blog</a>
+      <a href="../index.html#contact" class="block py-2.5 mt-2 text-center bg-gradient-to-r from-indigo-600 to-violet-600 text-white rounded-lg">Contact</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="pt-28 pb-24 bg-white">
+      <div class="container-x max-w-4xl">
+        <div class="fade-in">
+          <span class="section-eyebrow">Blog</span>
+          <h1 class="mt-3 font-display text-3xl md:text-4xl font-bold text-slate-900">Expert Odoo — blog, conseils et bonnes pratiques</h1>
+          <p class="text-slate-600 mt-3">Conseils, retours d'expérience et bonnes pratiques autour d'Odoo et de la transformation numérique.</p>
+        </div>
+        <div class="mt-12 space-y-6">
+      <a href="odoo-19-quoi-de-neuf-pour-les-entreprises-en-2026.html" class="card card-hover p-7 block fade-in group">
+        <div class="flex flex-wrap gap-2 mb-3">
+          <span class="magic-tag">2026-08-10</span>
+          <span class="magic-tag">Odoo</span><span class="magic-tag">Odoo 19</span><span class="magic-tag">ERP</span>
+        </div>
+        <h3 class="font-display text-xl font-bold text-slate-900 group-hover:text-primary transition">Odoo 19 : quoi de neuf pour les entreprises en 2026 ?</h3>
+        <p class="text-sm text-slate-600 mt-3">Odoo 19 apporte des innovations majeures : IA générative intégrée, comptabilité renforcée et une expérience utilisateur repensée. Voici ce que j'en retiens pour vos projets.</p>
+      </a>
+      <a href="personnaliser-odoo-sans-casser-l-upgrade-5-bonnes-pratiques.html" class="card card-hover p-7 block fade-in group">
+        <div class="flex flex-wrap gap-2 mb-3">
+          <span class="magic-tag">2026-07-22</span>
+          <span class="magic-tag">Odoo</span><span class="magic-tag">Développement</span><span class="magic-tag">Bonnes pratiques</span>
+        </div>
+        <h3 class="font-display text-xl font-bold text-slate-900 group-hover:text-primary transition">Personnaliser Odoo sans casser l'upgrade : 5 bonnes pratiques</h3>
+        <p class="text-sm text-slate-600 mt-3">Le premier réflexe d'un consultant Odoo est de créer un module. Encore faut-il le faire dans les règles pour que les mises à jour de l'ERP ne deviennent pas un calvaire.</p>
+      </a></div>
+      </div>
+    </section></main>
+
+  <footer class="bg-slate-950 text-slate-400 py-8">
+    <div class="container-x flex flex-col md:flex-row justify-between items-center gap-4">
+      <p>&copy; 2026 Farid Slimani — Tous droits réservés</p>
+      <div class="flex space-x-5">
+        <a href="https://www.linkedin.com/in/farid-slimani/" target="_blank" rel="noopener" class="w-10 h-10 rounded-full border border-slate-700 flex items-center justify-center hover:border-indigo-400 hover:text-white hover:-translate-y-0.5 transition" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://apps.odoo.com/apps/modules/browse?search=slimani" target="_blank" rel="noopener" class="w-10 h-10 rounded-full border border-slate-700 flex items-center justify-center hover:border-indigo-400 hover:text-white hover:-translate-y-0.5 transition" aria-label="Odoo Apps"><i class="fa-solid fa-cubes"></i></a>
+        <a href="mailto:tech5262@gmail.com" class="w-10 h-10 rounded-full border border-slate-700 flex items-center justify-center hover:border-indigo-400 hover:text-white hover:-translate-y-0.5 transition" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <button id="toTop" aria-label="Retour en haut" class="fixed bottom-6 right-6 z-50 w-11 h-11 rounded-full bg-gradient-to-br from-indigo-600 to-violet-600 text-white shadow-lg shadow-indigo-600/30 flex items-center justify-center hover:-translate-y-1 transition"><i class="fas fa-arrow-up"></i></button>
+
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (menuBtn && mobileMenu) menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+    const progress = document.getElementById('scrollProgress');
+    const toTop = document.getElementById('toTop');
+    if (progress && toTop) {
+      window.addEventListener('scroll', () => {
+        const h = document.documentElement.scrollHeight - window.innerHeight;
+        progress.style.width = h > 0 ? (window.scrollY / h) * 100 + '%' : '0%';
+        toTop.classList.toggle('show', window.scrollY > 600);
+      });
+      toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    }
+  </script>
+</body>
+</html>
