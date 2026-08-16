@@ -175,7 +175,10 @@ def main():
     links_p.append(crun("  |  Odoo Apps : "))
     links_p.append(chyperlink(crun("apps.odoo.com"), rid_apps))
     links_p.append(crun(" — 34 modules publiés"))
-    insert_after(root, email_p, [links_p])
+    footer_p = find_para(
+        root, lambda t: t.startswith("–  PFE : Site web de gestion de librairies"), "footer"
+    )
+    insert_after(root, footer_p, [links_p])
 
     # -- 3) SNTF valeurs ajoutees -------------------------------------------
     insert_after(root, sntf_last, [
