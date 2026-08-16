@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block title %}{% if active_category %}Catégorie : {{ active_category.name }}{% else %}Blog — Farid Slimani{% endif %}{% endblock %}
+
+{% block content %}
+<section class="pt-28 pb-24 bg-white">
+  <div class="container-x max-w-4xl">
+    <div class="fade-in">
+      <span class="section-eyebrow">Blog</span>
+      <h1 class="mt-3 font-display text-3xl md:text-4xl font-bold text-slate-900">
+        {% if active_category %}{{ active_category.name }}{% else %}Conseils Odoo & transformation numérique{% endif %}
+      </h1>
+      <p class="text-slate-600 mt-3">Retours d'expérience, bonnes pratiques et actualités autour d'Odoo.</p>
+    </div>
+
+    <div class="mt-8 flex flex-wrap gap-2 fade-in">
+      <a href="{% url 'article_list' %}"
+         class="{% if not active_category %}magic-tag text-indigo-700 bg-indigo-100{% else %}chip-ghost{% endif %}">Tous</a>
+      {% for cat in categories %}
+        <a href="{% url 'article_list_by_category' cat.slug %}"
+           class="{% if active_category and active_category.slug == cat.slug %}magic-tag text-indigo-700 bg-indigo-100{% else %}chip-ghost{% endif %}">{{ cat.name }}</a>
+      {% endfor %}
+    </div>
+
+    <div class="mt-12 space-y-6">
+      {% for article in articles %}
+      <a href="{{ article.get_absolute_url }}" class="card card-hover p-7 block group">
+        <div class="flex flex-wrap gap-2 mb-3">
+          <span class="magic-tag">{{ article.created_at|date:"d/m/Y" }}</span>
+          {% if article.category %}<span class="magic-tag">{{ article.category.name }}</span>{% endif %}
+          {% if article.featured %}<span class="magic-tag bg-amber-50 text-amber-700 ring-amber-200">★ À la une</span>{% endif %}
+        </div>
+        <h2 class="font-display text-xl font-bold text-slate-900 group-hover:text-primary transition">{{ article.title }}</h2>
+        {% if article.excerpt %}<p class="text-sm text-slate-600 mt-3">{{ article.excerpt }}</p>{% endif %}
+      </a>
+      {% empty %}
+      <p class="text-slate-500">Aucun article publié pour le moment.</p>
+      {% endfor %}
+    </div>
+
+    {% if is_paginated %}
+    <div class="mt-12 flex justify-center gap-2">
+      {% if page_obj.has_previous %}
+        <a href="?page={{ page_obj.previous_page_number }}" class="btn-outline-primary px-4 py-2 text-sm">&larr; Précédent</a>
+      {% endif %}
+      <span class="self-center text-sm text-slate-500">Page {{ page_obj.number }} / {{ page_obj.paginator.num_pages }}</span>
+      {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}" class="btn-outline-primary px-4 py-2 text-sm">Suivant &rarr;</a>
+      {% endif %}
+    </div>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}

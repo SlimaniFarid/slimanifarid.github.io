@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Blog — Farid Slimani{% endblock %}</title>
+  <meta name="description" content="{% block meta_description %}Blog de Farid Slimani — expert Odoo & transformation numérique.{% endblock %}">
+  <meta name="theme-color" content="#0B1220">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased">
+
+  <nav class="fixed w-full bg-white/85 backdrop-blur-md z-50 border-b border-slate-200/70">
+    <div class="container-x">
+      <div class="flex justify-between items-center h-16">
+        <a href="{% url 'article_list' %}" class="flex items-center gap-2 group">
+          <span class="w-9 h-9 rounded-xl bg-gradient-to-br from-indigo-600 to-violet-600 text-white flex items-center justify-center font-bold font-display text-sm shadow-md shadow-indigo-600/30">FS</span>
+          <span class="font-display font-bold text-slate-900 tracking-tight group-hover:text-primary transition">Farid Slimani</span>
+        </a>
+        <div class="hidden md:flex items-center space-x-6 text-sm font-medium">
+          <a href="{% url 'article_list' %}" class="nav-link {% if not active_category %}active{% endif %} hover:text-primary transition">Blog</a>
+          <a href="https://slimanifarid.github.io/" target="_blank" rel="noopener" class="nav-link hover:text-primary transition">Portfolio</a>
+          <a href="https://www.linkedin.com/in/farid-slimani/" target="_blank" rel="noopener" class="nav-link hover:text-primary transition">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="bg-slate-950 text-slate-400 py-8">
+    <div class="container-x flex flex-col md:flex-row justify-between items-center gap-4">
+      <p>&copy; 2026 Farid Slimani — Tous droits réservés</p>
+      <div class="flex space-x-5">
+        <a href="https://www.linkedin.com/in/farid-slimani/" target="_blank" rel="noopener" class="w-10 h-10 rounded-full border border-slate-700 flex items-center justify-center hover:border-indigo-400 hover:text-white transition" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://apps.odoo.com/apps/modules/browse?search=slimani" target="_blank" rel="noopener" class="w-10 h-10 rounded-full border border-slate-700 flex items-center justify-center hover:border-indigo-400 hover:text-white transition" aria-label="Odoo Apps"><i class="fa-solid fa-cubes"></i></a>
+        <a href="mailto:tech5262@gmail.com" class="w-10 h-10 rounded-full border border-slate-700 flex items-center justify-center hover:border-indigo-400 hover:text-white transition" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

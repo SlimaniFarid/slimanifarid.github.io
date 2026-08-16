@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}{{ article.title }}{% endblock %}
+{% block meta_description %}{{ article.excerpt }}{% endblock %}
+
+{% block content %}
+<section class="pt-28 pb-24 bg-white">
+  <div class="container-x max-w-3xl">
+    <a href="{% url 'article_list' %}" class="text-sm text-primary hover:underline"><i class="fas fa-arrow-left mr-1"></i> Retour au blog</a>
+
+    <div class="mt-6 fade-in">
+      <div class="flex flex-wrap gap-2 mb-4">
+        {% if article.category %}<span class="magic-tag">{{ article.category.name }}</span>{% endif %}
+        <span class="magic-tag">{{ article.created_at|date:"d/m/Y" }}</span>
+      </div>
+      <h1 class="font-display text-3xl md:text-4xl font-bold text-slate-900 leading-tight">{{ article.title }}</h1>
+      {% if article.excerpt %}<p class="text-slate-500 text-base mt-4">{{ article.excerpt }}</p>{% endif %}
+    </div>
+
+    <article class="blog-content mt-10 fade-in">
+      {{ article.body|linebreaksbr }}
+    </article>
+
+    {% if related %}
+    <div class="mt-16">
+      <h2 class="font-display text-2xl font-bold text-slate-900 mb-6">À lire aussi</h2>
+      <div class="space-y-4">
+        {% for r in related %}
+        <a href="{{ r.get_absolute_url }}" class="card card-hover p-6 block group">
+          <h3 class="font-display font-semibold text-slate-900 group-hover:text-primary transition">{{ r.title }}</h3>
+          {% if r.excerpt %}<p class="text-sm text-slate-600 mt-2">{{ r.excerpt|truncatechars:140 }}</p>{% endif %}
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}
