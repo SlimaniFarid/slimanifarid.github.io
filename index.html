@@ -4,546 +4,617 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Farid Slimani — Expert Odoo & Transformation Numérique</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta name="description" content="Farid Slimani — Expert Odoo & Transformation Numérique. Consultation et développement ERP Odoo, plus de 34 modules publiés sur Odoo Apps.">
+  <meta name="theme-color" content="#0B1220">
+  <meta property="og:title" content="Farid Slimani — Expert Odoo & Transformation Numérique">
+  <meta property="og:description" content="Consultation et développement ERP Odoo, 34+ modules publiés sur Odoo Apps, accompagnement complet des entreprises dans leur transformation numérique.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%234F46E5'/%3E%3Ctext x='32' y='42' font-family='Arial,sans-serif' font-size='26' font-weight='bold' fill='white' text-anchor='middle'%3EFS%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
-          colors: { primary: '#4F46E5', dark: '#0F172A' }
-        }
-      }
-    }
+  <link rel="stylesheet" href="styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Farid Slimani",
+    "jobTitle": "Expert Odoo & Transformation Numérique",
+    "email": "tech5262@gmail.com",
+    "telephone": "+213673697772",
+    "address": { "@type": "PostalAddress", "addressLocality": "Alger", "addressCountry": "DZ" },
+    "knowsAbout": ["Odoo ERP", "Python", "PostgreSQL", "Business Process Automation"]
+  }
   </script>
-  <style>
-    @import url('https://cdn.jsdelivr.net/npm/@fontsource/inter@5.0.16/300,400,500,600,700.css');
-    .fade-in { opacity: 0; transform: translateY(20px); transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
-    .fade-in.visible { opacity: 1; transform: translateY(0); }
-    .card-hover:hover .card-extra { max-height: 200px; opacity: 1; padding-top: 1rem; }
-    .card-extra { max-height: 0; opacity: 0; overflow: hidden; transition: all 0.4s ease; }
-    .timeline-line::before { content: ''; position: absolute; left: 1.25rem; top: 0; bottom: 0; width: 2px; background: #e2e8f0; }
-    @media (min-width: 768px) { .timeline-line::before { left: 50%; transform: translateX(-50%); } }
-  </style>
 </head>
+
 <body class="bg-slate-50 text-slate-800 font-sans antialiased">
-  <nav class="fixed w-full bg-white/95 backdrop-blur-md z-50 border-b border-slate-200 shadow-sm">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div id="scrollProgress" aria-hidden="true"></div>
+
+  <nav class="fixed w-full bg-white/85 backdrop-blur-md z-50 border-b border-slate-200/70">
+    <div class="container-x">
       <div class="flex justify-between items-center h-16">
-        <a href="#hero" class="text-2xl font-bold text-primary tracking-tight">FS</a>
-        <div class="hidden md:flex space-x-6 text-sm font-medium">
-          <a href="#about" class="hover:text-primary transition">À propos</a>
-          <a href="#mission" class="hover:text-primary transition">Vision</a>
-          <a href="#services" class="hover:text-primary transition">Services</a>
-          <a href="#projects" class="hover:text-primary transition">Projets</a>
-          <a href="#odoo-apps" class="hover:text-primary transition">Odoo Apps</a>
-          <a href="#experience" class="hover:text-primary transition">Parcours</a>
-          <a href="#contact" class="px-4 py-2 bg-primary text-white rounded-full hover:bg-indigo-700 transition">Contact</a>
+        <a href="#hero" class="flex items-center gap-2 group">
+          <span class="w-9 h-9 rounded-xl bg-gradient-to-br from-indigo-600 to-violet-600 text-white flex items-center justify-center font-bold font-display text-sm shadow-md shadow-indigo-600/30">FS</span>
+          <span class="font-display font-bold text-slate-900 tracking-tight group-hover:text-primary transition">Farid Slimani</span>
+        </a>
+        <div class="hidden md:flex items-center space-x-6 text-sm font-medium">
+          <a href="#about" class="nav-link hover:text-primary transition">À propos</a>
+          <a href="#mission" class="nav-link hover:text-primary transition">Vision</a>
+          <a href="#services" class="nav-link hover:text-primary transition">Services</a>
+          <a href="#projects" class="nav-link hover:text-primary transition">Projets</a>
+          <a href="#odoo-apps" class="nav-link hover:text-primary transition">Odoo Apps</a>
+          <a href="#experience" class="nav-link hover:text-primary transition">Parcours</a>
+          <a href="#contact" class="btn-outline-primary px-5 py-2 text-sm">Contact</a>
         </div>
-        <button id="menuBtn" class="md:hidden text-xl text-slate-700"><i class="fas fa-bars"></i></button>
+        <button id="menuBtn" class="md:hidden text-xl text-slate-700" aria-label="Ouvrir le menu"><i class="fas fa-bars"></i></button>
       </div>
     </div>
-    <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-slate-200 p-4 space-y-3 shadow-lg">
-      <a href="#about" class="block py-1 hover:text-primary">À propos</a>
-      <a href="#mission" class="block py-1 hover:text-primary">Vision</a>
-      <a href="#services" class="block py-1 hover:text-primary">Services</a>
-      <a href="#projects" class="block py-1 hover:text-primary">Projets</a>
-      <a href="#odoo-apps" class="block py-1 hover:text-primary">Odoo Apps</a>
-      <a href="#experience" class="block py-1 hover:text-primary">Parcours</a>
-      <a href="#contact" class="block py-2 mt-2 text-center bg-primary text-white rounded-lg">Contact</a>
+    <div id="mobileMenu" class="hidden md:hidden bg-white/95 backdrop-blur border-t border-slate-200 p-4 space-y-3 shadow-xl">
+      <a href="#about" class="block py-1.5 hover:text-primary transition">À propos</a>
+      <a href="#mission" class="block py-1.5 hover:text-primary transition">Vision</a>
+      <a href="#services" class="block py-1.5 hover:text-primary transition">Services</a>
+      <a href="#projects" class="block py-1.5 hover:text-primary transition">Projets</a>
+      <a href="#odoo-apps" class="block py-1.5 hover:text-primary transition">Odoo Apps</a>
+      <a href="#experience" class="block py-1.5 hover:text-primary transition">Parcours</a>
+      <a href="#contact" class="block py-2.5 mt-2 text-center bg-gradient-to-r from-indigo-600 to-violet-600 text-white rounded-lg">Contact</a>
     </div>
   </nav>
 
-  <section id="hero" class="min-h-screen flex items-center justify-center pt-16 bg-gradient-to-br from-indigo-50 via-white to-slate-100">
-    <div class="max-w-4xl mx-auto px-4 text-center fade-in">
-      <span class="inline-block px-4 py-1 mb-6 bg-indigo-100 text-primary rounded-full text-sm font-semibold tracking-wide">Expert Odoo &  Transformation Numérique</span>
-      <h1 class="text-4xl md:text-6xl font-extrabold text-slate-900 mb-4 tracking-tight">Farid Slimani</h1>
-      <p class="text-xl md:text-2xl text-slate-600 mb-8">Expert en Consultation et Développement ERP ODOO | Transformation Numérique et Solutions Agiles</p>
-      <p class="max-w-2xl mx-auto text-lg text-slate-500 mb-10 leading-relaxed">Depuis plus de 10 ans, j'accompagne les entreprises dans leur transformation numérique avec Odoo. Je combine expertise technique et vision métier pour livrer des solutions robustes, évolutives et parfaitement adaptées.</p>
-      <div class="flex flex-col sm:flex-row justify-center gap-4">
-        <a href="#contact" class="px-8 py-3 bg-primary text-white rounded-lg hover:bg-indigo-700 transition shadow-lg hover:shadow-xl font-medium">Me contacter</a>
-        <a href="CV_Farid_SLIMANI_DZ.pdf" class="px-8 py-3 bg-white text-slate-800 border border-slate-300 rounded-lg hover:bg-slate-50 transition font-medium">Télécharger CV</a>
-      </div>
-    </div>
-  </section>
+  <main>
+    <!-- ============ HERO ============ -->
+    <section id="hero" class="relative min-h-screen flex items-center pt-16 overflow-hidden">
+      <div class="absolute inset-0 hero-mesh"></div>
+      <div class="absolute inset-0 grid-pattern"></div>
+      <div class="blob w-[28rem] h-[28rem] bg-indigo-600 animate-blob" style="top:-8rem; left:-8rem;"></div>
+      <div class="blob w-[24rem] h-[24rem] bg-violet-600 animate-blob" style="bottom:-6rem; right:-4rem; animation-delay:2.5s;"></div>
+      <div class="blob w-72 h-72 bg-sky-500/60 animate-blob" style="top:30%; right:20%; animation-delay:5s;"></div>
 
-  <section id="about" class="py-20 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid md:grid-cols-2 gap-12 items-start">
+      <div class="container-x relative z-10 py-24 md:py-32 text-center">
+        <div class="fade-in max-w-4xl mx-auto">
+          <span class="inline-flex items-center gap-2 px-4 py-1.5 mb-8 rounded-full border border-indigo-400/30 bg-indigo-500/10 text-indigo-300 text-sm font-semibold tracking-wide backdrop-blur">
+            <i class="fas fa-cube text-xs"></i> Expert Odoo & Transformation Numérique
+          </span>
+          <h1 class="font-display text-4xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-[1.05]">
+            Farid <span class="text-gradient">Slimani</span>
+          </h1>
+          <p class="mt-6 text-xl md:text-2xl font-light text-slate-300">Consultation &amp; Développement ERP Odoo — Solutions Agiles, impact réel.</p>
+          <p class="max-w-2xl mx-auto mt-6 text-lg text-slate-400 leading-relaxed">Depuis plus de 10 ans, j'accompagne les entreprises dans leur transformation numérique avec Odoo. Combiner expertise technique et vision métier pour livrer des solutions robustes, évolutives et parfaitement adaptées.</p>
+          <div class="mt-10 flex flex-col sm:flex-row justify-center items-center gap-4">
+            <a href="#contact" class="btn-gradient w-full sm:w-auto"><i class="fas fa-paper-plane"></i> Me contacter</a>
+            <a href="CV_Farid_SLIMANI_DZ.pdf" class="btn-ghost-light w-full sm:w-auto"><i class="fas fa-download"></i> Télécharger CV</a>
+          </div>
+        </div>
+
+        <div class="mt-16 md:mt-20 grid grid-cols-2 lg:grid-cols-4 gap-4 max-w-3xl mx-auto fade-in delay-200">
+          <div class="rounded-2xl border border-white/10 bg-white/5 backdrop-blur px-5 py-6">
+            <div class="font-display text-3xl font-extrabold text-white">10+</div>
+            <div class="text-sm text-slate-400 mt-1">Années d'expertise</div>
+          </div>
+          <div class="rounded-2xl border border-white/10 bg-white/5 backdrop-blur px-5 py-6">
+            <div class="font-display text-3xl font-extrabold text-white">13+</div>
+            <div class="text-sm text-slate-400 mt-1">Projets livrés</div>
+          </div>
+          <div class="rounded-2xl border border-white/10 bg-white/5 backdrop-blur px-5 py-6">
+            <div class="font-display text-3xl font-extrabold text-white">34</div>
+            <div class="text-sm text-slate-400 mt-1">Modules sur Odoo Apps</div>
+          </div>
+          <div class="rounded-2xl border border-white/10 bg-white/5 backdrop-blur px-5 py-6">
+            <div class="font-display text-3xl font-extrabold text-white">v19</div>
+            <div class="text-sm text-slate-400 mt-1">Dernière version maîtrisée</div>
+          </div>
+        </div>
+      </div>
+
+      <a href="#about" class="absolute bottom-6 left-1/2 -translate-x-1/2 text-slate-400 hover:text-white transition animate-bounce" aria-label="Défiler vers le bas"><i class="fas fa-chevron-down"></i></a>
+    </section>
+
+    <!-- ============ À PROPOS ============ -->
+    <section id="about" class="py-24 bg-white">
+      <div class="container-x">
+        <div class="grid lg:grid-cols-2 gap-14 items-start">
+          <div class="fade-in">
+            <span class="section-eyebrow">À propos</span>
+            <h2 class="mt-3 font-display text-3xl font-bold text-slate-900">De la SNTF aux entreprises : un point de vue à la fois technique et managérial</h2>
+            <div class="mt-6 space-y-4 text-slate-600 leading-relaxed">
+              <p>Consultant et Développeur ERP Odoo avec plus de 10 ans d'expérience dans le développement, la gestion et l'optimisation de solutions ERP. Fort d'une expérience en tant que Chef de Département et Chef de Division à la SNTF, je combine expertise technique avec des compétences solides en gestion de projets et leadership.</p>
+              <p>Passionné par la transformation numérique, je crois que la technologie doit s'adapter à l'humain — pas l'inverse. Mon approche est toujours orientée résultat et utilisateur.</p>
+            </div>
+            <blockquote class="mt-8 border-l-4 border-primary pl-5 py-3 italic text-slate-700 bg-slate-50 rounded-r-xl">
+              "J'aide les entreprises à transformer leur organisation avec Odoo — sans friction, sans perte de temps."
+              <footer class="mt-2 not-italic font-semibold text-primary text-sm">— Farid Slimani</footer>
+            </blockquote>
+          </div>
+
+          <div class="fade-in delay-100 space-y-6">
+            <div class="grid grid-cols-2 gap-4">
+              <div class="card-hover card p-6 text-center">
+                <div class="font-display text-3xl font-bold text-primary">10+</div>
+                <div class="text-sm text-slate-600 mt-1">Années d'expertise</div>
+              </div>
+              <div class="card-hover card p-6 text-center">
+                <div class="font-display text-3xl font-bold text-primary">13+</div>
+                <div class="text-sm text-slate-600 mt-1">Projets livrés</div>
+              </div>
+              <div class="card-hover card p-6 text-center">
+                <div class="font-display text-3xl font-bold text-primary">34</div>
+                <div class="text-sm text-slate-600 mt-1">Modules Odoo Apps</div>
+              </div>
+              <div class="card-hover card p-6 text-center">
+                <div class="font-display text-3xl font-bold text-primary">v19</div>
+                <div class="text-sm text-slate-600 mt-1">Dernière version maîtrisée</div>
+              </div>
+            </div>
+
+            <div class="rounded-2xl border border-slate-200 bg-slate-50 p-7">
+              <h3 class="font-display font-semibold mb-4 text-slate-900">Modules Odoo maîtrisés</h3>
+              <div class="flex flex-wrap gap-2 mb-6">
+                <span class="magic-tag">CRM</span><span class="magic-tag">Ventes</span><span class="magic-tag">Achats</span>
+                <span class="magic-tag">Stock</span><span class="magic-tag">Comptabilité</span><span class="magic-tag">RH &amp; Paie</span>
+                <span class="magic-tag">Projet</span><span class="magic-tag">Maintenance</span><span class="magic-tag">Facturation</span>
+              </div>
+              <h3 class="font-display font-semibold mb-4 text-slate-900">Stack technique</h3>
+              <div class="flex flex-wrap gap-2">
+                <span class="magic-tag">Python</span><span class="magic-tag">PostgreSQL</span><span class="magic-tag">XML/QWeb</span>
+                <span class="magic-tag">JavaScript</span><span class="magic-tag">REST API</span><span class="magic-tag">Git</span>
+                <span class="magic-tag">Ubuntu/Debian</span><span class="magic-tag">Django</span><span class="magic-tag">Flutter</span><span class="magic-tag">Scrum</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ VISION ============ -->
+    <section id="mission" class="py-24 bg-dark text-white relative overflow-hidden">
+      <div class="absolute inset-0 grid-pattern opacity-60"></div>
+      <div class="blob w-96 h-96 bg-indigo-700/40 animate-blob" style="top:-10rem; right:-8rem;"></div>
+      <div class="container-x relative z-10 text-center max-w-4xl">
         <div class="fade-in">
-          <h2 class="text-3xl font-bold text-slate-900 mb-6">À propos de moi</h2>
-          <div class="space-y-4 text-slate-600 leading-relaxed">
-            <p>Consultant et Développeur ERP Odoo avec plus de 10 ans d'expérience dans le développement, la gestion et l'optimisation de solutions ERP. Fort d'une expérience en tant que Chef de Département et Chef de Division à la SNTF, je combine expertise technique avec des compétences solides en gestion de projets et leadership.</p>
-            <p>Passionné par la transformation numérique, je crois que la technologie doit s'adapter à l'humain — pas l'inverse. Mon approche est toujours orientée résultat et utilisateur.</p>
-            <blockquote class="border-l-4 border-primary pl-4 py-2 italic text-slate-700 bg-slate-50 rounded-r-lg mt-6">"J'aide les entreprises à transformer leur organisation avec Odoo — sans friction, sans perte de temps."<br><span class="not-italic font-semibold text-primary text-sm">— Farid Slimani</span></blockquote>
-          </div>
-        </div>
-        <div class="space-y-6 fade-in delay-100">
-          <div class="grid grid-cols-2 gap-4">
-            <div class="bg-indigo-50 p-5 rounded-xl text-center border border-indigo-100">
-              <div class="text-3xl font-bold text-primary">10+</div>
-              <div class="text-sm text-slate-600 mt-1">Années d'expertise</div>
-            </div>
-            <div class="bg-indigo-50 p-5 rounded-xl text-center border border-indigo-100">
-              <div class="text-3xl font-bold text-primary">13+</div>
-              <div class="text-sm text-slate-600 mt-1">Projets livrés</div>
-            </div>
-            <div class="bg-indigo-50 p-5 rounded-xl text-center border border-indigo-100">
-              <div class="text-3xl font-bold text-primary">20+</div>
-              <div class="text-sm text-slate-600 mt-1">Modules Odoo Apps</div>
-            </div>
-            <div class="bg-indigo-50 p-5 rounded-xl text-center border border-indigo-100">
-              <div class="text-3xl font-bold text-primary">V19</div>
-              <div class="text-sm text-slate-600 mt-1">Dernière version maîtrisée</div>
-            </div>
-          </div>
-          <div class="bg-slate-50 p-6 rounded-xl border border-slate-200">
-            <h3 class="font-semibold mb-3 text-slate-800">Modules Odoo maîtrisés</h3>
-            <div class="flex flex-wrap gap-2 mb-4">
-              <span class="px-2 py-1 bg-white border border-slate-200 rounded text-xs">CRM</span>
-              <span class="px-2 py-1 bg-white border border-slate-200 rounded text-xs">Ventes</span>
-              <span class="px-2 py-1 bg-white border border-slate-200 rounded text-xs">Achats</span>
-              <span class="px-2 py-1 bg-white border border-slate-200 rounded text-xs">Stock</span>
-              <span class="px-2 py-1 bg-white border border-slate-200 rounded text-xs">Comptabilité</span>
-              <span class="px-2 py-1 bg-white border border-slate-200 rounded text-xs">RH & Paie</span>
-              <span class="px-2 py-1 bg-white border border-slate-200 rounded text-xs">Projet</span>
-              <span class="px-2 py-1 bg-white border border-slate-200 rounded text-xs">Maintenance</span>
-              <span class="px-2 py-1 bg-white border border-slate-200 rounded text-xs">Facturation</span>
-            </div>
-            <h3 class="font-semibold mb-3 text-slate-800">Stack Technique</h3>
-            <div class="flex flex-wrap gap-2">
-              <span class="px-2 py-1 bg-slate-200 text-slate-700 rounded text-xs">Python</span>
-              <span class="px-2 py-1 bg-slate-200 text-slate-700 rounded text-xs">PostgreSQL</span>
-              <span class="px-2 py-1 bg-slate-200 text-slate-700 rounded text-xs">XML/QWeb</span>
-              <span class="px-2 py-1 bg-slate-200 text-slate-700 rounded text-xs">JavaScript</span>
-              <span class="px-2 py-1 bg-slate-200 text-slate-700 rounded text-xs">REST API</span>
-              <span class="px-2 py-1 bg-slate-200 text-slate-700 rounded text-xs">Git</span>
-              <span class="px-2 py-1 bg-slate-200 text-slate-700 rounded text-xs">Ubuntu/Debian</span>
-              <span class="px-2 py-1 bg-slate-200 text-slate-700 rounded text-xs">Django</span>
-              <span class="px-2 py-1 bg-slate-200 text-slate-700 rounded text-xs">Flutter</span>
-              <span class="px-2 py-1 bg-slate-200 text-slate-700 rounded text-xs">Scrum</span>
-            </div>
+          <span class="section-eyebrow text-indigo-400">Ma vision</span>
+          <h2 class="mt-3 font-display text-3xl md:text-4xl font-bold">Transformer les organisations avec Odoo, <span class="text-gradient">sans friction</span></h2>
+          <div class="mt-8 space-y-4 text-lg text-slate-300 leading-relaxed">
+            <p>Depuis plus de 10 ans, j'accompagne les entreprises dans leur transition numérique. Mon objectif n'est pas seulement de coder, mais de comprendre les vrais besoins métiers et d'y répondre avec des solutions simples, robustes et évolutives.</p>
+            <p>Que ce soit une PME, une entreprise publique ou une startup, la technologie doit s'adapter à l'humain. Chaque projet est une opportunité de créer de la valeur durable.</p>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="mission" class="py-20 bg-dark text-white">
-    <div class="max-w-4xl mx-auto px-4 text-center fade-in">
-      <h2 class="text-3xl md:text-4xl font-bold mb-4">"Ma vision</h2>
-      <p class="text-2xl text-indigo-400 mb-8">Transformer les organisations avec Odoo, sans friction</p>
-      <div class="space-y-4 text-slate-300 text-lg leading-relaxed">
-        <p>Depuis plus de 9 ans, j'accompagne les entreprises dans leur transition numérique. Mon objectif n'est pas seulement de coder, mais de comprendre les vrais besoins métiers et d'y répondre avec des solutions simples, robustes et évolutives.</p>
-        <p>Que ce soit une PME, une entreprise publique ou une startup, la technologie doit s'adapter à l'humain. Chaque projet est une opportunité de créer de la valeur durable.</p>
+    <!-- ============ SERVICES ============ -->
+    <section id="services" class="py-24 bg-slate-50">
+      <div class="container-x">
+        <div class="text-center mb-14 fade-in">
+          <span class="section-eyebrow">Services</span>
+          <h2 class="mt-3 font-display text-3xl font-bold text-slate-900">Ce que je vous apporte</h2>
+          <p class="text-slate-600 mt-3 max-w-2xl mx-auto">Accompagnement complet, de l'audit initial à la formation des équipes.</p>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="card card-hover p-7 fade-in">
+            <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-indigo-600 to-violet-600 text-white flex items-center justify-center mb-5 text-lg shadow-md shadow-indigo-600/25"><i class="fa-solid fa-code"></i></div>
+            <h3 class="font-display text-lg font-semibold mb-2 text-slate-900">Développement &amp; Personnalisation Odoo</h3>
+            <p class="text-sm text-slate-600 leading-relaxed">Mise en place et adaptation d'Odoo pour répondre précisément aux besoins de votre entreprise. De la configuration à l'intégration complète.</p>
+          </div>
+          <div class="card card-hover p-7 fade-in delay-100">
+            <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-indigo-600 to-violet-600 text-white flex items-center justify-center mb-5 text-lg shadow-md shadow-indigo-600/25"><i class="fa-solid fa-diagram-project"></i></div>
+            <h3 class="font-display text-lg font-semibold mb-2 text-slate-900">Gestion de Projets Odoo</h3>
+            <p class="text-sm text-slate-600 leading-relaxed">Gestion de bout en bout : planification, déploiement, accompagnement et formation. Méthodes agiles (Scrum).</p>
+          </div>
+          <div class="card card-hover p-7 fade-in delay-200">
+            <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-indigo-600 to-violet-600 text-white flex items-center justify-center mb-5 text-lg shadow-md shadow-indigo-600/25"><i class="fa-solid fa-lightbulb"></i></div>
+            <h3 class="font-display text-lg font-semibold mb-2 text-slate-900">Consultation Transformation Numérique</h3>
+            <p class="text-sm text-slate-600 leading-relaxed">Audit de vos processus et proposition de solutions numériques pour améliorer votre efficacité opérationnelle.</p>
+          </div>
+          <div class="card card-hover p-7 fade-in">
+            <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-indigo-600 to-violet-600 text-white flex items-center justify-center mb-5 text-lg shadow-md shadow-indigo-600/25"><i class="fa-solid fa-graduation-cap"></i></div>
+            <h3 class="font-display text-lg font-semibold mb-2 text-slate-900">Formation &amp; Support Utilisateur</h3>
+            <p class="text-sm text-slate-600 leading-relaxed">Formation personnalisée sur Odoo et assistance continue pour garantir l'autonomie de vos équipes.</p>
+          </div>
+          <div class="card card-hover p-7 fade-in delay-100">
+            <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-indigo-600 to-violet-600 text-white flex items-center justify-center mb-5 text-lg shadow-md shadow-indigo-600/25"><i class="fa-solid fa-plug-circle-bolt"></i></div>
+            <h3 class="font-display text-lg font-semibold mb-2 text-slate-900">Développement d'APIs</h3>
+            <p class="text-sm text-slate-600 leading-relaxed">Conception d'APIs sur mesure pour connecter Odoo à vos logiciels métiers et automatiser les échanges en temps réel.</p>
+          </div>
+          <div class="card card-hover p-7 fade-in delay-200">
+            <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-indigo-600 to-violet-600 text-white flex items-center justify-center mb-5 text-lg shadow-md shadow-indigo-600/25"><i class="fa-solid fa-gears"></i></div>
+            <h3 class="font-display text-lg font-semibold mb-2 text-slate-900">Solutions sur Mesure</h3>
+            <p class="text-sm text-slate-600 leading-relaxed">Développement d'applications adaptées aux besoins spécifiques de votre secteur d'activité, au-delà des modules standards.</p>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="services" class="py-20 bg-slate-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-12 fade-in">
-        <h2 class="text-3xl font-bold text-slate-900">Mes services</h2>
-        <p class="text-slate-600 mt-2">Je vous accompagne tout au long de votre projet, de l'audit initial à la formation des équipes.</p>
+    <!-- ============ PROJETS ============ -->
+    <section id="projects" class="py-24 bg-white">
+      <div class="container-x">
+        <div class="text-center mb-14 fade-in">
+          <span class="section-eyebrow">Réalisations</span>
+          <h2 class="mt-3 font-display text-3xl font-bold text-slate-900">Mes projets</h2>
+          <p class="text-slate-600 mt-3 max-w-2xl mx-auto">Survolez un projet pour découvrir les détails techniques et l'impact.</p>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="card card-hover overflow-hidden fade-in group">
+            <div class="p-7 cursor-pointer">
+              <h3 class="font-display text-lg font-bold text-slate-900 mb-3 group-hover:text-primary transition">Transport Marchandises</h3>
+              <div class="flex flex-wrap gap-2 mb-3"><span class="magic-tag">Odoo</span><span class="magic-tag">Transport</span><span class="magic-tag">PostgreSQL</span></div>
+              <p class="text-sm text-slate-500">Digitaliser le suivi des wagons, trajets et recettes gares à la SNTF.</p>
+            </div>
+            <div class="card-extra px-7 pb-7">
+              <p class="text-sm text-slate-600"><strong>Objectif :</strong> Meilleure traçabilité logistique, réduction des erreurs, automatisation facturation.</p>
+            </div>
+          </div>
+          <div class="card card-hover overflow-hidden fade-in delay-100 group">
+            <div class="p-7 cursor-pointer">
+              <h3 class="font-display text-lg font-bold text-slate-900 mb-3 group-hover:text-primary transition">Billetterie Voyageurs</h3>
+              <div class="flex flex-wrap gap-2 mb-3"><span class="magic-tag">Odoo</span><span class="magic-tag">Point de vente</span><span class="magic-tag">QWeb</span></div>
+              <p class="text-sm text-slate-500">Suivre les parcours, automatiser la tarification, centraliser les données de guichet.</p>
+            </div>
+            <div class="card-extra px-7 pb-7">
+              <p class="text-sm text-slate-600"><strong>Impact :</strong> Réduction des erreurs de caisse, meilleur contrôle des flux voyageurs.</p>
+            </div>
+          </div>
+          <div class="card card-hover overflow-hidden fade-in delay-200 group">
+            <div class="p-7 cursor-pointer">
+              <h3 class="font-display text-lg font-bold text-slate-900 mb-3 group-hover:text-primary transition">Gestion de Stock Multi-entreprises</h3>
+              <div class="flex flex-wrap gap-2 mb-3"><span class="magic-tag">Odoo</span><span class="magic-tag">Logistique</span><span class="magic-tag">Inventaire</span></div>
+              <p class="text-sm text-slate-500">Centraliser la gestion de plusieurs dépôts avec suivi rigoureux des mouvements.</p>
+            </div>
+            <div class="card-extra px-7 pb-7">
+              <p class="text-sm text-slate-600"><strong>Solution :</strong> Modules stock personnalisés, seuils d'alerte, inventaire automatique.</p>
+            </div>
+          </div>
+          <div class="card card-hover overflow-hidden fade-in group">
+            <div class="p-7 cursor-pointer">
+              <h3 class="font-display text-lg font-bold text-slate-900 mb-3 group-hover:text-primary transition">Archivage Documentaire</h3>
+              <div class="flex flex-wrap gap-2 mb-3"><span class="magic-tag">Odoo</span><span class="magic-tag">GED</span><span class="magic-tag">ACL</span></div>
+              <p class="text-sm text-slate-500">Digitaliser et structurer les documents internes (RH, contrats, demandes).</p>
+            </div>
+            <div class="card-extra px-7 pb-7">
+              <p class="text-sm text-slate-600"><strong>Impact :</strong> Gain de temps recherche documentaire, réduction usage papier.</p>
+            </div>
+          </div>
+          <div class="card card-hover overflow-hidden fade-in delay-100 group">
+            <div class="p-7 cursor-pointer">
+              <h3 class="font-display text-lg font-bold text-slate-900 mb-3 group-hover:text-primary transition">Incidents Ferroviaires</h3>
+              <div class="flex flex-wrap gap-2 mb-3"><span class="magic-tag">Odoo</span><span class="magic-tag">Reporting</span><span class="magic-tag">Python</span></div>
+              <p class="text-sm text-slate-500">Suivi quotidien des perturbations et incidents sur le réseau ferroviaire national.</p>
+            </div>
+            <div class="card-extra px-7 pb-7">
+              <p class="text-sm text-slate-600"><strong>Impact :</strong> Meilleure réactivité opérationnelle, statistiques précises pour la direction.</p>
+            </div>
+          </div>
+          <div class="card card-hover overflow-hidden fade-in delay-200 group">
+            <div class="p-7 cursor-pointer">
+              <h3 class="font-display text-lg font-bold text-slate-900 mb-3 group-hover:text-primary transition">Développement d'APIs REST</h3>
+              <div class="flex flex-wrap gap-2 mb-3"><span class="magic-tag">Python</span><span class="magic-tag">JWT</span><span class="magic-tag">REST</span></div>
+              <p class="text-sm text-slate-500">Interconnexion d'Odoo avec des applications mobiles ou systèmes externes.</p>
+            </div>
+            <div class="card-extra px-7 pb-7">
+              <p class="text-sm text-slate-600"><strong>Impact :</strong> Synchronisation fiable, apps mobiles connectées, automatisation des flux.</p>
+            </div>
+          </div>
+          <div class="card card-hover overflow-hidden fade-in group">
+            <div class="p-7 cursor-pointer">
+              <h3 class="font-display text-lg font-bold text-slate-900 mb-3 group-hover:text-primary transition">Intégration Odoo → Open-Prod</h3>
+              <div class="flex flex-wrap gap-2 mb-3"><span class="magic-tag">Odoo</span><span class="magic-tag">Open-Prod</span><span class="magic-tag">RH</span></div>
+              <p class="text-sm text-slate-500">Adaptation du module paie et migration des données RH entre deux ERP.</p>
+            </div>
+            <div class="card-extra px-7 pb-7">
+              <p class="text-sm text-slate-600"><strong>Impact :</strong> Cohérence entre ERP, transfert réussi sans perte de fonctionnalités.</p>
+            </div>
+          </div>
+          <div class="card card-hover overflow-hidden fade-in delay-100 group">
+            <div class="p-7 cursor-pointer">
+              <h3 class="font-display text-lg font-bold text-slate-900 mb-3 group-hover:text-primary transition">Conversion PDF → Excel</h3>
+              <div class="flex flex-wrap gap-2 mb-3"><span class="magic-tag">Python</span><span class="magic-tag">Pandas</span><span class="magic-tag">Automatisation</span></div>
+              <p class="text-sm text-slate-500">Retraiter rapidement les factures fournisseurs en tableur formaté.</p>
+            </div>
+            <div class="card-extra px-7 pb-7">
+              <p class="text-sm text-slate-600"><strong>Impact :</strong> Réduction temps traitement, fiabilité données extraites.</p>
+            </div>
+          </div>
+          <div class="card card-hover overflow-hidden fade-in delay-200 group">
+            <div class="p-7 cursor-pointer">
+              <h3 class="font-display text-lg font-bold text-slate-900 mb-3 group-hover:text-primary transition">ERP Médical Personnalisé</h3>
+              <div class="flex flex-wrap gap-2 mb-3"><span class="magic-tag">Odoo</span><span class="magic-tag">Santé</span><span class="magic-tag">Multi-modules</span></div>
+              <p class="text-sm text-slate-500">ERP complet pour une entreprise biomédicale nationale.</p>
+            </div>
+            <div class="card-extra px-7 pb-7">
+              <p class="text-sm text-slate-600"><strong>Impact :</strong> Amélioration des flux internes, gain de productivité et traçabilité.</p>
+            </div>
+          </div>
+          <div class="card card-hover overflow-hidden fade-in group">
+            <div class="p-7 cursor-pointer">
+              <h3 class="font-display text-lg font-bold text-slate-900 mb-3 group-hover:text-primary transition">ERP Agence de Voyage</h3>
+              <div class="flex flex-wrap gap-2 mb-3"><span class="magic-tag">Odoo</span><span class="magic-tag">XML</span><span class="magic-tag">IMAP</span></div>
+              <p class="text-sm text-slate-500">Automatiser la lecture des mails de réservation et la gestion des offres.</p>
+            </div>
+            <div class="card-extra px-7 pb-7">
+              <p class="text-sm text-slate-600"><strong>Impact :</strong> Réduction de 80% tâches manuelles, centralisation données.</p>
+            </div>
+          </div>
+          <div class="card card-hover overflow-hidden fade-in delay-100 group">
+            <div class="p-7 cursor-pointer">
+              <h3 class="font-display text-lg font-bold text-slate-900 mb-3 group-hover:text-primary transition">ERP Location Véhicules</h3>
+              <div class="flex flex-wrap gap-2 mb-3"><span class="magic-tag">Odoo</span><span class="magic-tag">Location</span><span class="magic-tag">Planification</span></div>
+              <p class="text-sm text-slate-500">Système complet de gestion pour une société de location automobile.</p>
+            </div>
+            <div class="card-extra px-7 pb-7">
+              <p class="text-sm text-slate-600"><strong>Impact :</strong> Meilleure visibilité du parc et gains sur la facturation.</p>
+            </div>
+          </div>
+          <div class="card card-hover overflow-hidden fade-in delay-200 group">
+            <div class="p-7 cursor-pointer">
+              <h3 class="font-display text-lg font-bold text-slate-900 mb-3 group-hover:text-primary transition">ERP Import / Export</h3>
+              <div class="flex flex-wrap gap-2 mb-3"><span class="magic-tag">Odoo</span><span class="magic-tag">Commerce international</span><span class="magic-tag">Multi-devises</span></div>
+              <p class="text-sm text-slate-500">Digitaliser la gestion douanière pour une société internationale.</p>
+            </div>
+            <div class="card-extra px-7 pb-7">
+              <p class="text-sm text-slate-600"><strong>Impact :</strong> Réduction des erreurs comptables, visibilité sur les marges.</p>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition border border-slate-200 fade-in">
-          <div class="text-4xl font-bold text-indigo-200 mb-4">01</div>
-          <h3 class="text-xl font-semibold mb-3 text-slate-800">Développement & Personnalisation Odoo</h3>
-          <p class="text-slate-600 text-sm">Mise en place et adaptation d'Odoo pour répondre précisément aux besoins de votre entreprise. De la configuration à l'intégration complète.</p>
-        </div>
-        <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition border border-slate-200 fade-in delay-100">
-          <div class="text-4xl font-bold text-indigo-200 mb-4">02</div>
-          <h3 class="text-xl font-semibold mb-3 text-slate-800">Gestion de Projets Odoo</h3>
-          <p class="text-slate-600 text-sm">Gestion de bout en bout : planification, déploiement, accompagnement et formation. Méthodes agiles (Scrum).</p>
-        </div>
-        <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition border border-slate-200 fade-in delay-200">
-          <div class="text-4xl font-bold text-indigo-200 mb-4">03</div>
-          <h3 class="text-xl font-semibold mb-3 text-slate-800">Consultation Transformation Numérique</h3>
-          <p class="text-slate-600 text-sm">Audit de vos processus et proposition de solutions numériques pour améliorer votre efficacité opérationnelle.</p>
-        </div>
-        <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition border border-slate-200 fade-in">
-          <div class="text-4xl font-bold text-indigo-200 mb-4">04</div>
-          <h3 class="text-xl font-semibold mb-3 text-slate-800">Formation & Support Utilisateur</h3>
-          <p class="text-slate-600 text-sm">Formation personnalisée sur Odoo et assistance continue pour garantir l'autonomie de vos équipes.</p>
-        </div>
-        <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition border border-slate-200 fade-in delay-100">
-          <div class="text-4xl font-bold text-indigo-200 mb-4">05</div>
-          <h3 class="text-xl font-semibold mb-3 text-slate-800">Développement d'APIs</h3>
-          <p class="text-slate-600 text-sm">Conception d'APIs sur mesure pour connecter Odoo à vos logiciels métiers et automatiser les échanges en temps réel.</p>
-        </div>
-        <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition border border-slate-200 fade-in delay-200">
-          <div class="text-4xl font-bold text-indigo-200 mb-4">06</div>
-          <h3 class="text-xl font-semibold mb-3 text-slate-800">Solutions sur Mesure</h3>
-          <p class="text-slate-600 text-sm">Développement d'applications adaptées aux besoins spécifiques de votre secteur d'activité, au-delà des modules standards.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="projects" class="py-20 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-12 fade-in">
-        <h2 class="text-3xl font-bold text-slate-900">Mes projets</h2>
-        <p class="text-slate-600 mt-2">Survolez un projet pour découvrir les détails techniques et l'impact.</p>
-      </div>
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="bg-slate-50 rounded-xl overflow-hidden border border-slate-200 hover:border-primary transition card-hover fade-in">
-          <div class="p-6 cursor-pointer">
-            <h3 class="text-xl font-bold text-slate-900 mb-2">Transport Marchandises</h3>
-            <div class="flex flex-wrap gap-2 mb-3">
-              <span class="px-2 py-0.5 bg-indigo-100 text-indigo-700 text-xs rounded">Odoo</span>
-              <span class="px-2 py-0.5 bg-indigo-100 text-indigo-700 text-xs rounded">Transport</span>
-              <span class="px-2 py-0.5 bg-indigo-100 text-indigo-700 text-xs rounded">PostgreSQL</span>
-            </div>
-            <p class="text-sm text-slate-500">Digitaliser le suivi des wagons, trajets et recettes gares à la SNTF.</p>
-          </div>
-          <div class="card-extra px-6 pb-6">
-            <p class="text-sm text-slate-600"><strong>Objectif :</strong> Meilleure traçabilité logistique, réduction des erreurs, automatisation facturation.</p>
-          </div>
+    <!-- ============ ODOO APPS ============ -->
+    <section id="odoo-apps" class="py-24 bg-slate-50 relative overflow-hidden">
+      <div class="absolute inset-0 grid-pattern opacity-50"></div>
+      <div class="container-x relative z-10">
+        <div class="text-center mb-14 fade-in">
+          <span class="section-eyebrow">Odoo Apps</span>
+          <h2 class="mt-3 font-display text-3xl font-bold text-slate-900">Modules publiés sur la plateforme officielle</h2>
+          <p class="text-slate-600 mt-3 max-w-2xl mx-auto">34 modules développés, documentés et publiés sur Odoo Apps — de l'IA à la conformité ESG, de la construction à la finance. Cliquez sur un module pour le découvrir.</p>
         </div>
-        <div class="bg-slate-50 rounded-xl overflow-hidden border border-slate-200 hover:border-primary transition card-hover fade-in delay-100">
-          <div class="p-6 cursor-pointer">
-            <h3 class="text-xl font-bold text-slate-900 mb-2">Billetterie Voyageurs</h3>
-            <div class="flex flex-wrap gap-2 mb-3">
-              <span class="px-2 py-0.5 bg-indigo-100 text-indigo-700 text-xs rounded">Odoo</span>
-              <span class="px-2 py-0.5 bg-indigo-100 text-indigo-700 text-xs rounded">Point de vente</span>
-              <span class="px-2 py-0.5 bg-indigo-100 text-indigo-700 text-xs rounded">QWeb</span>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 fade-in">
+          <a href="https://apps.odoo.com/apps/modules/19.0/im_odoo_ai_agent" target="_blank" rel="noopener" class="card card-hover p-6 block group">
+            <div class="flex items-start justify-between mb-3">
+              <h3 class="font-display text-base font-semibold text-slate-900 md:pr-4 group-hover:text-primary transition">AI Agent Assistant</h3>
+              <i class="fas fa-arrow-up-right-from-square text-slate-300 group-hover:text-primary transition mt-1 shrink-0"></i>
             </div>
-            <p class="text-sm text-slate-500">Suivre les parcours, automatiser la tarification, centraliser les données de guichet.</p>
-          </div>
-          <div class="card-extra px-6 pb-6">
-            <p class="text-sm text-slate-600"><strong>Impact :</strong> Réduction des erreurs de caisse, meilleur contrôle des flux voyageurs.</p>
-          </div>
+            <p class="text-sm text-slate-600 mb-4">Assistant IA local pour managers et employés (GPT4All, Ollama, OpenAI, Claude, Gemini).</p>
+            <div class="flex gap-2">
+              <span class="magic-tag">v19</span>
+              <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 ring-1 ring-inset ring-emerald-200">$40.43</span>
+            </div>
+          </a>
+          <a href="https://apps.odoo.com/apps/modules/19.0/cfo_dashboard_pro" target="_blank" rel="noopener" class="card card-hover p-6 block group">
+            <div class="flex items-start justify-between mb-3">
+              <h3 class="font-display text-base font-semibold text-slate-900 md:pr-4 group-hover:text-primary transition">Smart Financial Dashboard — CFO Pack Pro</h3>
+              <i class="fas fa-arrow-up-right-from-square text-slate-300 group-hover:text-primary transition mt-1 shrink-0"></i>
+            </div>
+            <p class="text-sm text-slate-600 mb-4">Dashboard financier exécutif : flux de trésorerie, analyse de rentabilité, consolidation multi-sociétés.</p>
+            <div class="flex gap-2">
+              <span class="magic-tag">v19</span>
+              <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 ring-1 ring-inset ring-emerald-200">$229.94</span>
+            </div>
+          </a>
+          <a href="https://apps.odoo.com/apps/modules/19.0/im_ai_inventory_forecast" target="_blank" rel="noopener" class="card card-hover p-6 block group">
+            <div class="flex items-start justify-between mb-3">
+              <h3 class="font-display text-base font-semibold text-slate-900 md:pr-4 group-hover:text-primary transition">AI-Powered Inventory Forecasting</h3>
+              <i class="fas fa-arrow-up-right-from-square text-slate-300 group-hover:text-primary transition mt-1 shrink-0"></i>
+            </div>
+            <p class="text-sm text-slate-600 mb-4">Prévision intelligente des stocks grâce à des algorithmes de machine learning.</p>
+            <div class="flex gap-2">
+              <span class="magic-tag">v19</span>
+              <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 ring-1 ring-inset ring-emerald-200">$56.62</span>
+            </div>
+          </a>
+          <a href="https://apps.odoo.com/apps/modules/19.0/vdm_esg_carbon_tracker" target="_blank" rel="noopener" class="card card-hover p-6 block group">
+            <div class="flex items-start justify-between mb-3">
+              <h3 class="font-display text-base font-semibold text-slate-900 md:pr-4 group-hover:text-primary transition">ESG Carbon Tracker</h3>
+              <i class="fas fa-arrow-up-right-from-square text-slate-300 group-hover:text-primary transition mt-1 shrink-0"></i>
+            </div>
+            <p class="text-sm text-slate-600 mb-4">Comptabilité carbone avancée GHG Protocol Scope 1-3, conformité CSRD/ESRS E1 et cibles de réduction.</p>
+            <div class="flex gap-2">
+              <span class="magic-tag">v19</span>
+              <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 ring-1 ring-inset ring-emerald-200">$91.28</span>
+            </div>
+          </a>
+          <a href="https://apps.odoo.com/apps/modules/19.0/sentinelle_health_monitor" target="_blank" rel="noopener" class="card card-hover p-6 block group">
+            <div class="flex items-start justify-between mb-3">
+              <h3 class="font-display text-base font-semibold text-slate-900 md:pr-4 group-hover:text-primary transition">Sentinelle Health Monitor</h3>
+              <i class="fas fa-arrow-up-right-from-square text-slate-300 group-hover:text-primary transition mt-1 shrink-0"></i>
+            </div>
+            <p class="text-sm text-slate-600 mb-4">Monitoring de santé en temps réel de votre instance : alertes et dashboard de performance.</p>
+            <div class="flex gap-2">
+              <span class="magic-tag">v19</span>
+              <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 ring-1 ring-inset ring-emerald-200">$114.39</span>
+            </div>
+          </a>
+          <a href="https://apps.odoo.com/apps/modules/19.0/audit_trail_pro" target="_blank" rel="noopener" class="card card-hover p-6 block group">
+            <div class="flex items-start justify-between mb-3">
+              <h3 class="font-display text-base font-semibold text-slate-900 md:pr-4 group-hover:text-primary transition">Audit Trail Pro</h3>
+              <i class="fas fa-arrow-up-right-from-square text-slate-300 group-hover:text-primary transition mt-1 shrink-0"></i>
+            </div>
+            <p class="text-sm text-slate-600 mb-4">Audit trail professionnel pour la sécurité, la conformité et la traçabilité dans Odoo 19.</p>
+            <div class="flex gap-2">
+              <span class="magic-tag">v19</span>
+              <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 ring-1 ring-inset ring-emerald-200">$56.62</span>
+            </div>
+          </a>
+          <a href="https://apps.odoo.com/apps/modules/19.0/vdm_fleet_management_plus" target="_blank" rel="noopener" class="card card-hover p-6 block group">
+            <div class="flex items-start justify-between mb-3">
+              <h3 class="font-display text-base font-semibold text-slate-900 md:pr-4 group-hover:text-primary transition">Fleet Management Plus</h3>
+              <i class="fas fa-arrow-up-right-from-square text-slate-300 group-hover:text-primary transition mt-1 shrink-0"></i>
+            </div>
+            <p class="text-sm text-slate-600 mb-4">Gestion complète de parc véhicules : suivi, maintenance, carburant et analyse des coûts.</p>
+            <div class="flex gap-2">
+              <span class="magic-tag">v19</span>
+              <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 ring-1 ring-inset ring-emerald-200">$91.28</span>
+            </div>
+          </a>
+          <a href="https://apps.odoo.com/apps/modules/19.0/smart_waiting_room" target="_blank" rel="noopener" class="card card-hover p-6 block group">
+            <div class="flex items-start justify-between mb-3">
+              <h3 class="font-display text-base font-semibold text-slate-900 md:pr-4 group-hover:text-primary transition">Smart Waiting Room</h3>
+              <i class="fas fa-arrow-up-right-from-square text-slate-300 group-hover:text-primary transition mt-1 shrink-0"></i>
+            </div>
+            <p class="text-sm text-slate-600 mb-4">Gestion intelligente des files d'attente pour cliniques, cabinets et centres de services.</p>
+            <div class="flex gap-2">
+              <span class="magic-tag">v19</span>
+              <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 ring-1 ring-inset ring-emerald-200">$114.39</span>
+            </div>
+          </a>
+          <a href="https://apps.odoo.com/apps/modules/19.0/vdm_ai_invoice_ocr" target="_blank" rel="noopener" class="card card-hover p-6 block group">
+            <div class="flex items-start justify-between mb-3">
+              <h3 class="font-display text-base font-semibold text-slate-900 md:pr-4 group-hover:text-primary transition">AI Invoice Digitization Pro</h3>
+              <i class="fas fa-arrow-up-right-from-square text-slate-300 group-hover:text-primary transition mt-1 shrink-0"></i>
+            </div>
+            <p class="text-sm text-slate-600 mb-4">Extraction IA de factures : 5 fournisseurs, auto-apprentissage et validation croisée.</p>
+            <div class="flex gap-2">
+              <span class="magic-tag">v19</span>
+              <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 ring-1 ring-inset ring-emerald-200">$45.06</span>
+            </div>
+          </a>
         </div>
-        <div class="bg-slate-50 rounded-xl overflow-hidden border border-slate-200 hover:border-primary transition card-hover fade-in delay-200">
-          <div class="p-6 cursor-pointer">
-            <h3 class="text-xl font-bold text-slate-900 mb-2">Gestion de Stock Multi-entreprises</h3>
-            <div class="flex flex-wrap gap-2 mb-3">
-              <span class="px-2 py-0.5 bg-indigo-100 text-indigo-700 text-xs rounded">Odoo</span>
-              <span class="px-2 py-0.5 bg-indigo-100 text-indigo-700 text-xs rounded">Logistique</span>
-              <span class="px-2 py-0.5 bg-indigo-100 text-indigo-700 text-xs rounded">Inventaire</span>
-            </div>
-            <p class="text-sm text-slate-500">Centraliser la gestion de plusieurs dépôts avec suivi rigoureux des mouvements.</p>
-          </div>
-          <div class="card-extra px-6 pb-6">
-            <p class="text-sm text-slate-600"><strong>Solution :</strong> Modules stock personnalisés, seuils d'alerte, inventaire automatique.</p>
-          </div>
-        </div>
-        <div class="bg-slate-50 rounded-xl overflow-hidden border border-slate-200 hover:border-primary transition card-hover fade-in">
-          <div class="p-6 cursor-pointer">
-            <h3 class="text-xl font-bold text-slate-900 mb-2">Archivage Documentaire</h3>
-            <div class="flex flex-wrap gap-2 mb-3">
-              <span class="px-2 py-0.5 bg-indigo-100 text-indigo-700 text-xs rounded">Odoo</span>
-              <span class="px-2 py-0.5 bg-indigo-100 text-indigo-700 text-xs rounded">GED</span>
-              <span class="px-2 py-0.5 bg-indigo-100 text-indigo-700 text-xs rounded">ACL</span>
-            </div>
-            <p class="text-sm text-slate-500">Digitaliser et structurer les documents internes (RH, contrats, demandes).</p>
-          </div>
-          <div class="card-extra px-6 pb-6">
-            <p class="text-sm text-slate-600"><strong>Impact :</strong> Gain de temps recherche documentaire, réduction usage papier.</p>
-          </div>
-        </div>
-        <div class="bg-slate-50 rounded-xl overflow-hidden border border-slate-200 hover:border-primary transition card-hover fade-in delay-100">
-          <div class="p-6 cursor-pointer">
-            <h3 class="text-xl font-bold text-slate-900 mb-2">Incidents Ferroviaires</h3>
-            <div class="flex flex-wrap gap-2 mb-3">
-              <span class="px-2 py-0.5 bg-indigo-100 text-indigo-700 text-xs rounded">Odoo</span>
-              <span class="px-2 py-0.5 bg-indigo-100 text-indigo-700 text-xs rounded">Reporting</span>
-              <span class="px-2 py-0.5 bg-indigo-100 text-indigo-700 text-xs rounded">Python</span>
-            </div>
-            <p class="text-sm text-slate-500">Suivi quotidien des perturbations et incidents sur le réseau ferroviaire national.</p>
-          </div>
-          <div class="card-extra px-6 pb-6">
-            <p class="text-sm text-slate-600"><strong>Impact :</strong> Meilleure réactivité opérationnelle, statistiques précises pour la direction.</p>
-          </div>
-        </div>
-        <div class="bg-slate-50 rounded-xl overflow-hidden border border-slate-200 hover:border-primary transition card-hover fade-in delay-200">
-          <div class="p-6 cursor-pointer">
-            <h3 class="text-xl font-bold text-slate-900 mb-2">Développement d'APIs REST</h3>
-            <div class="flex flex-wrap gap-2 mb-3">
-              <span class="px-2 py-0.5 bg-indigo-100 text-indigo-700 text-xs rounded">Python</span>
-              <span class="px-2 py-0.5 bg-indigo-100 text-indigo-700 text-xs rounded">JWT</span>
-              <span class="px-2 py-0.5 bg-indigo-100 text-indigo-700 text-xs rounded">REST</span>
-            </div>
-            <p class="text-sm text-slate-500">Interconnexion d'Odoo avec des applications mobiles ou systèmes externes.</p>
-          </div>
-          <div class="card-extra px-6 pb-6">
-            <p class="text-sm text-slate-600"><strong>Impact :</strong> Synchronisation fiable, apps mobiles connectées, automatisation des flux.</p>
-          </div>
-        </div>
-        <div class="bg-slate-50 rounded-xl overflow-hidden border border-slate-200 hover:border-primary transition card-hover fade-in">
-          <div class="p-6 cursor-pointer">
-            <h3 class="text-xl font-bold text-slate-900 mb-2">Intégration Odoo → Open-Prod</h3>
-            <div class="flex flex-wrap gap-2 mb-3">
-              <span class="px-2 py-0.5 bg-indigo-100 text-indigo-700 text-xs rounded">Odoo</span>
-              <span class="px-2 py-0.5 bg-indigo-100 text-indigo-700 text-xs rounded">Open-Prod</span>
-              <span class="px-2 py-0.5 bg-indigo-100 text-indigo-700 text-xs rounded">RH</span>
-            </div>
-            <p class="text-sm text-slate-500">Adaptation du module paie et migration des données RH entre deux ERP.</p>
-          </div>
-          <div class="card-extra px-6 pb-6">
-            <p class="text-sm text-slate-600"><strong>Impact :</strong> Cohérence entre ERP, transfert réussi sans perte de fonctionnalités.</p>
-          </div>
-        </div>
-        <div class="bg-slate-50 rounded-xl overflow-hidden border border-slate-200 hover:border-primary transition card-hover fade-in delay-100">
-          <div class="p-6 cursor-pointer">
-            <h3 class="text-xl font-bold text-slate-900 mb-2">Conversion PDF → Excel</h3>
-            <div class="flex flex-wrap gap-2 mb-3">
-              <span class="px-2 py-0.5 bg-indigo-100 text-indigo-700 text-xs rounded">Python</span>
-              <span class="px-2 py-0.5 bg-indigo-100 text-indigo-700 text-xs rounded">Pandas</span>
-              <span class="px-2 py-0.5 bg-indigo-100 text-indigo-700 text-xs rounded">Automatisation</span>
-            </div>
-            <p class="text-sm text-slate-500">Retraiter rapidement les factures fournisseurs en tableur formaté.</p>
-          </div>
-          <div class="card-extra px-6 pb-6">
-            <p class="text-sm text-slate-600"><strong>Impact :</strong> Réduction temps traitement, fiabilité données extraites.</p>
-          </div>
-        </div>
-        <div class="bg-slate-50 rounded-xl overflow-hidden border border-slate-200 hover:border-primary transition card-hover fade-in delay-200">
-          <div class="p-6 cursor-pointer">
-            <h3 class="text-xl font-bold text-slate-900 mb-2">ERP Médical Personnalisé</h3>
-            <div class="flex flex-wrap gap-2 mb-3">
-              <span class="px-2 py-0.5 bg-indigo-100 text-indigo-700 text-xs rounded">Odoo</span>
-              <span class="px-2 py-0.5 bg-indigo-100 text-indigo-700 text-xs rounded">Santé</span>
-              <span class="px-2 py-0.5 bg-indigo-100 text-indigo-700 text-xs rounded">Multi-modules</span>
-            </div>
-            <p class="text-sm text-slate-500">ERP complet pour une entreprise biomédicale nationale.</p>
-          </div>
-          <div class="card-extra px-6 pb-6">
-            <p class="text-sm text-slate-600"><strong>Impact :</strong> Amélioration des flux internes, gain de productivité et traçabilité.</p>
-          </div>
-        </div>
-        <div class="bg-slate-50 rounded-xl overflow-hidden border border-slate-200 hover:border-primary transition card-hover fade-in">
-          <div class="p-6 cursor-pointer">
-            <h3 class="text-xl font-bold text-slate-900 mb-2">ERP Agence de Voyage</h3>
-            <div class="flex flex-wrap gap-2 mb-3">
-              <span class="px-2 py-0.5 bg-indigo-100 text-indigo-700 text-xs rounded">Odoo</span>
-              <span class="px-2 py-0.5 bg-indigo-100 text-indigo-700 text-xs rounded">XML</span>
-              <span class="px-2 py-0.5 bg-indigo-100 text-indigo-700 text-xs rounded">IMAP</span>
-            </div>
-            <p class="text-sm text-slate-500">Automatiser la lecture des mails de réservation et la gestion des offres.</p>
-          </div>
-          <div class="card-extra px-6 pb-6">
-            <p class="text-sm text-slate-600"><strong>Impact :</strong> Réduction de 80% tâches manuelles, centralisation données.</p>
-          </div>
-        </div>
-        <div class="bg-slate-50 rounded-xl overflow-hidden border border-slate-200 hover:border-primary transition card-hover fade-in delay-100">
-          <div class="p-6 cursor-pointer">
-            <h3 class="text-xl font-bold text-slate-900 mb-2">ERP Location Véhicules</h3>
-            <div class="flex flex-wrap gap-2 mb-3">
-              <span class="px-2 py-0.5 bg-indigo-100 text-indigo-700 text-xs rounded">Odoo</span>
-              <span class="px-2 py-0.5 bg-indigo-100 text-indigo-700 text-xs rounded">Location</span>
-              <span class="px-2 py-0.5 bg-indigo-100 text-indigo-700 text-xs rounded">Planification</span>
-            </div>
-            <p class="text-sm text-slate-500">Système complet de gestion pour une société de location automobile.</p>
-          </div>
-          <div class="card-extra px-6 pb-6">
-            <p class="text-sm text-slate-600"><strong>Impact :</strong> Meilleure visibilité du parc et gains sur la facturation.</p>
-          </div>
-        </div>
-        <div class="bg-slate-50 rounded-xl overflow-hidden border border-slate-200 hover:border-primary transition card-hover fade-in delay-200">
-          <div class="p-6 cursor-pointer">
-            <h3 class="text-xl font-bold text-slate-900 mb-2">ERP Import / Export</h3>
-            <div class="flex flex-wrap gap-2 mb-3">
-              <span class="px-2 py-0.5 bg-indigo-100 text-indigo-700 text-xs rounded">Odoo</span>
-              <span class="px-2 py-0.5 bg-indigo-100 text-indigo-700 text-xs rounded">Commerce international</span>
-              <span class="px-2 py-0.5 bg-indigo-100 text-indigo-700 text-xs rounded">Multi-devises</span>
-            </div>
-            <p class="text-sm text-slate-500">Digitaliser la gestion douanière pour une société internationale.</p>
-          </div>
-          <div class="card-extra px-6 pb-6">
-            <p class="text-sm text-slate-600"><strong>Impact :</strong> Réduction des erreurs comptables, visibilité sur les marges.</p>
-          </div>
+        <div class="text-center mt-12 fade-in">
+          <a href="https://apps.odoo.com/apps/modules/browse?search=slimani" target="_blank" rel="noopener" class="btn-outline-primary">Voir les 34 modules sur Odoo Apps <i class="fa-solid fa-arrow-right ml-1"></i></a>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="odoo-apps" class="py-20 bg-slate-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="text-3xl font-bold text-slate-900 mb-4 fade-in">Modules publiés sur Odoo Apps</h2>
-      <p class="text-slate-600 mb-10 fade-in">Modules développés, documentés et publiés sur la plateforme officielle Odoo.</p>
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 fade-in">
-        <div class="bg-white p-5 rounded-lg shadow-sm border border-slate-200 hover:border-primary transition">
-          <h3 class="font-semibold text-lg mb-2 text-slate-800">Employee Documents Request</h3>
-          <div class="flex gap-1 justify-center flex-wrap">
-            <span class="px-2 py-0.5 bg-indigo-100 text-indigo-700 text-xs rounded">v13</span>
-            <span class="px-2 py-0.5 bg-indigo-100 text-indigo-700 text-xs rounded">v14</span>
-            <span class="px-2 py-0.5 bg-indigo-100 text-indigo-700 text-xs rounded">v15</span>
-            <span class="px-2 py-0.5 bg-indigo-100 text-indigo-700 text-xs rounded">v16</span>
-            <span class="px-2 py-0.5 bg-indigo-100 text-indigo-700 text-xs rounded">v17</span>
-          </div>
+    <!-- ============ PARCOURS ============ -->
+    <section id="experience" class="py-24 bg-white">
+      <div class="container-x max-w-4xl">
+        <div class="text-center mb-14 fade-in">
+          <span class="section-eyebrow">Parcours</span>
+          <h2 class="mt-3 font-display text-3xl font-bold text-slate-900">Expérience professionnelle</h2>
         </div>
-        <div class="bg-white p-5 rounded-lg shadow-sm border border-slate-200 hover:border-primary transition">
-          <h3 class="font-semibold text-lg mb-2 text-slate-800">Dynamic Dashboards</h3>
-          <div class="flex gap-1 justify-center">
-            <span class="px-2 py-0.5 bg-indigo-100 text-indigo-700 text-xs rounded">v16</span>
-            <span class="px-2 py-0.5 bg-indigo-100 text-indigo-700 text-xs rounded">v17</span>
+        <div class="relative timeline-line space-y-12">
+          <div class="relative md:flex md:justify-between md:items-center fade-in">
+            <div class="hidden md:block w-5/12 text-right pr-10">
+              <span class="inline-block rounded-full bg-indigo-50 text-primary text-sm font-semibold px-3 py-1 ring-1 ring-inset ring-indigo-200">Fév. 2023 — Aujourd'hui</span>
+            </div>
+            <div class="absolute left-4 md:left-1/2 w-4 h-4 bg-primary rounded-full border-4 border-white z-10 mt-2 shadow shadow-indigo-500/40 -translate-x-1/2 md:translate-x-0 md:left-1/2"></div>
+            <div class="md:w-5/12 pl-12 md:pl-10">
+              <span class="md:hidden inline-block rounded-full bg-indigo-50 text-primary text-sm font-semibold px-3 py-1 ring-1 ring-inset ring-indigo-200">Fév. 2023 — Aujourd'hui</span>
+              <h3 class="font-display text-xl font-bold text-slate-900 mt-2">Chef de Département — Développement des Systèmes</h3>
+              <p class="text-sm text-slate-500 mb-3">SNTF · Alger</p>
+              <ul class="list-disc list-inside text-sm text-slate-600 space-y-1">
+                <li>Optimisation ERP Odoo &amp; nouvelles fonctionnalités</li>
+                <li>Intégration comptabilité (rapports algériens, multi-modules)</li>
+                <li>Gestion RH complète (Paie, congés, grades)</li>
+              </ul>
+            </div>
           </div>
-        </div>
-        <div class="bg-white p-5 rounded-lg shadow-sm border border-slate-200 hover:border-primary transition">
-          <h3 class="font-semibold text-lg mb-2 text-slate-800">Server Management Info</h3>
-          <div class="flex gap-1 justify-center flex-wrap">
-            <span class="px-2 py-0.5 bg-indigo-100 text-indigo-700 text-xs rounded">v12</span>
-            <span class="px-2 py-0.5 bg-indigo-100 text-indigo-700 text-xs rounded">v13</span>
-            <span class="px-2 py-0.5 bg-indigo-100 text-indigo-700 text-xs rounded">v14</span>
-            <span class="px-2 py-0.5 bg-indigo-100 text-indigo-700 text-xs rounded">v15</span>
-            <span class="px-2 py-0.5 bg-indigo-100 text-indigo-700 text-xs rounded">v16</span>
-            <span class="px-2 py-0.5 bg-indigo-100 text-indigo-700 text-xs rounded">v17</span>
+          <div class="relative md:flex md:justify-between md:items-center fade-in">
+            <div class="md:w-5/12 pl-12 md:pl-0 md:pr-10 text-left md:text-right">
+              <span class="md:hidden inline-block rounded-full bg-indigo-50 text-primary text-sm font-semibold px-3 py-1 ring-1 ring-inset ring-indigo-200">Déc. 2019 — Fév. 2023</span>
+              <h3 class="font-display text-xl font-bold text-slate-900 mt-2">Chef de Division Web</h3>
+              <p class="text-sm text-slate-500 mb-3">SNTF · Alger</p>
+              <ul class="list-disc list-inside text-sm text-slate-600 space-y-1 text-left">
+                <li>Direction équipe dev Odoo &amp; supervision projets</li>
+                <li>Transport Marchandises &amp; Billetterie Voyageurs</li>
+                <li>APIs Android pour synchronisation &amp; contrôle</li>
+              </ul>
+            </div>
+            <div class="absolute left-4 md:left-1/2 w-4 h-4 bg-primary rounded-full border-4 border-white z-10 mt-2 shadow shadow-indigo-500/40 -translate-x-1/2 md:translate-x-0 md:left-1/2"></div>
+            <div class="hidden md:block w-5/12 text-right pr-10">
+              <span class="inline-block rounded-full bg-indigo-50 text-primary text-sm font-semibold px-3 py-1 ring-1 ring-inset ring-indigo-200">Déc. 2019 — Fév. 2023</span>
+            </div>
           </div>
-        </div>
-        <div class="bg-white p-5 rounded-lg shadow-sm border border-slate-200 hover:border-primary transition">
-          <h3 class="font-semibold text-lg mb-2 text-slate-800">Server Monitoring</h3>
-          <div class="flex gap-1 justify-center">
-            <span class="px-2 py-0.5 bg-indigo-100 text-indigo-700 text-xs rounded">v14</span>
-            <span class="px-2 py-0.5 bg-indigo-100 text-indigo-700 text-xs rounded">v15</span>
-            <span class="px-2 py-0.5 bg-indigo-100 text-indigo-700 text-xs rounded">v16</span>
+          <div class="relative md:flex md:justify-between md:items-center fade-in">
+            <div class="hidden md:block w-5/12 text-right pr-10">
+              <span class="inline-block rounded-full bg-indigo-50 text-primary text-sm font-semibold px-3 py-1 ring-1 ring-inset ring-indigo-200">Mars 2019 — Déc. 2019</span>
+            </div>
+            <div class="absolute left-4 md:left-1/2 w-4 h-4 bg-primary rounded-full border-4 border-white z-10 mt-2 shadow shadow-indigo-500/40 -translate-x-1/2 md:translate-x-0 md:left-1/2"></div>
+            <div class="md:w-5/12 pl-12 md:pl-10">
+              <span class="md:hidden inline-block rounded-full bg-indigo-50 text-primary text-sm font-semibold px-3 py-1 ring-1 ring-inset ring-indigo-200">Mars 2019 — Déc. 2019</span>
+              <h3 class="font-display text-xl font-bold text-slate-900 mt-2">Ingénieur Informatique, Consultant ERP</h3>
+              <p class="text-sm text-slate-500 mb-3">AASYS · Alger</p>
+              <p class="text-sm text-slate-600">Intégration Odoo dans Open-Prod, ERP médical, outils d'automatisation PDF → Excel.</p>
+            </div>
           </div>
-        </div>
-        <div class="bg-white p-5 rounded-lg shadow-sm border border-slate-200 hover:border-primary transition">
-          <h3 class="font-semibold text-lg mb-2 text-slate-800">Appointment Management</h3>
-          <div class="flex gap-1 justify-center flex-wrap">
-            <span class="px-2 py-0.5 bg-indigo-100 text-indigo-700 text-xs rounded">v12</span>
-            <span class="px-2 py-0.5 bg-indigo-100 text-indigo-700 text-xs rounded">v13</span>
-            <span class="px-2 py-0.5 bg-indigo-100 text-indigo-700 text-xs rounded">v14</span>
-            <span class="px-2 py-0.5 bg-indigo-100 text-indigo-700 text-xs rounded">v15</span>
-            <span class="px-2 py-0.5 bg-indigo-100 text-indigo-700 text-xs rounded">v16</span>
-            <span class="px-2 py-0.5 bg-indigo-100 text-indigo-700 text-xs rounded">v17</span>
-          </div>
-        </div>
-        <div class="bg-white p-5 rounded-lg shadow-sm border border-slate-200 hover:border-primary transition">
-          <h3 class="font-semibold text-lg mb-2 text-slate-800">Employee Material Acquisition</h3>
-          <div class="flex gap-1 justify-center flex-wrap">
-            <span class="px-2 py-0.5 bg-indigo-100 text-indigo-700 text-xs rounded">v13</span>
-            <span class="px-2 py-0.5 bg-indigo-100 text-indigo-700 text-xs rounded">v14</span>
-            <span class="px-2 py-0.5 bg-indigo-100 text-indigo-700 text-xs rounded">v15</span>
-            <span class="px-2 py-0.5 bg-indigo-100 text-indigo-700 text-xs rounded">v16</span>
-            <span class="px-2 py-0.5 bg-indigo-100 text-indigo-700 text-xs rounded">v17</span>
+          <div class="relative md:flex md:justify-between md:items-center fade-in">
+            <div class="md:w-5/12 pl-12 md:pl-0 md:pr-10 text-left md:text-right">
+              <span class="md:hidden inline-block rounded-full bg-indigo-50 text-primary text-sm font-semibold px-3 py-1 ring-1 ring-inset ring-indigo-200">Juil. 2016 — Mars 2019</span>
+              <h3 class="font-display text-xl font-bold text-slate-900 mt-2">Développeur Odoo</h3>
+              <p class="text-sm text-slate-500 mb-3">MLMConseil · Bouira</p>
+              <p class="text-sm text-slate-600">Solutions Odoo sur mesure : voyage, location, import/export, école. Personnalisation CRM, RH, Paie, Vente, Achat, Stock, Compta.</p>
+            </div>
+            <div class="absolute left-4 md:left-1/2 w-4 h-4 bg-primary rounded-full border-4 border-white z-10 mt-2 shadow shadow-indigo-500/40 -translate-x-1/2 md:translate-x-0 md:left-1/2"></div>
+            <div class="hidden md:block w-5/12"></div>
           </div>
         </div>
       </div>
-      <a href="https://apps.odoo.com/apps/modules/browse?search=slimani" target="_blank" class="inline-block mt-8 px-6 py-2 border-2 border-primary text-primary rounded-full hover:bg-primary hover:text-white transition font-medium fade-in">Voir tous mes modules sur Odoo Apps →</a>
-    </div>
-  </section>
+    </section>
 
-  <section id="experience" class="py-20 bg-white">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl font-bold text-center text-slate-900 mb-12 fade-in">Expérience professionnelle</h2>
-      <div class="space-y-10 timeline-line relative">
-        <div class="relative md:flex md:justify-between md:items-center fade-in">
-          <div class="hidden md:block w-5/12 text-right pr-8"><span class="text-sm font-semibold text-primary">Fév. 2023 — Aujourd'hui</span></div>
-          <div class="absolute left-4 md:left-1/2 w-4 h-4 bg-primary rounded-full border-4 border-white z-10 mt-2"></div>
-          <div class="md:w-5/12 pl-8 md:pl-8">
-            <span class="text-sm font-semibold text-primary md:hidden">Fév. 2023 — Aujourd'hui</span>
-            <h3 class="text-xl font-bold text-slate-900 mt-1">Chef de Département — Développement des Systèmes</h3>
-            <p class="text-sm text-slate-500 mb-3">SNTF · Alger</p>
-            <ul class="list-disc list-inside text-sm text-slate-600 space-y-1">
-              <li>Optimisation ERP Odoo & nouvelles fonctionnalités</li>
-              <li>Intégration comptabilité (rapports algériens, multi-modules)</li>
-              <li>Gestion RH complète (Paie, congés, grades)</li>
-            </ul>
-          </div>
+    <!-- ============ ÉTUDES ============ -->
+    <section id="education" class="py-24 bg-slate-50">
+      <div class="container-x max-w-4xl">
+        <div class="text-center mb-14 fade-in">
+          <span class="section-eyebrow">Éducation</span>
+          <h2 class="mt-3 font-display text-3xl font-bold text-slate-900">Études &amp; diplômes</h2>
         </div>
-        <div class="relative md:flex md:justify-between md:items-center fade-in">
-          <div class="md:w-5/12 pl-8 md:pl-0 md:pr-8 text-left md:text-right">
-            <span class="text-sm font-semibold text-primary md:hidden">Déc. 2019 — Fév. 2023</span>
-            <h3 class="text-xl font-bold text-slate-900 mt-1">Chef de Division Web</h3>
-            <p class="text-sm text-slate-500 mb-3">SNTF · Alger</p>
-            <ul class="list-disc list-inside text-sm text-slate-600 space-y-1">
-              <li>Direction équipe dev Odoo & supervision projets</li>
-              <li>Transport Marchandises & Billetterie Voyageurs</li>
-              <li>APIs Android pour synchronisation & contrôle</li>
-            </ul>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="card card-hover p-7 fade-in">
+            <span class="inline-block rounded-full bg-indigo-50 text-primary text-sm font-semibold px-3 py-1 ring-1 ring-inset ring-indigo-200">2012 — 2016</span>
+            <h3 class="font-display text-xl font-bold text-slate-900 mt-4">Master — Réseaux, Mobilités &amp; Systèmes Embarqués</h3>
+            <p class="text-slate-500 text-sm mb-3 mt-1">Université Mouloud Mammeri de Tizi-Ouzou · BAC+5</p>
+            <p class="text-slate-600 text-sm leading-relaxed">PFE : Application Android utilisant les technologies GPS, basée sur Java et gestion de données JSON.</p>
           </div>
-          <div class="absolute left-4 md:left-1/2 w-4 h-4 bg-primary rounded-full border-4 border-white z-10 mt-2"></div>
-          <div class="hidden md:block w-5/12 text-right pr-8"><span class="text-sm font-semibold text-primary">Déc. 2019 — Fév. 2023</span></div>
-        </div>
-        <div class="relative md:flex md:justify-between md:items-center fade-in">
-          <div class="hidden md:block w-5/12 text-right pr-8"><span class="text-sm font-semibold text-primary">Mars 2019 — Déc. 2019</span></div>
-          <div class="absolute left-4 md:left-1/2 w-4 h-4 bg-primary rounded-full border-4 border-white z-10 mt-2"></div>
-          <div class="md:w-5/12 pl-8 md:pl-8">
-            <span class="text-sm font-semibold text-primary md:hidden">Mars 2019 — Déc. 2019</span>
-            <h3 class="text-xl font-bold text-slate-900 mt-1">Ingénieur Informatique, Consultant ERP</h3>
-            <p class="text-sm text-slate-500 mb-3">AASYS · Alger</p>
-            <p class="text-sm text-slate-600">Intégration Odoo dans Open-Prod, ERP médical, outils d'automatisation PDF → Excel.</p>
+          <div class="card card-hover p-7 fade-in delay-100">
+            <span class="inline-block rounded-full bg-indigo-50 text-primary text-sm font-semibold px-3 py-1 ring-1 ring-inset ring-indigo-200">2008 — 2012</span>
+            <h3 class="font-display text-xl font-bold text-slate-900 mt-4">Licence en Informatique</h3>
+            <p class="text-slate-500 text-sm mb-3 mt-1">Université Mouloud Mammeri de Tizi-Ouzou · BAC+3</p>
+            <p class="text-slate-600 text-sm leading-relaxed">PFE : Site web de gestion des librairies — PHP, HTML, CSS, JS, MySQL.</p>
           </div>
-        </div>
-        <div class="relative md:flex md:justify-between md:items-center fade-in">
-          <div class="md:w-5/12 pl-8 md:pl-0 md:pr-8 text-left md:text-right">
-            <span class="text-sm font-semibold text-primary md:hidden">Juil. 2016 — Mars 2019</span>
-            <h3 class="text-xl font-bold text-slate-900 mt-1">Développeur Odoo</h3>
-            <p class="text-sm text-slate-500 mb-3">MLMConseil · Bouira</p>
-            <p class="text-sm text-slate-600">Solutions Odoo sur mesure : voyage, location, import/export, école. Personnalisation CRM, RH, Paie, Vente, Achat, Stock, Compta.</p>
-          </div>
-          <div class="absolute left-4 md:left-1/2 w-4 h-4 bg-primary rounded-full border-4 border-white z-10 mt-2"></div>
-          <div class="hidden md:block w-5/12"></div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="education" class="py-20 bg-slate-50">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl font-bold text-center text-slate-900 mb-12 fade-in">Études & diplômes</h2>
-      <div class="grid md:grid-cols-2 gap-6">
-        <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 fade-in">
-          <span class="text-sm font-semibold text-primary">2012 — 2016</span>
-          <h3 class="text-xl font-bold text-slate-900 mt-2">Master — Réseaux, Mobilités & Systèmes Embarqués</h3>
-          <p class="text-slate-500 text-sm mb-2">Université Mouloud Mammeri de Tizi-Ouzou · BAC+5</p>
-          <p class="text-slate-600 text-sm">PFE : Application Android utilisant les technologies GPS, basée sur Java et gestion de données JSON.</p>
+    <!-- ============ CONTACT ============ -->
+    <section id="contact" class="py-24 bg-dark text-white relative overflow-hidden">
+      <div class="absolute inset-0 hero-mesh opacity-70"></div>
+      <div class="blob w-96 h-96 bg-violet-700/40 animate-blob" style="top:-8rem; left:-6rem;"></div>
+      <div class="container-x relative z-10 max-w-4xl text-center">
+        <div class="fade-in">
+          <span class="section-eyebrow text-indigo-400">Contact</span>
+          <h2 class="mt-3 font-display text-3xl md:text-4xl font-bold">Travaillons ensemble</h2>
+          <div class="grid md:grid-cols-3 gap-6 mt-12">
+            <div class="rounded-2xl border border-white/10 bg-white/5 backdrop-blur px-6 py-8 hover:border-indigo-400/40 transition">
+              <i class="fas fa-map-marker-alt text-2xl text-indigo-400 mb-3"></i>
+              <h3 class="font-display font-semibold">Localisation</h3>
+              <p class="text-slate-400 text-sm mt-1">Bordj El Kiffan, Alger, Algérie</p>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/5 backdrop-blur px-6 py-8 hover:border-indigo-400/40 transition">
+              <i class="fas fa-phone text-2xl text-indigo-400 mb-3"></i>
+              <h3 class="font-display font-semibold">Téléphone</h3>
+              <a href="tel:+213673697772" class="text-slate-400 text-sm hover:text-white transition block mt-1">+213 673 697 772</a>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/5 backdrop-blur px-6 py-8 hover:border-indigo-400/40 transition">
+              <i class="fas fa-envelope text-2xl text-indigo-400 mb-3"></i>
+              <h3 class="font-display font-semibold">Email</h3>
+              <a href="mailto:tech5262@gmail.com" class="text-slate-400 text-sm hover:text-white transition block mt-1 break-all">tech5262@gmail.com</a>
+            </div>
+          </div>
         </div>
-        <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 fade-in delay-100">
-          <span class="text-sm font-semibold text-primary">2008 — 2012</span>
-          <h3 class="text-xl font-bold text-slate-900 mt-2">Licence en Informatique</h3>
-          <p class="text-slate-500 text-sm mb-2">Université Mouloud Mammeri de Tizi-Ouzou · BAC+3</p>
-          <p class="text-slate-600 text-sm">PFE : Site web de gestion des librairies — PHP, HTML, CSS, JS, MySQL.</p>
+        <div class="fade-in delay-100 mt-10 rounded-2xl border border-white/10 bg-white/5 backdrop-blur p-8 md:p-10">
+          <h3 class="font-display text-xl font-semibold mb-3">Vous avez un projet Odoo ?</h3>
+          <p class="text-slate-300 mb-8 max-w-2xl mx-auto">Que vous soyez une PME, une grande entreprise ou une startup, je suis disponible pour discuter de vos besoins et vous accompagner dans votre transformation numérique.</p>
+          <div class="flex flex-col sm:flex-row justify-center gap-4">
+            <a href="mailto:tech5262@gmail.com" class="btn-gradient w-full sm:w-auto"><i class="fas fa-paper-plane"></i> Envoyer un message</a>
+            <a href="CV_Farid_SLIMANI_DZ.pdf" class="btn-ghost-light w-full sm:w-auto"><i class="fas fa-download"></i> Télécharger mon CV</a>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <section id="contact" class="py-20 bg-dark text-white">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="text-3xl font-bold mb-8 fade-in">Travaillons ensemble</h2>
-      <div class="grid md:grid-cols-3 gap-6 mb-12 fade-in">
-        <div class="bg-slate-800 p-6 rounded-xl border border-slate-700">
-          <i class="fas fa-map-marker-alt text-2xl text-indigo-400 mb-3"></i>
-          <h3 class="font-semibold">Localisation</h3>
-          <p class="text-slate-400 text-sm">Bordj El Kiffan, Alger, Algérie</p>
-        </div>
-        <div class="bg-slate-800 p-6 rounded-xl border border-slate-700">
-          <i class="fas fa-phone text-2xl text-indigo-400 mb-3"></i>
-          <h3 class="font-semibold">Téléphone</h3>
-          <a href="tel:+213673697772" class="text-slate-400 text-sm hover:text-white transition">+213 673 697 772</a>
-        </div>
-        <div class="bg-slate-800 p-6 rounded-xl border border-slate-700">
-          <i class="fas fa-envelope text-2xl text-indigo-400 mb-3"></i>
-          <h3 class="font-semibold">Email</h3>
-          <a href="mailto:tech5262@gmail.com" class="text-slate-400 text-sm hover:text-white transition">tech5262@gmail.com</a>
-        </div>
-      </div>
-      <div class="bg-slate-800 p-8 rounded-xl mb-8 border border-slate-700 fade-in">
-        <h3 class="text-xl font-semibold mb-3">Vous avez un projet Odoo ?</h3>
-        <p class="text-slate-400 mb-6 max-w-2xl mx-auto">Que vous soyez une PME, une grande entreprise ou une startup, je suis disponible pour discuter de vos besoins et vous accompagner dans votre transformation numérique.</p>
-        <div class="flex flex-col sm:flex-row justify-center gap-4">
-          <a href="mailto:tech5262@gmail.com" class="px-8 py-3 bg-primary text-white rounded-lg hover:bg-indigo-700 transition font-medium">Envoyer un message</a>
-          <a href="CV_Farid_SLIMANI_DZ.pdf" class="px-8 py-3 bg-transparent border border-slate-600 text-white rounded-lg hover:bg-slate-700 transition font-medium">Télécharger mon CV</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer class="bg-slate-950 text-slate-400 py-8 border-t border-slate-800">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4">
-      <p>© 2025 Farid Slimani — Tous droits réservés</p>
-      <div class="flex space-x-6">
-        <a href="https://www.linkedin.com/in/farid-slimani/" target="_blank" class="hover:text-white transition"><i class="fab fa-linkedin text-xl"></i></a>
-        <a href="https://apps.odoo.com/apps/modules/browse?search=slimani" target="_blank" class="hover:text-white transition"><i class="fas fa-cubes text-xl"></i></a>
-        <a href="mailto:tech5262@gmail.com" class="hover:text-white transition"><i class="fas fa-envelope text-xl"></i></a>
+  <footer class="bg-slate-950 text-slate-400 py-8">
+    <div class="h-px bg-gradient-to-r from-transparent via-slate-700 to-transparent"></div>
+    <div class="container-x mt-7 flex flex-col md:flex-row justify-between items-center gap-4">
+      <p>&copy; 2026 Farid Slimani — Tous droits réservés</p>
+      <div class="flex space-x-5">
+        <a href="https://www.linkedin.com/in/farid-slimani/" target="_blank" rel="noopener" class="w-10 h-10 rounded-full border border-slate-700 flex items-center justify-center hover:border-indigo-400 hover:text-white hover:-translate-y-0.5 transition" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://apps.odoo.com/apps/modules/browse?search=slimani" target="_blank" rel="noopener" class="w-10 h-10 rounded-full border border-slate-700 flex items-center justify-center hover:border-indigo-400 hover:text-white hover:-translate-y-0.5 transition" aria-label="Odoo Apps"><i class="fa-solid fa-cubes"></i></a>
+        <a href="mailto:tech5262@gmail.com" class="w-10 h-10 rounded-full border border-slate-700 flex items-center justify-center hover:border-indigo-400 hover:text-white hover:-translate-y-0.5 transition" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
       </div>
     </div>
   </footer>
+
+  <button id="toTop" aria-label="Retour en haut" class="fixed bottom-6 right-6 z-50 w-11 h-11 rounded-full bg-gradient-to-br from-indigo-600 to-violet-600 text-white shadow-lg shadow-indigo-600/30 flex items-center justify-center hover:-translate-y-1 transition"><i class="fas fa-arrow-up"></i></button>
 
   <script>
     const menuBtn = document.getElementById('menuBtn');
@@ -555,27 +626,36 @@
         e.preventDefault();
         mobileMenu.classList.add('hidden');
         const target = document.querySelector(link.getAttribute('href'));
-        if(target) target.scrollIntoView({ behavior: 'smooth' });
+        if (target) {
+          const offset = 70;
+          const top = target.getBoundingClientRect().top + window.scrollY - offset;
+          window.scrollTo({ top, behavior: 'smooth' });
+        }
       });
     });
 
     const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('visible'); });
-    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-    const sections = document.querySelectorAll('section');
-    const navLinks = document.querySelectorAll('nav a[href^="#"]');
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const progress = document.getElementById('scrollProgress');
+    const toTop = document.getElementById('toTop');
     window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const height = document.documentElement.scrollHeight - window.innerHeight;
+      progress.style.width = height > 0 ? (scrollTop / height) * 100 + '%' : '0%';
+      toTop.classList.toggle('show', scrollTop > 600);
       let current = '';
-      sections.forEach(s => { if(window.scrollY >= s.offsetTop - 100) current = s.getAttribute('id'); });
+      sections.forEach(s => { if (scrollTop >= s.offsetTop - 110) current = s.getAttribute('id'); });
       navLinks.forEach(l => {
-        l.classList.remove('text-primary', 'font-semibold');
-        if(l.getAttribute('href') === `#${current}`) l.classList.add('text-primary', 'font-semibold');
+        l.classList.toggle('active', l.getAttribute('href') === '#' + current);
       });
     });
+
+    toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
   </script>
 </body>
 </html>
-
