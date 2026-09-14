@@ -271,90 +271,124 @@
   #backToTop:hover{border-color:var(--signal);color:var(--signal);}
 
   /* ---------- odoo quiz modal ---------- */
-  .quiz-overlay{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(5,8,16,.82);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);}
-  .quiz-overlay.is-open{display:flex;}
-  .quiz-modal{position:relative;width:100%;max-width:560px;max-height:88vh;overflow-y:auto;background:var(--panel);animation:quizIn .3s ease;}
-  .quiz-modal::before,.quiz-modal::after{display:none;}
+  .quiz-overlay,.docs-overlay{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(5,8,16,.84);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);}
+  .quiz-overlay.is-open,.docs-overlay.is-open{display:flex;}
+  .quiz-modal,.docs-modal{position:relative;width:100%;max-width:920px;max-height:90vh;overflow-y:auto;background:var(--panel);animation:quizIn .3s ease;}
+  .quiz-modal{max-width:680px;}
+  .quiz-modal::before,.quiz-modal::after,.docs-modal::before,.docs-modal::after{display:none;}
   @keyframes quizIn{from{opacity:0;transform:translateY(12px) scale(.98);}to{opacity:1;transform:translateY(0) scale(1);}}
-  .quiz-close{position:absolute;top:18px;right:18px;width:34px;height:34px;display:flex;align-items:center;justify-content:center;border:1px solid var(--line);border-radius:var(--radius);color:var(--ink-dim);background:var(--panel);}
-  .quiz-close:hover{border-color:var(--signal);color:var(--signal);}
-  .quiz-step h2{font-size:1.35rem;font-weight:700;padding-right:40px;}
-  .quiz-intro{margin-top:10px;font-size:.94rem;}
-  .quiz-field{margin-top:28px;}
-  .quiz-field-label{display:block;font-size:.85rem;color:var(--ink-dim);margin-bottom:12px;}
-  .quiz-pills{display:flex;gap:8px;flex-wrap:wrap;}
-  .quiz-pill{padding:8px 18px;border:1px solid var(--line);border-radius:var(--radius-pill);font-family:var(--font-mono);font-size:.88rem;color:var(--ink-dim);background:none;transition:border-color .2s ease,color .2s ease;}
-  .quiz-pill.is-selected{border-color:var(--signal);color:var(--signal);}
-  .quiz-type-cards{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
-  .quiz-type-card{text-align:left;padding:16px;border:1px solid var(--line);border-radius:var(--radius);background:none;transition:border-color .2s ease;}
-  .quiz-type-card.is-selected{border-color:var(--signal);}
-  .quiz-type-title{display:block;font-weight:600;color:var(--ink);}
-  .quiz-type-desc{display:block;margin-top:6px;font-size:.82rem;color:var(--ink-dim);}
-  .quiz-start{margin-top:32px;width:100%;justify-content:center;}
-
-  .quiz-progress{display:flex;flex-direction:column;gap:10px;margin-bottom:26px;padding-right:40px;}
-  .quiz-progress span{font-family:var(--font-mono);font-size:.8rem;color:var(--ink-faint);}
-  .quiz-progress-bar{height:3px;background:var(--line);border-radius:2px;overflow:hidden;}
-  .quiz-progress-fill{height:100%;background:var(--signal);width:0%;transition:width .3s ease;}
-  .quiz-question{font-size:1.2rem;font-weight:600;line-height:1.4;margin-bottom:22px;}
-  .quiz-options{display:flex;flex-direction:column;gap:10px;}
-  .quiz-option{text-align:left;padding:14px 16px;border:1px solid var(--line);border-radius:var(--radius);font-size:.95rem;color:var(--ink);background:none;transition:border-color .2s ease,background .2s ease;}
+  .quiz-close,.docs-close{position:absolute;top:18px;right:18px;width:34px;height:34px;display:flex;align-items:center;justify-content:center;border:1px solid var(--line);border-radius:var(--radius);color:var(--ink-dim);background:var(--panel);z-index:5;}
+  .quiz-close:hover,.docs-close:hover{border-color:var(--signal);color:var(--signal);}
+  .quiz-step h2,.docs-step h2{font-size:1.35rem;font-weight:700;padding-right:48px;}
+  .quiz-intro,.docs-intro{margin-top:10px;font-size:.94rem;}
+  .quiz-field,.docs-field{margin-top:24px;}
+  .quiz-field-label,.docs-field-label{display:block;font-size:.82rem;color:var(--ink-dim);margin-bottom:10px;font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.04em;}
+  .quiz-pills,.docs-pills{display:flex;gap:8px;flex-wrap:wrap;}
+  .quiz-pill,.docs-pill{padding:8px 16px;border:1px solid var(--line);border-radius:var(--radius-pill);font-family:var(--font-mono);font-size:.85rem;color:var(--ink-dim);background:none;transition:border-color .2s ease,color .2s ease,background .2s ease;}
+  .quiz-pill:hover,.docs-pill:hover{border-color:var(--line-bright);color:var(--ink);}
+  .quiz-pill.is-selected,.docs-pill.is-selected{border-color:var(--signal);color:var(--signal);background:var(--signal-dim);}
+  .quiz-type-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;}
+  .quiz-type-card{text-align:left;padding:14px;border:1px solid var(--line);border-radius:var(--radius);background:none;transition:border-color .2s ease,background .2s ease;}
+  .quiz-type-card:hover{border-color:var(--line-bright);}
+  .quiz-type-card.is-selected{border-color:var(--signal);background:var(--signal-dim);}
+  .quiz-type-title{display:block;font-weight:600;color:var(--ink);font-size:.92rem;}
+  .quiz-type-desc{display:block;margin-top:5px;font-size:.78rem;color:var(--ink-dim);line-height:1.45;}
+  .quiz-start{margin-top:28px;width:100%;justify-content:center;}
+  .quiz-progress,.docs-progress{display:flex;flex-direction:column;gap:10px;margin-bottom:26px;padding-right:48px;}
+  .quiz-progress span,.docs-progress span{font-family:var(--font-mono);font-size:.8rem;color:var(--ink-faint);}
+  .quiz-progress-bar,.docs-progress-bar{height:3px;background:var(--line);border-radius:2px;overflow:hidden;}
+  .quiz-progress-fill,.docs-progress-fill{height:100%;background:var(--signal);width:0%;transition:width .3s ease;}
+  .quiz-meta{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;}
+  .quiz-meta .tag{font-size:.68rem;}
+  .quiz-question{font-size:1.18rem;font-weight:600;line-height:1.45;margin-bottom:20px;}
+  .quiz-options{display:flex;flex-direction:column;gap:9px;}
+  .quiz-option{text-align:left;padding:13px 15px;border:1px solid var(--line);border-radius:var(--radius);font-size:.92rem;color:var(--ink);background:none;transition:border-color .2s ease,background .2s ease;}
   .quiz-option:hover{border-color:var(--line-bright);}
   .quiz-option.is-selected{border-color:var(--signal);background:var(--signal-dim);}
-
   .quiz-score{font-family:var(--font-mono);font-size:3.2rem;font-weight:600;text-align:center;color:var(--signal);}
   .quiz-tier{text-align:center;font-size:1.15rem;font-weight:600;margin-top:10px;}
-  .quiz-tier-msg{text-align:center;margin-top:10px;max-width:44ch;margin-inline:auto;}
+  .quiz-tier-msg{text-align:center;margin-top:10px;max-width:48ch;margin-inline:auto;}
   .quiz-result-actions{margin-top:28px;justify-content:center;}
+  .quiz-breakdown{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:24px;}
+  .quiz-breakdown-item{padding:12px;border:1px solid var(--line);text-align:center;}
+  .quiz-breakdown-item strong{display:block;font-family:var(--font-mono);color:var(--signal);font-size:1.1rem;}
+  .quiz-breakdown-item span{display:block;margin-top:4px;font-size:.72rem;color:var(--ink-dim);}
 
-  @media (max-width:560px){.quiz-type-cards{grid-template-columns:1fr;}}
-
-  /* ---------- odoo tech doc modal ---------- */
-  .docs-overlay{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(5,8,16,.82);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);}
-  .docs-overlay.is-open{display:flex;}
-  .docs-modal{position:relative;width:100%;max-width:600px;max-height:88vh;overflow-y:auto;background:var(--panel);animation:quizIn .3s ease;}
-  .docs-modal::before,.docs-modal::after{display:none;}
-  .docs-close{position:absolute;top:18px;right:18px;width:34px;height:34px;display:flex;align-items:center;justify-content:center;border:1px solid var(--line);border-radius:var(--radius);color:var(--ink-dim);background:var(--panel);z-index:2;}
-  .docs-close:hover{border-color:var(--signal);color:var(--signal);}
-  .docs-step h2{font-size:1.35rem;font-weight:700;padding-right:40px;}
-  .docs-intro{margin-top:10px;font-size:.94rem;}
-  .docs-field{margin-top:28px;}
-  .docs-field-label{display:block;font-size:.85rem;color:var(--ink-dim);margin-bottom:12px;}
-  .docs-pills{display:flex;gap:8px;flex-wrap:wrap;}
-  .docs-pill{padding:8px 18px;border:1px solid var(--line);border-radius:var(--radius-pill);font-family:var(--font-mono);font-size:.88rem;color:var(--ink-dim);background:none;transition:border-color .2s ease,color .2s ease;}
-  .docs-pill.is-selected{border-color:var(--signal);color:var(--signal);}
-  .docs-start{margin-top:32px;width:100%;justify-content:center;}
-
-  .docs-progress{display:flex;flex-direction:column;gap:10px;margin-bottom:22px;padding-right:40px;}
-  .docs-progress span{font-family:var(--font-mono);font-size:.8rem;color:var(--ink-faint);}
-  .docs-progress-bar{height:3px;background:var(--line);border-radius:2px;overflow:hidden;}
-  .docs-progress-fill{height:100%;background:var(--signal);width:0%;transition:width .3s ease;}
-
-  .docs-slide-icon{width:46px;height:46px;border:1px solid var(--line);color:var(--signal);display:flex;align-items:center;justify-content:center;margin-bottom:18px;}
-  .docs-slide-title{font-size:1.25rem;font-weight:700;line-height:1.3;}
-  .docs-slide-intro{margin-top:10px;font-size:.94rem;}
+  /* ---------- Odoo Technical Lab ---------- */
+  .docs-modal{max-width:1040px;}
+  .docs-hero{display:grid;grid-template-columns:1.4fr .9fr;gap:28px;align-items:stretch;margin-bottom:24px;}
+  .docs-kicker{font-family:var(--font-mono);font-size:.72rem;color:var(--signal);text-transform:uppercase;letter-spacing:.08em;}
+  .docs-hero h2{font-size:clamp(1.55rem,3vw,2.15rem);margin-top:8px;line-height:1.15;}
+  .docs-hero p{margin-top:12px;max-width:62ch;}
+  .docs-stat-panel{border:1px solid var(--line);padding:18px;display:flex;flex-direction:column;justify-content:center;gap:10px;background:var(--bg-soft);}
+  .docs-stat-panel strong{font-family:var(--font-mono);font-size:1.05rem;color:var(--signal);}
+  .docs-stat-panel span{font-size:.82rem;color:var(--ink-dim);}
+  .docs-mode-tabs{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:24px;}
+  .docs-mode-tab{padding:12px 14px;border:1px solid var(--line);text-align:left;background:none;}
+  .docs-mode-tab strong{display:block;font-size:.9rem;}
+  .docs-mode-tab span{display:block;margin-top:4px;font-size:.75rem;color:var(--ink-dim);}
+  .docs-mode-tab.is-selected{border-color:var(--signal);background:var(--signal-dim);}
+  .docs-level-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;}
+  .docs-level{padding:7px 12px;border:1px solid var(--line);border-radius:var(--radius-pill);font-size:.78rem;color:var(--ink-dim);}
+  .docs-level.is-selected{border-color:var(--line-bright);color:var(--ink);}
+  .docs-level-note{margin-top:8px;font-size:.8rem;color:var(--ink-faint);}
+  .docs-start{margin-top:24px;width:100%;justify-content:center;}
+  .docs-slide-shell{display:grid;grid-template-columns:minmax(0,1fr) 310px;gap:24px;}
+  .docs-slide-main{min-width:0;}
+  .docs-slide-icon{width:46px;height:46px;border:1px solid var(--line);color:var(--signal);display:flex;align-items:center;justify-content:center;margin-bottom:16px;}
+  .docs-slide-title{font-size:1.35rem;font-weight:700;line-height:1.3;}
+  .docs-slide-intro{margin-top:9px;font-size:.93rem;}
   .docs-points{margin-top:18px;display:flex;flex-direction:column;gap:10px;}
-  .docs-points li{position:relative;padding-left:20px;font-size:.92rem;color:var(--ink-dim);line-height:1.5;}
-  .docs-points li::before{content:'';position:absolute;left:0;top:.55em;width:6px;height:6px;background:var(--signal);border-radius:50%;}
-
-  .docs-version-note{margin-top:22px;padding:16px 18px;border-left:2px solid var(--signal);background:var(--signal-dim);}
-  .docs-version-note-label{display:block;font-family:var(--font-mono);font-size:.75rem;color:var(--signal);text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px;}
-  .docs-version-note p{font-size:.9rem;color:var(--ink);}
-
-  .docs-nav-row{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:30px;}
+  .docs-points li{position:relative;padding-left:20px;font-size:.9rem;color:var(--ink-dim);line-height:1.55;}
+  .docs-points li::before{content:'';position:absolute;left:0;top:.62em;width:6px;height:6px;background:var(--signal);border-radius:50%;}
+  .docs-diagram{border:1px solid var(--line);background:var(--bg-soft);padding:16px;align-self:start;}
+  .docs-diagram-label{font-family:var(--font-mono);font-size:.68rem;color:var(--ink-faint);text-transform:uppercase;letter-spacing:.06em;margin-bottom:12px;}
+  .flow{display:flex;flex-direction:column;gap:7px;align-items:stretch;}
+  .flow-node{border:1px solid var(--line-bright);padding:9px 10px;text-align:center;font-family:var(--font-mono);font-size:.73rem;color:var(--ink);background:rgba(17,26,46,.7);}
+  .flow-node.signal{border-color:var(--signal);color:var(--signal);}
+  .flow-arrow{text-align:center;color:var(--ink-faint);font-family:var(--font-mono);font-size:.8rem;}
+  .file-tree{font-family:var(--font-mono);font-size:.73rem;line-height:1.8;color:var(--ink-dim);}
+  .file-tree .folder{color:var(--ink);}.file-tree .file{color:var(--signal);}.file-tree .indent{padding-left:16px;}
+  .code-mini{margin-top:12px;border:1px solid var(--line);padding:12px;background:#0a1020;overflow:auto;}
+  .code-mini pre{font-family:var(--font-mono);font-size:.68rem;line-height:1.65;color:var(--ink-dim);white-space:pre;}
+  .code-mini .accent{color:var(--signal);}
+  .security-flow{display:grid;grid-template-columns:1fr 1fr;gap:8px;align-items:center;}
+  .security-flow .wide{grid-column:1/-1;}
+  .docs-version-note{margin-top:20px;padding:14px 16px;border-left:2px solid var(--signal);background:var(--signal-dim);}
+  .docs-version-note-label{display:block;font-family:var(--font-mono);font-size:.7rem;color:var(--signal);text-transform:uppercase;letter-spacing:.04em;margin-bottom:5px;}
+  .docs-version-note p{font-size:.86rem;color:var(--ink);}
+  .docs-nav-row{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:26px;padding-top:18px;border-top:1px solid var(--line);}
   .docs-dots{display:flex;gap:6px;}
   .docs-dot{width:6px;height:6px;border-radius:50%;background:var(--line);transition:background .2s ease,transform .2s ease;}
   .docs-dot.is-active{background:var(--signal);transform:scale(1.3);}
   .docs-prev:disabled,.docs-next:disabled{opacity:.35;pointer-events:none;}
-
   .docs-done-icon{width:56px;height:56px;border:1px solid var(--line-bright);color:var(--signal);display:flex;align-items:center;justify-content:center;margin-inline:auto;border-radius:50%;}
   .docs-done-title{text-align:center;font-size:1.3rem;font-weight:700;margin-top:18px;}
-  .docs-done-msg{text-align:center;margin-top:10px;max-width:46ch;margin-inline:auto;}
+  .docs-done-msg{text-align:center;margin-top:10px;max-width:58ch;margin-inline:auto;}
   .docs-result-actions{margin-top:28px;justify-content:center;}
 
+  /* ---------- version compare ---------- */
+  .compare-head{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:end;margin-bottom:22px;}
+  .compare-field label{display:block;font-family:var(--font-mono);font-size:.7rem;color:var(--ink-faint);text-transform:uppercase;margin-bottom:7px;}
+  .compare-select{width:100%;padding:11px 12px;background:var(--bg-soft);color:var(--ink);border:1px solid var(--line);border-radius:var(--radius);font:inherit;}
+  .compare-summary{padding:14px 16px;border-left:2px solid var(--signal);background:var(--signal-dim);margin-bottom:18px;font-size:.9rem;}
+  .compare-table{width:100%;border-collapse:collapse;font-size:.82rem;}
+  .compare-table th,.compare-table td{padding:12px;border-bottom:1px solid var(--line);vertical-align:top;text-align:left;}
+  .compare-table th{font-family:var(--font-mono);font-size:.7rem;color:var(--ink-faint);text-transform:uppercase;}
+  .diff-old{color:var(--ink-dim);}.diff-new{color:var(--ink);}.diff-tag{display:inline-block;margin-top:6px;font-family:var(--font-mono);font-size:.64rem;color:var(--signal);border:1px solid var(--signal);padding:2px 6px;border-radius:var(--radius-pill);}
+  .compare-back{margin-top:20px;}
+
+  @media (max-width:760px){
+    .quiz-type-cards{grid-template-columns:1fr;}
+    .docs-hero,.docs-slide-shell{grid-template-columns:1fr;}
+    .docs-stat-panel{display:none;}
+    .compare-head{grid-template-columns:1fr;}
+  }
   @media (max-width:560px){
     .docs-nav-row{flex-wrap:wrap;}
-    .docs-dots{order:3;width:100%;justify-content:center;margin-top:10px;}
+    .docs-dots{order:3;width:100%;justify-content:center;margin-top:8px;}
+    .quiz-breakdown{grid-template-columns:1fr;}
+    .security-flow{grid-template-columns:1fr;}
   }
 </style>
 </head>
@@ -885,8 +919,8 @@
     </button>
 
     <div class="quiz-step" data-step="setup">
-      <h2 id="quizTitle">Testez vos connaissances Odoo</h2>
-      <p class="quiz-intro">Choisissez votre version et le type de test, puis répondez à 10 questions. Votre note s'affiche à la fin.</p>
+      <h2 id="quizTitle">Odoo Skill Check</h2>
+      <p class="quiz-intro">Choisissez une version, un niveau et un domaine. Les questions s'adaptent au parcours choisi.</p>
 
       <div class="quiz-field">
         <span class="quiz-field-label">Version d'Odoo</span>
@@ -899,16 +933,22 @@
       </div>
 
       <div class="quiz-field">
-        <span class="quiz-field-label">Type de test</span>
+        <span class="quiz-field-label">Niveau</span>
+        <div class="quiz-pills" id="quizLevelPills">
+          <button type="button" class="quiz-pill is-selected" data-level="fundamentals">Fondamentaux</button>
+          <button type="button" class="quiz-pill" data-level="developer">Développeur</button>
+          <button type="button" class="quiz-pill" data-level="advanced">Avancé</button>
+        </div>
+      </div>
+
+      <div class="quiz-field">
+        <span class="quiz-field-label">Domaine</span>
         <div class="quiz-type-cards" id="typeCards">
-          <button type="button" class="quiz-type-card is-selected" data-type="fonctionnel">
-            <span class="quiz-type-title">Fonctionnel</span>
-            <span class="quiz-type-desc">Processus métier, modules, configuration.</span>
-          </button>
-          <button type="button" class="quiz-type-card" data-type="technique">
-            <span class="quiz-type-title">Technique</span>
-            <span class="quiz-type-desc">ORM, Python, architecture, développement.</span>
-          </button>
+          <button type="button" class="quiz-type-card is-selected" data-type="fonctionnel"><span class="quiz-type-title">Fonctionnel</span><span class="quiz-type-desc">Processus métier, modules, configuration.</span></button>
+          <button type="button" class="quiz-type-card" data-type="technique"><span class="quiz-type-title">Technique</span><span class="quiz-type-desc">Architecture, modules et framework.</span></button>
+          <button type="button" class="quiz-type-card" data-type="python_orm"><span class="quiz-type-title">Python / ORM</span><span class="quiz-type-desc">Modèles, champs, méthodes et données.</span></button>
+          <button type="button" class="quiz-type-card" data-type="web_owl"><span class="quiz-type-title">Web / OWL</span><span class="quiz-type-desc">XML, QWeb, contrôleurs et interface.</span></button>
+          <button type="button" class="quiz-type-card" data-type="architecture"><span class="quiz-type-title">Architecture</span><span class="quiz-type-desc">Flux, sécurité, modules et déploiement.</span></button>
         </div>
       </div>
 
@@ -920,6 +960,7 @@
         <span id="quizProgressLabel">Question 1 / 10</span>
         <div class="quiz-progress-bar"><div class="quiz-progress-fill" id="quizProgressFill"></div></div>
       </div>
+      <div class="quiz-meta" id="quizMeta"></div>
       <h3 class="quiz-question" id="quizQuestion"></h3>
       <div class="quiz-options" id="quizOptions"></div>
     </div>
@@ -928,6 +969,7 @@
       <div class="quiz-score" id="quizScore">0/10</div>
       <div class="quiz-tier" id="quizTier"></div>
       <p class="quiz-tier-msg" id="quizTierMsg"></p>
+      <div class="quiz-breakdown" id="quizBreakdown"></div>
       <div class="btn-row quiz-result-actions">
         <button type="button" class="btn btn--ghost" id="quizRetry">Refaire le test</button>
         <a href="#contact" class="btn btn--primary" id="quizContactBtn">Discuter avec Farid</a>
@@ -939,45 +981,77 @@
 
 <div class="docs-overlay" id="docsOverlay" aria-hidden="true">
   <div class="docs-modal panel" role="dialog" aria-modal="true" aria-labelledby="docsTitle">
-    <button class="docs-close" id="docsClose" type="button" aria-label="Fermer la documentation">
+    <button class="docs-close" id="docsClose" type="button" aria-label="Fermer Odoo Technical Lab">
       <svg class="icon" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><use href="#i-x"/></svg>
     </button>
 
     <div class="docs-step" data-docs-step="setup">
-      <h2 id="docsTitle">Documentation technique Odoo</h2>
-      <p class="docs-intro">Choisissez une version d'Odoo puis parcourez 8 slides pour réviser l'essentiel du développement technique : écosystème, structure de module, ORM, vues XML, sécurité, QWeb, contrôleurs et framework OWL.</p>
-
-      <div class="docs-field">
-        <span class="docs-field-label">Version d'Odoo</span>
-        <div class="docs-pills" id="docsVersionPills">
-          <button type="button" class="docs-pill" data-docs-version="16">16</button>
-          <button type="button" class="docs-pill" data-docs-version="17">17</button>
-          <button type="button" class="docs-pill" data-docs-version="18">18</button>
-          <button type="button" class="docs-pill is-selected" data-docs-version="19">19</button>
+      <div class="docs-hero">
+        <div>
+          <span class="docs-kicker">Odoo Technical Lab</span>
+          <h2 id="docsTitle">Comprendre Odoo, pas seulement mémoriser des termes.</h2>
+          <p class="docs-intro">Un mini-lab interactif pour visualiser l'architecture, comprendre le cycle d'un module, manipuler mentalement l'ORM et voir ce qui change réellement entre Odoo 16, 17, 18 et 19.</p>
+          <div class="docs-mode-tabs" id="docsModeTabs">
+            <button type="button" class="docs-mode-tab is-selected" data-docs-mode="learn"><strong>APPRENDRE</strong><span>Parcours guidé + schémas + exemples</span></button>
+            <button type="button" class="docs-mode-tab" data-docs-mode="compare"><strong>COMPARER</strong><span>Voir les évolutions entre deux versions</span></button>
+          </div>
+        </div>
+        <div class="docs-stat-panel">
+          <strong>16 → 17 → 18 → 19</strong>
+          <span>4 générations d'Odoo couvertes</span>
+          <span>10 modules de compréhension technique</span>
+          <span>Architecture • ORM • XML • Sécurité • QWeb • OWL</span>
         </div>
       </div>
 
-      <button type="button" class="btn btn--primary docs-start" id="docsStart">Commencer la revue</button>
+      <div id="docsLearnSetup">
+        <div class="docs-field">
+          <span class="docs-field-label">Version étudiée</span>
+          <div class="docs-pills" id="docsVersionPills">
+            <button type="button" class="docs-pill" data-docs-version="16">Odoo 16</button>
+            <button type="button" class="docs-pill" data-docs-version="17">Odoo 17</button>
+            <button type="button" class="docs-pill" data-docs-version="18">Odoo 18</button>
+            <button type="button" class="docs-pill is-selected" data-docs-version="19">Odoo 19</button>
+          </div>
+        </div>
+        <div class="docs-field">
+          <span class="docs-field-label">Niveau</span>
+          <div class="docs-level-row" id="docsLevelRow">
+            <button type="button" class="docs-level is-selected" data-docs-level="fundamentals">Fondamentaux</button>
+            <button type="button" class="docs-level" data-docs-level="developer">Développeur</button>
+            <button type="button" class="docs-level" data-docs-level="advanced">Avancé</button>
+          </div>
+          <p class="docs-level-note" id="docsLevelNote">Commence par comprendre les concepts avant d'entrer dans le code.</p>
+        </div>
+        <button type="button" class="btn btn--primary docs-start" id="docsStart">Lancer le parcours</button>
+      </div>
+
+      <div id="docsCompareSetup" hidden>
+        <div class="compare-head">
+          <div class="compare-field"><label for="compareFrom">Version de départ</label><select id="compareFrom" class="compare-select"><option value="16">Odoo 16</option><option value="17">Odoo 17</option><option value="18">Odoo 18</option></select></div>
+          <div class="compare-field"><label for="compareTo">Version cible</label><select id="compareTo" class="compare-select"><option value="17">Odoo 17</option><option value="18">Odoo 18</option><option value="19" selected>Odoo 19</option></select></div>
+        </div>
+        <div class="compare-summary" id="compareSummary"></div>
+        <div id="compareContent"></div>
+        <button type="button" class="btn btn--ghost compare-back" id="compareBack">← Revenir au parcours</button>
+      </div>
     </div>
 
     <div class="docs-step" data-docs-step="slides" hidden>
       <div class="docs-progress">
-        <span id="docsProgressLabel">Slide 1 / 8</span>
+        <span id="docsProgressLabel">Module 1 / 10</span>
         <div class="docs-progress-bar"><div class="docs-progress-fill" id="docsProgressFill"></div></div>
       </div>
-
-      <div class="docs-slide-icon">
-        <svg class="icon" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><use id="docsIconUse" href="#i-globe"/></svg>
+      <div class="docs-slide-shell">
+        <div class="docs-slide-main">
+          <div class="docs-slide-icon"><svg class="icon" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><use id="docsIconUse" href="#i-globe"/></svg></div>
+          <h3 class="docs-slide-title" id="docsSlideTitle"></h3>
+          <p class="docs-slide-intro" id="docsSlideIntro"></p>
+          <ul class="docs-points" id="docsPoints"></ul>
+          <div class="docs-version-note"><span class="docs-version-note-label" id="docsVersionNoteLabel">Focus Odoo 19</span><p id="docsVersionNoteText"></p></div>
+        </div>
+        <aside class="docs-diagram" id="docsDiagram" aria-label="Schéma pédagogique"></aside>
       </div>
-      <h3 class="docs-slide-title" id="docsSlideTitle"></h3>
-      <p class="docs-slide-intro" id="docsSlideIntro"></p>
-      <ul class="docs-points" id="docsPoints"></ul>
-
-      <div class="docs-version-note">
-        <span class="docs-version-note-label" id="docsVersionNoteLabel">Spécifique à Odoo 19</span>
-        <p id="docsVersionNoteText"></p>
-      </div>
-
       <div class="docs-nav-row">
         <button type="button" class="btn btn--ghost docs-prev" id="docsPrev">Précédent</button>
         <div class="docs-dots" id="docsDots"></div>
@@ -986,17 +1060,15 @@
     </div>
 
     <div class="docs-step" data-docs-step="done" hidden>
-      <div class="docs-done-icon">
-        <svg class="icon" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><use href="#i-layers"/></svg>
-      </div>
-      <h3 class="docs-done-title">Revue technique terminée</h3>
+      <div class="docs-done-icon"><svg class="icon" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><use href="#i-layers"/></svg></div>
+      <h3 class="docs-done-title">Parcours terminé</h3>
       <p class="docs-done-msg" id="docsDoneMsg"></p>
       <div class="btn-row docs-result-actions">
-        <button type="button" class="btn btn--ghost" id="docsRetry">Revoir les slides</button>
+        <button type="button" class="btn btn--ghost" id="docsRetry">Recommencer</button>
+        <button type="button" class="btn btn--ghost" id="docsCompareBtn">Comparer des versions</button>
         <a href="#contact" class="btn btn--primary" id="docsContactBtn">Discuter avec Farid</a>
       </div>
     </div>
-
   </div>
 </div>
 
@@ -1105,477 +1177,177 @@
     });
   });
 
-  /* ---------- odoo quiz ---------- */
+  /* ---------- Odoo Skill Check ---------- */
   var QUIZ_BANK = {
-    technique: [
-      {q:"Quel langage est utilisé pour le développement backend des modules Odoo ?", options:["Python","Java","C#","PHP"], correct:0},
-      {q:"Quelle base de données Odoo utilise-t-il nativement ?", options:["PostgreSQL","MySQL","Oracle","MongoDB"], correct:0},
-      {q:"Quel fichier contient les métadonnées d'un module (nom, version, dépendances) ?", options:["__manifest__.py","__init__.py","config.xml","setup.py"], correct:0},
-      {q:"Quelle méthode de l'ORM permet de rechercher des enregistrements selon un domaine ?", options:["search()","find()","query()","select()"], correct:0},
-      {q:"À quoi sert l'attribut _inherit sur un modèle Python ?", options:["Étendre un modèle existant","Créer une vue héritée","Sécuriser un modèle","Traduire un champ"], correct:0},
-      {q:"Quel moteur de template est utilisé pour les rapports et le site web Odoo ?", options:["QWeb","Jinja2","Twig","Handlebars"], correct:0},
-      {q:"Quel fichier définit les droits d'accès de base à un modèle ?", options:["ir.model.access.csv","security.xml","rights.py","access_rules.json"], correct:0},
-      {q:"Quel type de champ lie un enregistrement à un seul enregistrement d'un autre modèle ?", options:["Many2one","One2many","Many2many","Char"], correct:0},
-      {q:"Quel exécutable lance le serveur Odoo ?", options:["odoo-bin","odoo.exe","start.py","run_odoo"], correct:0},
-      {q:"Que représente un \"wizard\" dans Odoo ?", options:["Un modèle transitoire (TransientModel) pour une action ponctuelle","Un widget graphique du site web","Un type de rapport PDF","Un plug-in de sécurité"], correct:0},
-      {q:"Quel décorateur Python définit un champ calculé (computed field) ?", options:["@api.depends","@api.compute","@field.calc","@odoo.compute"], correct:0},
-      {q:"Quelle interface expose les données Odoo aux applications externes ?", options:["JSON-RPC","SOAP","GraphQL natif","FTP"], correct:0},
-      {q:"Quel outil no-code permet de créer modèles et vues sans écrire de Python ?", options:["Odoo Studio","Odoo Shell","Odoo CLI","pgAdmin"], correct:0},
-      {q:"Quel fichier est requis pour qu'un dossier soit reconnu comme package Python ?", options:["__init__.py","index.py","main.py","module.py"], correct:0},
-      {q:"Que fait la méthode write() de l'ORM ?", options:["Modifier un ou plusieurs enregistrements existants","Créer un enregistrement","Supprimer un enregistrement","Lire un enregistrement"], correct:0},
-      {q:"Quel attribut XML rend un champ en lecture seule sous condition ?", options:["readonly","disabled","locked","frozen"], correct:0},
-      {q:"Quel composant gère l'exécution de tâches planifiées (cron) ?", options:["ir.cron","ir.scheduler","odoo.tasks","cron.model"], correct:0},
-      {q:"Que signifie ORM ?", options:["Object-Relational Mapping","Online Resource Manager","Odoo Record Model","Object Rendering Module"], correct:0},
-      {q:"Quel module technique fournit les fonctionnalités communes à tous les autres modules ?", options:["base","core","odoo_base","common"], correct:0},
-      {q:"Quelle méthode de l'ORM supprime un ou plusieurs enregistrements ?", options:["unlink()","delete()","remove()","destroy()"], correct:0}
+    fonctionnel:[
+      {q:"Dans le cycle de vente, quel document précède généralement la commande client ?",o:["Le devis","La facture","Le bon de livraison","L'avoir"],a:0,l:"fundamentals"},
+      {q:"Quel module gère la relation client et le suivi des opportunités ?",o:["CRM","Achats","Inventaire","Projet"],a:0,l:"fundamentals"},
+      {q:"Quel document valide une commande passée à un fournisseur ?",o:["Le bon de commande fournisseur","Le devis client","L'avoir client","Le ticket Helpdesk"],a:0,l:"fundamentals"},
+      {q:"À quoi sert une règle de réapprovisionnement ?",o:["Déclencher un achat ou une fabrication selon un seuil","Créer un utilisateur","Calculer la TVA","Archiver un produit"],a:0,l:"developer"},
+      {q:"Que représente un avoir en comptabilité ?",o:["Une correction ou annulation totale ou partielle d'une facture","Un devis","Un bon de livraison","Un journal"],a:0,l:"fundamentals"},
+      {q:"Que permet le rapprochement bancaire ?",o:["Faire correspondre les transactions bancaires et les écritures comptables","Créer un compte bancaire","Calculer les salaires","Créer un produit"],a:0,l:"developer"},
+      {q:"Quel module gère les nomenclatures et les ordres de fabrication ?",o:["Fabrication (MRP)","CRM","Ventes","Projet"],a:0,l:"fundamentals"},
+      {q:"Que mesure principalement une feuille de temps ?",o:["Le temps passé sur des tâches ou projets","Le stock disponible","Le chiffre d'affaires","Les congés restants"],a:0,l:"fundamentals"},
+      {q:"À quoi sert une liste de prix ?",o:["Définir des règles de prix selon le contexte commercial","Créer des utilisateurs","Définir des droits d'accès","Créer une vue XML"],a:0,l:"developer"},
+      {q:"Quel outil permet de personnaliser des vues et champs sans écrire tout le développement Python ?",o:["Odoo Studio","Odoo Shell","pgAdmin","odoo-bin"],a:0,l:"fundamentals"}
     ],
-    fonctionnel: [
-      {q:"Dans le cycle de vente, quel document précède la commande client ?", options:["Le devis (quotation)","La facture","Le bon de livraison","L'avoir"], correct:0},
-      {q:"Quel module gère la relation client et le suivi des opportunités ?", options:["CRM","Ventes","Marketing","Helpdesk"], correct:0},
-      {q:"Que représente un bon de livraison dans le module Inventaire ?", options:["Le document qui accompagne la sortie physique de marchandises","La facture envoyée au client","Le contrat fournisseur","Le rapport de stock mensuel"], correct:0},
-      {q:"Comment appelle-t-on la liste structurée des comptes utilisés par l'entreprise ?", options:["Le plan comptable","Le grand livre","Le journal","La balance"], correct:0},
-      {q:"Quel module gère les processus de fabrication et les nomenclatures (BOM) ?", options:["Fabrication (MRP)","Achats","Qualité","Maintenance"], correct:0},
-      {q:"Quel document envoie-t-on à un fournisseur pour valider une commande ?", options:["Le bon de commande","Le devis","La facture fournisseur","Le reçu"], correct:0},
-      {q:"Quel outil permet de personnaliser vues, champs et automatisations sans code ?", options:["Odoo Studio","Odoo Shell","Odoo Marketplace","Odoo Debug Mode"], correct:0},
-      {q:"Dans le module RH, une règle de présence configure principalement quoi ?", options:["Les horaires et le suivi des présences des employés","Le calcul de l'impôt","Les congés payés uniquement","Le recrutement"], correct:0},
-      {q:"Qu'est-ce qu'un avoir (credit note) en comptabilité ?", options:["Un document qui annule ou corrige tout ou partie d'une facture","Une facture d'acompte","Un bon de commande","Un rappel de paiement"], correct:0},
-      {q:"Quel module gère les tickets et demandes d'assistance client ?", options:["Helpdesk","CRM","Ventes","Site Web"], correct:0},
-      {q:"Que représente un emplacement virtuel dans le module Inventaire ?", options:["Un emplacement non physique utilisé pour représenter des flux","Un entrepôt réel non encore construit","Un entrepôt fictif de test","Un emplacement archivé"], correct:0},
-      {q:"Quelle méthode de valorisation des stocks Odoo propose-t-il, en plus du coût standard ?", options:["FIFO (premier entré, premier sorti)","LIFO uniquement","Valeur fixe obligatoire","Aucune"], correct:0},
-      {q:"À quoi sert un tarif (pricelist) dans le module Ventes ?", options:["Définir des règles de prix selon le client, la quantité ou la période","Calculer la TVA","Gérer les commissions des vendeurs","Suivre les objectifs commerciaux"], correct:0},
-      {q:"Que permet une règle de réapprovisionnement automatique ?", options:["Déclencher un achat ou une fabrication sous un seuil défini","Bloquer les ventes sans stock","Archiver les produits obsolètes","Recalculer les prix de vente"], correct:0},
-      {q:"Qu'est-ce qu'un rapprochement bancaire ?", options:["Faire correspondre les transactions bancaires avec les écritures comptables","Créer un nouveau compte en banque","Calculer les intérêts bancaires","Générer la déclaration de TVA"], correct:0},
-      {q:"Quel module permet de créer et gérer un site e-commerce ?", options:["eCommerce (Site Web)","Point de Vente","CRM","Marketing"], correct:0},
-      {q:"Dans le module Projet, qu'enregistre une feuille de temps (timesheet) ?", options:["Le temps passé par les employés sur des tâches ou projets","Le planning des congés","Le budget du projet","La liste des livrables"], correct:0},
-      {q:"Que permet le Point de Vente (POS) d'Odoo ?", options:["Encaisser des ventes en magasin, même hors connexion","Gérer uniquement les ventes en ligne","Suivre les campagnes marketing","Planifier la production"], correct:0},
-      {q:"Que déclenche généralement la validation d'un bon de commande fournisseur ?", options:["La création d'un reçu de stock attendu","La facture immédiate","La clôture de l'exercice comptable","Un avoir client"], correct:0},
-      {q:"Que montre généralement le tableau de bord d'un module Odoo ?", options:["Une vue synthétique des indicateurs clés du module","Le code source du module","La liste des utilisateurs connectés","Les logs serveur"], correct:0}
+    technique:[
+      {q:"Quel langage est utilisé pour le développement backend des modules Odoo ?",o:["Python","Java","C#","PHP"],a:0,l:"fundamentals"},
+      {q:"Quelle base de données Odoo utilise-t-il nativement ?",o:["PostgreSQL","MySQL","Oracle","MongoDB"],a:0,l:"fundamentals"},
+      {q:"Quel fichier décrit les métadonnées et dépendances d'un module ?",o:["__manifest__.py","__init__.py","setup.py","config.xml"],a:0,l:"fundamentals"},
+      {q:"Quel fichier définit les droits d'accès CRUD de base ?",o:["ir.model.access.csv","security.py","access.json","rules.csv"],a:0,l:"developer"},
+      {q:"Quel exécutable lance le serveur Odoo ?",o:["odoo-bin","start.py","odoo.exe","run_odoo"],a:0,l:"fundamentals"},
+      {q:"Que représente un wizard dans Odoo ?",o:["Un modèle transitoire pour une action ponctuelle","Un rapport PDF","Un widget CSS","Une base de données"],a:0,l:"developer"},
+      {q:"Quel composant décrit les écrans et menus côté serveur ?",o:["Les vues XML","PostgreSQL","requirements.txt","Git"],a:0,l:"fundamentals"},
+      {q:"Quelle couche filtre les lignes accessibles selon un domaine ?",o:["Les record rules (ir.rule)","Le manifeste","QWeb","PostgreSQL seul"],a:0,l:"developer"},
+      {q:"Quelle technologie anime le client web moderne d'Odoo ?",o:["OWL","Django Templates","AngularJS uniquement","Jinja2"],a:0,l:"developer"},
+      {q:"Quelle est l'idée centrale de l'architecture modulaire Odoo ?",o:["Les fonctionnalités sont distribuées en addons dépendants les uns des autres","Chaque fonctionnalité a sa propre base de données","Tout est codé dans un seul fichier","Les vues ne dépendent jamais des modèles"],a:0,l:"advanced"}
+    ],
+    python_orm:[
+      {q:"Que signifie ORM ?",o:["Object-Relational Mapping","Online Resource Manager","Odoo Record Model","Object Rendering Module"],a:0,l:"fundamentals"},
+      {q:"Quelle méthode recherche des enregistrements avec un domaine ?",o:["search()","find()","select()","query()"],a:0,l:"fundamentals"},
+      {q:"Quelle méthode modifie des enregistrements existants ?",o:["write()","create()","unlink()","browse()"],a:0,l:"fundamentals"},
+      {q:"Quelle méthode supprime des enregistrements ?",o:["unlink()","delete()","remove()","destroy()"],a:0,l:"developer"},
+      {q:"Quel attribut étend un modèle existant ?",o:["_inherit","_extend","_parent","_override"],a:0,l:"developer"},
+      {q:"Quel décorateur exprime les dépendances d'un champ calculé ?",o:["@api.depends","@api.compute","@field.calc","@odoo.depends"],a:0,l:"developer"},
+      {q:"Quel champ lie un enregistrement à un seul enregistrement d'un autre modèle ?",o:["Many2one","One2many","Many2many","Selection"],a:0,l:"fundamentals"},
+      {q:"Quel type de modèle est adapté aux assistants temporaires ?",o:["TransientModel","Model","AbstractModel","BaseModel"],a:0,l:"developer"},
+      {q:"Quel décorateur sert à déclarer une contrainte Python ?",o:["@api.constrains","@api.check","@api.validate","@api.rule"],a:0,l:"advanced"},
+      {q:"Quel est le rôle général de browse() ?",o:["Obtenir un recordset à partir d'identifiants","Créer un modèle","Supprimer une table","Charger un template QWeb"],a:0,l:"developer"}
+    ],
+    web_owl:[
+      {q:"Quel moteur de template XML est utilisé par Odoo ?",o:["QWeb","Twig","Jinja2","Handlebars"],a:0,l:"fundamentals"},
+      {q:"Quel mécanisme permet d'étendre une vue XML existante ?",o:["inherit_id + xpath","include_js","extend_css","route_inherit"],a:0,l:"developer"},
+      {q:"Quel décorateur expose une route HTTP/JSON côté serveur ?",o:["@http.route","@web.api","@controller.route","@odoo.url"],a:0,l:"fundamentals"},
+      {q:"Quel hook OWL s'exécute avant le montage pour préparer des données ?",o:["onWillStart","onMounted","onDestroyed","onRendered"],a:0,l:"advanced"},
+      {q:"Quel hook permet d'accéder aux services Odoo depuis un composant OWL ?",o:["useService()","useRoute()","useOdoo()","getService()"],a:0,l:"developer"},
+      {q:"Quelle directive QWeb affiche conditionnellement un bloc ?",o:["t-if","t-show","t-condition","t-visible"],a:0,l:"fundamentals"},
+      {q:"Quelle directive parcourt une collection dans QWeb ?",o:["t-foreach","t-loop","t-each","t-repeat"],a:0,l:"fundamentals"},
+      {q:"Quel niveau d'authentification est destiné à un utilisateur connecté ?",o:["user","public","none","guest"],a:0,l:"developer"},
+      {q:"Dans Odoo, un rapport PDF est généralement basé sur quel moteur de template ?",o:["QWeb","OWL seul","Markdown","CSV"],a:0,l:"fundamentals"},
+      {q:"Quelle technologie doit être utilisée pour le développement front-end moderne d'Odoo ?",o:["OWL","jQuery uniquement","PHP","Django"],a:0,l:"developer"}
+    ],
+    architecture:[
+      {q:"Quel flux représente le mieux une requête métier classique dans Odoo ?",o:["Client → serveur Odoo → ORM → PostgreSQL","Client → PostgreSQL direct","Client → QWeb → Git","PostgreSQL → navigateur direct"],a:0,l:"fundamentals"},
+      {q:"Quel fichier initialise un package Python de module ?",o:["__init__.py","__manifest__.py","main.py","package.xml"],a:0,l:"fundamentals"},
+      {q:"Quelle couche définit les droits CRUD par modèle et groupe ?",o:["ir.model.access.csv","ir.rule","QWeb","controllers"],a:0,l:"developer"},
+      {q:"Quelle couche filtre les enregistrements selon leur contenu ?",o:["ir.rule","ir.model.access.csv","__manifest__.py","QWeb"],a:0,l:"developer"},
+      {q:"Que fait sudo() dans l'ORM ?",o:["Il contourne temporairement certains contrôles de sécurité","Il crée un super-utilisateur permanent","Il redémarre Odoo","Il désactive PostgreSQL"],a:0,l:"advanced"},
+      {q:"Quel dossier contient typiquement la logique métier Python ?",o:["models/","views/","security/","static/"],a:0,l:"fundamentals"},
+      {q:"Quel dossier contient typiquement les vues XML ?",o:["views/","models/","security/","data/"],a:0,l:"fundamentals"},
+      {q:"Quel fichier déclare les dépendances d'un module ?",o:["__manifest__.py","__init__.py","requirements.txt uniquement","security.xml"],a:0,l:"developer"},
+      {q:"Quelle base de données est au centre du stockage Odoo ?",o:["PostgreSQL","MongoDB","SQLite","Redis"],a:0,l:"fundamentals"},
+      {q:"Pourquoi les modules Odoo déclarent-ils des dépendances ?",o:["Pour garantir que les modèles, vues et données nécessaires soient disponibles","Pour accélérer le navigateur","Pour remplacer PostgreSQL","Pour éviter Python"],a:0,l:"developer"}
     ]
   };
 
-  var quizState = {type:'fonctionnel', version:'19', questions:[], index:0, score:0, locked:false};
+  var quizState={type:'fonctionnel',version:'19',level:'fundamentals',questions:[],index:0,score:0,locked:false,topicScores:{}};
+  function shuffle(arr){for(var i=arr.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),tmp=arr[i];arr[i]=arr[j];arr[j]=tmp;}return arr;}
+  var quizOverlay=document.getElementById('quizOverlay');
+  var quizStepEls=quizOverlay?quizOverlay.querySelectorAll('.quiz-step'):[];
+  function showQuizStep(name){quizStepEls.forEach(function(el){el.hidden=el.getAttribute('data-step')!==name;});}
+  function openQuiz(){if(!quizOverlay)return;quizOverlay.classList.add('is-open');quizOverlay.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';showQuizStep('setup');var b=document.getElementById('quizClose');if(b)b.focus();}
+  function closeQuiz(){if(!quizOverlay)return;quizOverlay.classList.remove('is-open');quizOverlay.setAttribute('aria-hidden','true');document.body.style.overflow='';}
+  document.querySelectorAll('[data-quiz-open]').forEach(function(btn){btn.addEventListener('click',function(){closeNav();openQuiz();});});
+  var quizCloseBtn=document.getElementById('quizClose');if(quizCloseBtn)quizCloseBtn.addEventListener('click',closeQuiz);
+  if(quizOverlay)quizOverlay.addEventListener('click',function(e){if(e.target===quizOverlay)closeQuiz();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&quizOverlay&&quizOverlay.classList.contains('is-open'))closeQuiz();});
+  document.querySelectorAll('#versionPills .quiz-pill').forEach(function(p){p.addEventListener('click',function(){document.querySelectorAll('#versionPills .quiz-pill').forEach(function(x){x.classList.remove('is-selected');});p.classList.add('is-selected');quizState.version=p.getAttribute('data-version');});});
+  document.querySelectorAll('#quizLevelPills .quiz-pill').forEach(function(p){p.addEventListener('click',function(){document.querySelectorAll('#quizLevelPills .quiz-pill').forEach(function(x){x.classList.remove('is-selected');});p.classList.add('is-selected');quizState.level=p.getAttribute('data-level');});});
+  document.querySelectorAll('#typeCards .quiz-type-card').forEach(function(c){c.addEventListener('click',function(){document.querySelectorAll('#typeCards .quiz-type-card').forEach(function(x){x.classList.remove('is-selected');});c.classList.add('is-selected');quizState.type=c.getAttribute('data-type');});});
+  function pickQuestions(){var pool=QUIZ_BANK[quizState.type].filter(function(x){return x.l===quizState.level||quizState.level==='fundamentals'&&x.l==='fundamentals'||quizState.level==='developer'&&x.l!=='advanced';});if(pool.length<10)pool=QUIZ_BANK[quizState.type].slice();return shuffle(pool.slice()).slice(0,10).map(function(item){var opts=item.o.map(function(text,i){return{text:text,correct:i===item.a};});shuffle(opts);return{q:item.q,options:opts,level:item.l};});}
+  var quizProgressLabel=document.getElementById('quizProgressLabel'),quizProgressFill=document.getElementById('quizProgressFill'),quizQuestionEl=document.getElementById('quizQuestion'),quizOptionsEl=document.getElementById('quizOptions'),quizScoreEl=document.getElementById('quizScore'),quizTierEl=document.getElementById('quizTier'),quizTierMsgEl=document.getElementById('quizTierMsg'),quizMeta=document.getElementById('quizMeta'),quizBreakdown=document.getElementById('quizBreakdown');
+  function renderQuizQuestion(){quizState.locked=false;var total=quizState.questions.length,current=quizState.questions[quizState.index];quizProgressLabel.textContent='Question '+(quizState.index+1)+' / '+total;quizProgressFill.style.width=((quizState.index/total)*100)+'%';quizMeta.innerHTML='<span class="tag">Odoo '+quizState.version+'</span><span class="tag">'+(quizState.level==='fundamentals'?'Fondamentaux':quizState.level==='developer'?'Développeur':'Avancé')+'</span><span class="tag">'+quizState.type.replace('_',' / ')+'</span>';quizQuestionEl.textContent=current.q;quizOptionsEl.innerHTML='';current.options.forEach(function(opt){var b=document.createElement('button');b.type='button';b.className='quiz-option';b.textContent=opt.text;b.addEventListener('click',function(){if(quizState.locked)return;quizState.locked=true;b.classList.add('is-selected');quizOptionsEl.querySelectorAll('.quiz-option').forEach(function(x){x.disabled=true;});if(opt.correct){quizState.score++;}quizState.topicScores[current.level]=(quizState.topicScores[current.level]||0)+(opt.correct?1:0);setTimeout(function(){quizState.index++;if(quizState.index<total)renderQuizQuestion();else finishQuiz();},300);});quizOptionsEl.appendChild(b);});}
+  function startQuiz(){quizState.questions=pickQuestions();quizState.index=0;quizState.score=0;quizState.topicScores={};showQuizStep('quiz');renderQuizQuestion();}
+  function finishQuiz(){quizProgressFill.style.width='100%';var score=quizState.score;quizScoreEl.textContent=score+'/10';var tier=score<=3?{label:'À approfondir',msg:"Les bases méritent d'être consolidées. Le parcours technique peut vous aider à structurer les notions."}:score<=6?{label:'Bonnes bases',msg:"Les fondamentaux sont là. La prochaine étape est de relier les concepts entre eux."}:score<=8?{label:'Bon niveau',msg:"Bonne compréhension. Vous pouvez maintenant creuser les détails de version et d'implémentation."}:{label:'Expert Odoo',msg:"Très solide. Le lab de comparaison vous permettra d'aller encore plus loin."};quizTierEl.textContent=tier.label;quizTierMsgEl.textContent=tier.msg;quizBreakdown.innerHTML='';[['Fondamentaux','fundamentals'],['Développeur','developer'],['Avancé','advanced']].forEach(function(x){var d=document.createElement('div');d.className='quiz-breakdown-item';d.innerHTML='<strong>'+(quizState.topicScores[x[1]]||0)+'</strong><span>'+x[0]+'</span>';quizBreakdown.appendChild(d);});showQuizStep('results');}
+  var quizStartBtn=document.getElementById('quizStart');if(quizStartBtn)quizStartBtn.addEventListener('click',startQuiz);
+  var quizRetryBtn=document.getElementById('quizRetry');if(quizRetryBtn)quizRetryBtn.addEventListener('click',function(){showQuizStep('setup');});
+  var quizContactBtn=document.getElementById('quizContactBtn');if(quizContactBtn)quizContactBtn.addEventListener('click',closeQuiz);
 
-  function shuffle(arr){
-    for(var i=arr.length-1;i>0;i--){
-      var j = Math.floor(Math.random()*(i+1));
-      var tmp = arr[i]; arr[i]=arr[j]; arr[j]=tmp;
-    }
-    return arr;
-  }
-
-  var quizOverlay = document.getElementById('quizOverlay');
-  var quizStepEls = quizOverlay ? quizOverlay.querySelectorAll('.quiz-step') : [];
-
-  function showQuizStep(name){
-    quizStepEls.forEach(function(el){ el.hidden = el.getAttribute('data-step') !== name; });
-  }
-
-  function openQuiz(){
-    if(!quizOverlay) return;
-    quizOverlay.classList.add('is-open');
-    quizOverlay.setAttribute('aria-hidden','false');
-    document.body.style.overflow = 'hidden';
-    showQuizStep('setup');
-    var closeBtn = document.getElementById('quizClose');
-    if(closeBtn){ closeBtn.focus(); }
-  }
-  function closeQuiz(){
-    if(!quizOverlay) return;
-    quizOverlay.classList.remove('is-open');
-    quizOverlay.setAttribute('aria-hidden','true');
-    document.body.style.overflow = '';
-  }
-
-  var quizTriggers = document.querySelectorAll('[data-quiz-open]');
-  quizTriggers.forEach(function(btn){
-    btn.addEventListener('click', function(){
-      closeNav();
-      openQuiz();
-    });
-  });
-
-  var quizCloseBtn = document.getElementById('quizClose');
-  if(quizCloseBtn){ quizCloseBtn.addEventListener('click', closeQuiz); }
-  if(quizOverlay){
-    quizOverlay.addEventListener('click', function(e){
-      if(e.target === quizOverlay){ closeQuiz(); }
-    });
-  }
-  document.addEventListener('keydown', function(e){
-    if(e.key === 'Escape' && quizOverlay && quizOverlay.classList.contains('is-open')){ closeQuiz(); }
-  });
-
-  var versionPills = document.querySelectorAll('.quiz-pill');
-  versionPills.forEach(function(p){
-    p.addEventListener('click', function(){
-      versionPills.forEach(function(x){ x.classList.remove('is-selected'); });
-      p.classList.add('is-selected');
-      quizState.version = p.getAttribute('data-version');
-    });
-  });
-
-  var typeCards = document.querySelectorAll('.quiz-type-card');
-  typeCards.forEach(function(c){
-    c.addEventListener('click', function(){
-      typeCards.forEach(function(x){ x.classList.remove('is-selected'); });
-      c.classList.add('is-selected');
-      quizState.type = c.getAttribute('data-type');
-    });
-  });
-
-  function pickQuestions(type){
-    var pool = shuffle(QUIZ_BANK[type].slice()).slice(0,10);
-    return pool.map(function(item){
-      var opts = item.options.map(function(text, i){ return {text:text, correct: i === item.correct}; });
-      shuffle(opts);
-      return {q:item.q, options:opts};
-    });
-  }
-
-  var quizProgressLabel = document.getElementById('quizProgressLabel');
-  var quizProgressFill = document.getElementById('quizProgressFill');
-  var quizQuestionEl = document.getElementById('quizQuestion');
-  var quizOptionsEl = document.getElementById('quizOptions');
-  var quizScoreEl = document.getElementById('quizScore');
-  var quizTierEl = document.getElementById('quizTier');
-  var quizTierMsgEl = document.getElementById('quizTierMsg');
-
-  function renderQuizQuestion(){
-    quizState.locked = false;
-    var total = quizState.questions.length;
-    var current = quizState.questions[quizState.index];
-    quizProgressLabel.textContent = 'Question ' + (quizState.index+1) + ' / ' + total;
-    quizProgressFill.style.width = ((quizState.index/total)*100) + '%';
-    quizQuestionEl.textContent = current.q;
-    quizOptionsEl.innerHTML = '';
-    current.options.forEach(function(opt){
-      var optBtn = document.createElement('button');
-      optBtn.type = 'button';
-      optBtn.className = 'quiz-option';
-      optBtn.textContent = opt.text;
-      optBtn.addEventListener('click', function(){
-        if(quizState.locked) return;
-        quizState.locked = true;
-        optBtn.classList.add('is-selected');
-        var allOpts = quizOptionsEl.querySelectorAll('.quiz-option');
-        allOpts.forEach(function(b){ b.disabled = true; });
-        if(opt.correct){ quizState.score++; }
-        setTimeout(function(){
-          quizState.index++;
-          if(quizState.index < total){ renderQuizQuestion(); }
-          else { finishQuiz(); }
-        }, 380);
-      });
-      quizOptionsEl.appendChild(optBtn);
-    });
-  }
-
-  function startQuiz(){
-    quizState.questions = pickQuestions(quizState.type);
-    quizState.index = 0;
-    quizState.score = 0;
-    showQuizStep('quiz');
-    renderQuizQuestion();
-  }
-
-  function finishQuiz(){
-    quizProgressFill.style.width = '100%';
-    var score = quizState.score;
-    quizScoreEl.textContent = score + '/10';
-    var tier;
-    if(score <= 3){ tier = {label:'À approfondir', msg:"Les bases méritent d'être consolidées — un accompagnement ciblé peut faire toute la différence."}; }
-    else if(score <= 6){ tier = {label:'Bonnes bases', msg:"Vous maîtrisez les fondamentaux d'Odoo. La suite logique : les sujets plus avancés."}; }
-    else if(score <= 8){ tier = {label:'Bon niveau', msg:"Une compréhension solide d'Odoo. De quoi mener des projets ambitieux."}; }
-    else { tier = {label:'Expert Odoo', msg:"Niveau expert ! On devrait sûrement échanger sur vos projets Odoo."}; }
-    quizTierEl.textContent = tier.label;
-    quizTierMsgEl.textContent = tier.msg;
-    showQuizStep('results');
-  }
-
-  var quizStartBtn = document.getElementById('quizStart');
-  if(quizStartBtn){ quizStartBtn.addEventListener('click', startQuiz); }
-
-  var quizRetryBtn = document.getElementById('quizRetry');
-  if(quizRetryBtn){ quizRetryBtn.addEventListener('click', function(){ showQuizStep('setup'); }); }
-
-  var quizContactBtn = document.getElementById('quizContactBtn');
-  if(quizContactBtn){ quizContactBtn.addEventListener('click', closeQuiz); }
-
-  /* ---------- odoo technical documentation slides ---------- */
-  var DOCS_SLIDES = [
-    {
-      icon:'i-globe',
-      title:"L'écosystème technique d'Odoo",
-      intro:"Odoo est un framework complet : un serveur Python, un client web moderne et une base de données unique, organisés autour de modules qui s'ajoutent les uns aux autres.",
-      points:[
-        "Le serveur (Python) et le client web (JS/OWL) communiquent en JSON-RPC, complété par des routes HTTP classiques pour les pages publiques.",
-        "PostgreSQL est la seule base de données supportée nativement.",
-        "Tout est un module (addon) : même les fonctionnalités \"cœur\" (base, web, mail...) suivent cette logique.",
-        "Deux éditions partagent le même noyau technique : Community (open source) et Enterprise (modules additionnels).",
-        "Le serveur démarre via l'exécutable odoo-bin, qui charge les modules déclarés dans les chemins d'addons configurés."
-      ],
-      notes:{
-        16:"Python 3.10 recommandé, PostgreSQL 12 ou supérieur.",
-        17:"Le moteur SCSS bascule vers Dart Sass, et les échanges internes du client web utilisent désormais type=\"jsonrpc\".",
-        18:"Python 3.12 requis ; une politique de sécurité (CSP) plus stricte interdit l'injection de scripts inline.",
-        19:"Python 3.11 devient la version minimale exigée ; la plateforme continue d'être consolidée par petites touches."
-      }
-    },
-    {
-      icon:'i-layers',
-      title:"Structure d'un module",
-      intro:"Un module Odoo est un dossier normalisé : quelques fichiers obligatoires et une organisation par convention, lisible par n'importe quel développeur Odoo.",
-      points:[
-        "__manifest__.py : carte d'identité du module (nom, version, dépendances, données à charger, license).",
-        "__init__.py : importe les sous-dossiers Python (models, controllers...).",
-        "models/ : logique métier, classes Python héritant de models.Model.",
-        "views/ : définitions XML des écrans et menus.",
-        "security/ : droits d'accès et règles d'enregistrement.",
-        "data/ et demo/ : données de configuration ou de démonstration chargées au démarrage."
-      ],
-      notes:{
-        16:"Le champ license du manifeste est recommandé mais son absence ne bloque pas l'installation.",
-        17:"Le champ license devient obligatoire : son absence lève une erreur au chargement du module.",
-        18:"Les contraintes SQL peuvent désormais être déclarées via la classe Constraint, en plus du manifeste classique.",
-        19:"Structure inchangée ; les mêmes conventions restent valables."
-      }
-    },
-    {
-      icon:'i-cpu',
-      title:"L'ORM et ses fonctions",
-      intro:"L'ORM transforme les classes Python en tables PostgreSQL et propose une API unifiée pour lire, créer et modifier les données, sans écrire de SQL.",
-      points:[
-        "Un modèle hérite de models.Model (ou TransientModel pour les wizards, AbstractModel pour les mixins réutilisables).",
-        "Champs typés : Char, Text, Integer, Float, Boolean, Date, Datetime, Selection, Many2one, One2many, Many2many...",
-        "Méthodes de base : create(), write(), unlink(), search(), browse().",
-        "Champs calculés avec @api.depends et une méthode _compute_..., contraintes Python avec @api.constrains.",
-        "Des méthodes dédiées permettent de créer, lier ou détacher des enregistrements dans une relation one2many ou many2many."
-      ],
-      notes:{
-        16:"Les listes liées s'écrivent avec des tuples (0,0,{...}), (4,id), (6,0,[ids])... et read_group() renvoie des dictionnaires.",
-        17:"Les objets Command (Command.create, .update, .link, .set...) remplacent les tuples ; _read_group() renvoie de vrais enregistrements ; name_get() est remplacé par un champ calculé _compute_display_name.",
-        18:"Nouvelle classe déclarative Constraint pour définir les contraintes SQL, en alternative à _sql_constraints (toujours valide).",
-        19:"Les mêmes bases sont conservées ; l'ORM continue d'être affiné sans rupture majeure."
-      }
-    },
-    {
-      icon:'i-sliders',
-      title:"XML et les vues disponibles",
-      intro:"Les vues XML décrivent comment un modèle s'affiche à l'écran : formulaire, liste, kanban, recherche, calendrier, graphique, pivot... Elles peuvent être étendues sans être dupliquées.",
-      points:[
-        "Types de vues courants : form, list, kanban, search, calendar, graph, pivot, activity.",
-        "L'héritage de vue se fait avec inherit_id et des blocs <xpath expr=\"...\" position=\"...\"> qui insèrent, remplacent ou suppriment des éléments.",
-        "Les champs peuvent être rendus visibles, obligatoires ou en lecture seule selon la valeur d'autres champs.",
-        "Les templates kanban utilisent des sous-templates QWeb pour définir la carte affichée."
-      ],
-      notes:{
-        16:"Les conditions s'écrivent avec attrs=\"{...}\" (façon domaine) et states=\"draft,sent\" sur les boutons ; la vue liste s'appelle <tree>.",
-        17:"attrs et states disparaissent au profit d'expressions inline directes (invisible=\"state == 'draft'\", readonly=..., required=...) ; <tree> devient <list> ; le template kanban-card devient card.",
-        18:"La syntaxe inline se généralise partout ; la CSP interdit tout script injecté dans un template, qui doit passer par le bundle d'assets du manifeste.",
-        19:"Aucune rupture supplémentaire : la syntaxe posée en 17 reste la référence."
-      }
-    },
-    {
-      icon:'i-shield',
-      title:"Sécurité et droits d'accès",
-      intro:"La sécurité Odoo repose sur deux couches indépendantes qui se combinent automatiquement à chaque appel de l'ORM.",
-      points:[
-        "ir.model.access.csv : droits CRUD (lecture, écriture, création, suppression) par modèle et par groupe.",
-        "ir.rule : règles d'enregistrement qui filtrent les lignes visibles selon une condition (domain_force).",
-        "res.groups structure les rôles fonctionnels et peut hériter d'autres groupes.",
-        "Un appel sudo() contourne temporairement ces contrôles ; à utiliser avec parcimonie."
-      ],
-      notes:{
-        16:"Cette couche de sécurité est restée stable sur les versions 16 à 19.",
-        17:"Aucun changement structurel ; le durcissement se joue surtout côté contrôleurs web (voir la diapositive suivante).",
-        18:"Le renforcement de la politique de sécurité (CSP) touche surtout la couche web, pas les droits ORM eux-mêmes.",
-        19:"Les mêmes principes s'appliquent sans changement majeur."
-      }
-    },
-    {
-      icon:'i-file-text',
-      title:"QWeb et les rapports",
-      intro:"QWeb est le moteur de template XML d'Odoo : il sert à la fois pour le site web, les rapports PDF et les composants OWL.",
-      points:[
-        "Directives clés : t-if / t-elif / t-else, t-foreach, t-field pour un champ formaté, t-out pour du texte échappé.",
-        "Un rapport PDF se déclare via ir.actions.report puis se génère à partir d'un template QWeb converti en PDF.",
-        "Tout contenu HTML construit en Python doit être marqué explicitement comme sûr pour éviter les failles XSS."
-      ],
-      notes:{
-        16:"t-raw permet d'injecter du HTML brut non échappé ; la génération PDF passe par _render_qweb_pdf().",
-        17:"t-raw est supprimé au profit de t-out (échappement automatique, sauf sur un objet Markup() explicite) ; _render_qweb_pdf() est dépréciée en faveur de _render().",
-        18:"_render_qweb_pdf() est totalement retirée ; tout HTML généré côté Python doit passer par markupsafe.Markup() avec un escape() des données utilisateur.",
-        19:"Les mêmes règles s'appliquent, sans nouveauté majeure sur ce point."
-      }
-    },
-    {
-      icon:'i-share',
-      title:"Contrôleurs web",
-      intro:"Un contrôleur expose une URL Python que le navigateur ou une application externe peut appeler, en dehors du mécanisme des vues.",
-      points:[
-        "Déclaration avec le décorateur @http.route(chemin, type=..., auth=..., methods=...).",
-        "type=\"http\" pour une page classique, un type JSON pour un échange de données structuré.",
-        "auth définit le niveau d'authentification requis : \"public\", \"user\", \"none\"..."
-      ],
-      notes:{
-        16:"Les appels internes du client web utilisent type=\"json\".",
-        17:"Apparition de type=\"jsonrpc\", dédié au protocole JSON-RPC 2.0 du client web ; nouvelle option auth=\"bearer\" pour l'authentification par jeton, utile pour les intégrations externes.",
-        18:"Les contrôles de sécurité sur les routes se renforcent, en cohérence avec la CSP plus stricte.",
-        19:"Continuité de ces mêmes bases, sans rupture supplémentaire."
-      }
-    },
-    {
-      icon:'i-code',
-      title:"Le framework OWL",
-      intro:"OWL (Odoo Web Library) est le framework de composants qui anime le client web moderne d'Odoo, inspiré de React et Vue.",
-      points:[
-        "Un composant est une classe qui étend Component, associée à un template QWeb.",
-        "L'état réactif se déclare avec useState ; l'interface se met à jour automatiquement quand il change.",
-        "Le cycle de vie s'exprime via des hooks appelés dans setup() : onWillStart, onMounted, onWillUpdateProps...",
-        "Les services transverses (ORM, notifications, actions, dialogues...) s'obtiennent avec useService(\"nom_du_service\")."
-      ],
-      notes:{
-        16:"OWL 2 couvre l'essentiel du client, y compris les widgets de champ, avec un adaptateur de compatibilité pour l'ancien code.",
-        17:"Bascule complète : le système de widgets historique est retiré, tout nouveau développement backend passe par des composants OWL avec hooks.",
-        18:"Continuité sur la même base OWL 2, avec des ajustements des services et bibliothèques associées.",
-        19:"Les mêmes fondations restent valables ; c'est la référence pour tout développement front-end actuel."
-      }
-    }
+  /* ---------- Odoo Technical Lab ---------- */
+  var DOCS_SLIDES=[
+    {icon:'i-globe',title:"L'architecture en une image",intro:"Avant de coder, retenez le chemin général d'une donnée : le navigateur parle au serveur Odoo, le serveur applique la logique métier via l'ORM et PostgreSQL conserve les données.",points:["Le client web utilise JavaScript/OWL et communique avec le serveur.","Le serveur Odoo porte les modèles, règles métier, contrôleurs et modules.","L'ORM fait l'intermédiaire entre Python et PostgreSQL.","Les modules organisent et étendent les fonctionnalités."],diagram:'architecture',notes:{16:"Les mêmes grandes couches structurent Odoo 16.",17:"La structure générale reste la même ; certaines APIs web évoluent.",18:"La structure générale reste la même ; la couche web est davantage durcie.",19:"Les fondations restent les mêmes et servent de base au développement actuel."}},
+    {icon:'i-layers',title:"Anatomie d'un module",intro:"Un module est un petit système cohérent : manifeste, initialisation, modèles, vues, sécurité et données travaillent ensemble.",points:["__manifest__.py décrit le module, ses dépendances et les fichiers à charger.","__init__.py initialise les packages Python.","models/ contient la logique métier.","views/ contient les interfaces XML.","security/ contient les contrôles d'accès.","data/ et demo/ servent aux données de configuration ou de démonstration."],diagram:'tree',notes:{16:"La convention de structure reste familière et stable.",17:"Les mêmes dossiers restent utilisés ; les différences portent surtout sur les APIs et conventions internes.",18:"La structure de module reste la même.",19:"La structure reste inchangée : la lisibilité du module est toujours essentielle."}},
+    {icon:'i-cpu',title:"Le cycle de l'ORM",intro:"L'ORM permet de manipuler les données avec des objets Python plutôt que de construire directement des requêtes SQL dans chaque fonctionnalité.",points:["models.Model représente les modèles métier.","create(), search(), browse(), write() et unlink() forment le socle des opérations courantes.","Les champs calculés utilisent @api.depends.","Les relations Many2one, One2many et Many2many structurent les données."],diagram:'orm',notes:{16:"Les relations utilisent encore les commandes sous forme de tuples.",17:"Les objets Command deviennent la manière privilégiée de manipuler les relations.",18:"Les bases de l'ORM restent identiques ; les contraintes déclaratives évoluent.",19:"L'ORM conserve les mêmes opérations fondamentales et continue d'être affiné."}},
+    {icon:'i-sliders',title:"Du modèle Python à l'écran",intro:"Une vue ne crée pas la donnée : elle décrit comment un modèle doit être présenté et manipulé par l'utilisateur.",points:["Le modèle Python définit les champs et la logique.","Le XML décrit les vues form, list, kanban, search, calendar, graph ou pivot.","inherit_id + xpath permet d'étendre une vue existante.","Les expressions de visibilité, lecture seule et obligation adaptent l'interface."],diagram:'views',notes:{16:"La vue liste utilise <tree> et les conditions passent notamment par attrs/states.",17:"attrs/states disparaissent au profit d'expressions inline et <tree> devient <list>.",18:"La syntaxe inline reste la référence et la couche web impose davantage de contraintes de sécurité.",19:"La syntaxe introduite en 17 reste la référence."}},
+    {icon:'i-shield',title:"Sécurité : deux barrières",intro:"La sécurité devient plus simple à raisonner quand on sépare clairement les droits sur le modèle et le filtrage des enregistrements.",points:["ir.model.access.csv répond à : qui peut lire, créer, modifier ou supprimer ce modèle ?","ir.rule répond à : parmi les enregistrements, lesquels cet utilisateur peut-il voir ou modifier ?","res.groups structure les rôles fonctionnels.","sudo() contourne temporairement certains contrôles : il faut l'utiliser consciemment."],diagram:'security',notes:{16:"Le modèle de sécurité est stable.",17:"La structure des droits ORM reste la même ; les évolutions se voient surtout côté web.",18:"La CSP renforce la couche web sans changer le principe ACL + record rules.",19:"Les mêmes principes restent valables."}},
+    {icon:'i-file-text',title:"QWeb : données → rendu",intro:"QWeb est le moteur de templates XML utilisé notamment pour le site et les rapports. Le point important est de distinguer rendu, échappement et contenu sûr.",points:["t-if / t-elif / t-else pilotent les conditions.","t-foreach parcourt une collection.","t-field formate un champ selon son contexte.","t-out produit une sortie échappée.","Les données construites côté Python doivent être traitées avec attention pour éviter les problèmes XSS."],diagram:'qweb',notes:{16:"t-raw existe encore pour du HTML brut ; la génération PDF s'appuie sur _render_qweb_pdf().",17:"t-raw est supprimé au profit de t-out et _render_qweb_pdf() est dépréciée au profit de _render().",18:"_render_qweb_pdf() est retirée ; le HTML sûr côté Python passe par Markup/escape.",19:"Les mêmes règles de sécurité et de rendu restent la référence."}},
+    {icon:'i-share',title:"Contrôleurs : exposer une route",intro:"Quand une action doit être appelée via une URL, un contrôleur sert de point d'entrée. C'est une autre couche que les vues XML.",points:["@http.route() déclare le chemin et ses paramètres.","type décrit le mode d'échange attendu.","auth contrôle le niveau d'accès requis.","Les contrôleurs sont utiles pour les pages, intégrations et échanges avec des systèmes externes."],diagram:'controller',notes:{16:"Le client web utilise notamment type=\"json\" pour ses appels internes.",17:"type=\"jsonrpc\" apparaît pour le protocole JSON-RPC 2.0 ; auth=\"bearer\" est disponible pour les jetons.",18:"Les contrôles de sécurité web sont renforcés.",19:"Les mêmes fondations restent valables."}},
+    {icon:'i-code',title:"OWL : l'interface moderne",intro:"OWL apporte une approche par composants réactifs au client web. Le bon réflexe est de penser en état, composants, hooks et services.",points:["Un composant étend Component et est associé à un template.","useState() porte l'état réactif.","Les hooks organisent le cycle de vie.","useService() donne accès aux services transverses comme l'ORM, les actions ou les notifications."],diagram:'owl',notes:{16:"OWL 2 cohabite avec un adaptateur pour l'ancien code.",17:"Le système historique de widgets est retiré et OWL devient la référence pour le nouveau front-end.",18:"La base OWL 2 continue avec des ajustements de services et bibliothèques.",19:"OWL reste la référence pour le développement front-end actuel."}},
+    {icon:'i-activity',title:"Comment raisonner sur un bug",intro:"Un bon diagnostic Odoo consiste à localiser la couche fautive avant de modifier du code au hasard.",points:["1. Interface : la vue XML ou le composant OWL reçoit-il la bonne donnée ?","2. Route : le contrôleur reçoit-il les bons paramètres et droits ?","3. Modèle : la méthode Python est-elle appelée ?","4. Sécurité : ACL et record rules autorisent-elles l'opération ?","5. Données : l'ORM lit-il les bons enregistrements ?"],diagram:'debug',notes:{16:"Cette méthode de diagnostic est applicable sans dépendre d'une fonctionnalité de version.",17:"Elle permet notamment d'isoler les changements de conventions XML et web.",18:"Elle aide à distinguer un problème de code d'un problème de politique web.",19:"Elle reste valable pour les modules modernes."}},
+    {icon:'i-trending-up',title:"Construire un module propre",intro:"Le développement Odoo ne se résume pas à faire fonctionner une fonctionnalité : il faut rendre le module lisible, extensible et sécurisé.",points:["Séparer modèle, vue, sécurité et données.","Déclarer explicitement les dépendances.","Préférer l'héritage et les extensions aux copies massives de code.","Limiter sudo() et vérifier les règles d'accès.","Documenter les choix qui dépendent de la version Odoo."],diagram:'clean',notes:{16:"Les principes sont déjà applicables sur Odoo 16.",17:"Documenter les changements XML et les nouvelles conventions réduit les erreurs de migration.",18:"La sécurité web et les contraintes de contenu renforcent l'intérêt d'une architecture propre.",19:"La compatibilité et la lisibilité restent prioritaires dans un module maintenable."}}
   ];
 
-  var docsState = {version:'19', index:0};
+  var VERSION_COMPARISONS={
+    '16-17':[
+      ['ORM','Commandes relationnelles en tuples','Objets Command deviennent la nouvelle manière de manipuler les relations','Migration des écritures relationnelles'],
+      ['Vues XML','attrs/states et <tree>','Expressions inline et <list>','Adapter les vues héritées'],
+      ['Web','type="json" côté client','type="jsonrpc" et auth="bearer" apparaissent','Revoir les routes et intégrations']
+    ],
+    '17-18':[
+      ['Sécurité web','Les ACL/record rules restent stables','La CSP est renforcée côté web','Éviter les scripts inline'],
+      ['QWeb / rendu','_render_qweb_pdf() est dépréciée','_render_qweb_pdf() est retirée','Mettre à jour les appels de rendu'],
+      ['Contraintes','_sql_constraints reste la convention connue','Une classe Constraint est introduite pour les contraintes SQL','Revoir les déclarations de contraintes']
+    ],
+    '18-19':[
+      ['Python','Python 3.12 est requis dans le contenu de référence','Python 3.11 devient la version minimale indiquée',"Vérifier l'environnement cible"],
+      ['Vues','Syntaxe inline déjà en place','Pas de rupture supplémentaire indiquée','Les vues 17+ restent la référence'],
+      ['OWL','Base OWL 2 avec ajustements','Même fondation OWL, référence front-end actuelle','Conserver les patterns modernes']
+    ],
+    '16-19':[
+      ['Vues XML','attrs/states + <tree>','Expressions inline + <list>','Point de migration majeur'],
+      ['Relations ORM','Tuples de commandes','Objets Command','Point de migration majeur'],
+      ['QWeb','t-raw encore présent','t-out + contenu sûr','Renforcer le traitement du HTML'],
+      ['Web','type="json" côté client','type="jsonrpc" + bearer disponible',"Revoir les routes d'intégration"],
+      ['OWL','OWL 2 + compatibilité ancien code','OWL référence du front-end moderne','Privilégier les composants OWL']
+    ]
+  };
 
-  var docsOverlay = document.getElementById('docsOverlay');
-  var docsStepEls = docsOverlay ? docsOverlay.querySelectorAll('.docs-step') : [];
-
-  function showDocsStep(name){
-    docsStepEls.forEach(function(el){ el.hidden = el.getAttribute('data-docs-step') !== name; });
+  var docsState={version:'19',index:0,mode:'learn',level:'fundamentals'};
+  var docsOverlay=document.getElementById('docsOverlay');
+  var docsStepEls=docsOverlay?docsOverlay.querySelectorAll('.docs-step'):[];
+  function showDocsStep(name){docsStepEls.forEach(function(el){el.hidden=el.getAttribute('data-docs-step')!==name;});}
+  function openDocs(){if(!docsOverlay)return;docsOverlay.classList.add('is-open');docsOverlay.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';showDocsStep('setup');var b=document.getElementById('docsClose');if(b)b.focus();}
+  function closeDocs(){if(!docsOverlay)return;docsOverlay.classList.remove('is-open');docsOverlay.setAttribute('aria-hidden','true');document.body.style.overflow='';}
+  document.querySelectorAll('[data-docs-open]').forEach(function(btn){btn.addEventListener('click',function(){closeNav();openDocs();});});
+  var docsCloseBtn=document.getElementById('docsClose');if(docsCloseBtn)docsCloseBtn.addEventListener('click',closeDocs);
+  if(docsOverlay)docsOverlay.addEventListener('click',function(e){if(e.target===docsOverlay)closeDocs();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&docsOverlay&&docsOverlay.classList.contains('is-open'))closeDocs();});
+  document.querySelectorAll('#docsVersionPills .docs-pill').forEach(function(p){p.addEventListener('click',function(){document.querySelectorAll('#docsVersionPills .docs-pill').forEach(function(x){x.classList.remove('is-selected');});p.classList.add('is-selected');docsState.version=p.getAttribute('data-docs-version');});});
+  var levelNotes={fundamentals:"Commence par comprendre les concepts avant d'entrer dans le code.",developer:"Relie les concepts aux fichiers, APIs et patterns de développement.",advanced:"Concentre-toi sur les différences de version et les choix d'architecture."};
+  document.querySelectorAll('#docsLevelRow .docs-level').forEach(function(b){b.addEventListener('click',function(){document.querySelectorAll('#docsLevelRow .docs-level').forEach(function(x){x.classList.remove('is-selected');});b.classList.add('is-selected');docsState.level=b.getAttribute('data-docs-level');document.getElementById('docsLevelNote').textContent=levelNotes[docsState.level];});});
+  document.querySelectorAll('#docsModeTabs .docs-mode-tab').forEach(function(b){b.addEventListener('click',function(){document.querySelectorAll('#docsModeTabs .docs-mode-tab').forEach(function(x){x.classList.remove('is-selected');});b.classList.add('is-selected');docsState.mode=b.getAttribute('data-docs-mode');document.getElementById('docsLearnSetup').hidden=docsState.mode!=='learn';document.getElementById('docsCompareSetup').hidden=docsState.mode!=='compare';if(docsState.mode==='compare')renderComparison();});});
+  var docsProgressLabel=document.getElementById('docsProgressLabel'),docsProgressFill=document.getElementById('docsProgressFill'),docsIconUse=document.getElementById('docsIconUse'),docsSlideTitle=document.getElementById('docsSlideTitle'),docsSlideIntro=document.getElementById('docsSlideIntro'),docsPointsEl=document.getElementById('docsPoints'),docsVersionNoteLabel=document.getElementById('docsVersionNoteLabel'),docsVersionNoteText=document.getElementById('docsVersionNoteText'),docsDotsEl=document.getElementById('docsDots'),docsPrevBtn=document.getElementById('docsPrev'),docsNextBtn=document.getElementById('docsNext'),docsDoneMsg=document.getElementById('docsDoneMsg'),docsDiagram=document.getElementById('docsDiagram');
+  function renderDocsDots(){docsDotsEl.innerHTML='';DOCS_SLIDES.forEach(function(_,i){var d=document.createElement('span');d.className='docs-dot'+(i===docsState.index?' is-active':'');docsDotsEl.appendChild(d);});}
+  function diagramHTML(type){
+    if(type==='architecture')return '<div class="docs-diagram-label">flux de données</div><div class="flow"><div class="flow-node">Navigateur / OWL</div><div class="flow-arrow">↓ HTTP / RPC</div><div class="flow-node signal">Serveur Odoo / Python</div><div class="flow-arrow">↓ ORM</div><div class="flow-node">PostgreSQL</div></div>';
+    if(type==='tree')return '<div class="docs-diagram-label">structure indicative</div><div class="file-tree"><div class="folder">mon_module/</div><div class="indent file">__init__.py</div><div class="indent file">__manifest__.py</div><div class="indent folder">models/</div><div class="indent" style="padding-left:32px">models.py</div><div class="indent folder">views/</div><div class="indent" style="padding-left:32px">views.xml</div><div class="indent folder">security/</div><div class="indent" style="padding-left:32px">ir.model.access.csv</div><div class="indent folder">data/</div></div>';
+    if(type==='orm')return '<div class="docs-diagram-label">cycle ORM</div><div class="flow"><div class="flow-node">Model Python</div><div class="flow-arrow">↓</div><div class="flow-node signal">Recordset / ORM</div><div class="flow-arrow">↓</div><div class="flow-node">create • search • write • unlink</div><div class="flow-arrow">↓</div><div class="flow-node">PostgreSQL</div></div><div class="code-mini"><pre><span class="accent">self.env[\'res.partner\']</span>.search([\n  (\'active\',\'=\',True)\n])</pre></div>';
+    if(type==='views')return '<div class="docs-diagram-label">rendu d\'une vue</div><div class="flow"><div class="flow-node">Modèle Python</div><div class="flow-arrow">↓</div><div class="flow-node signal">XML / View</div><div class="flow-arrow">↓</div><div class="flow-node">Form • List • Kanban • Search</div><div class="flow-arrow">↓</div><div class="flow-node">Interface utilisateur</div></div>';
+    if(type==='security')return '<div class="docs-diagram-label">double contrôle</div><div class="security-flow"><div class="flow-node">USER</div><div class="flow-node">GROUP</div><div class="flow-node">ACL / CRUD</div><div class="flow-node">ir.rule / domain</div><div class="flow-node signal wide">ENREGISTREMENT ACCESSIBLE</div></div>';
+    if(type==='qweb')return '<div class="docs-diagram-label">template → rendu</div><div class="flow"><div class="flow-node">Données</div><div class="flow-arrow">↓</div><div class="flow-node signal">Template QWeb</div><div class="flow-arrow">↓</div><div class="flow-node">HTML / PDF</div></div><div class="code-mini"><pre>&lt;t t-if="condition"&gt;...&lt;/t&gt;\n&lt;t t-foreach="items" t-as="item"&gt;...&lt;/t&gt;</pre></div>';
+    if(type==='controller')return '<div class="docs-diagram-label">route web</div><div class="flow"><div class="flow-node">Client / App externe</div><div class="flow-arrow">↓</div><div class="flow-node signal">@http.route()</div><div class="flow-arrow">↓</div><div class="flow-node">Python / ORM</div><div class="flow-arrow">↓</div><div class="flow-node">Réponse</div></div>';
+    if(type==='owl')return '<div class="docs-diagram-label">composant OWL</div><div class="flow"><div class="flow-node">Component</div><div class="flow-arrow">↓</div><div class="flow-node signal">setup()</div><div class="flow-arrow">↓</div><div class="flow-node">useState / useService</div><div class="flow-arrow">↓</div><div class="flow-node">Template QWeb</div></div>';
+    if(type==='debug')return '<div class="docs-diagram-label">diagnostic par couches</div><div class="flow"><div class="flow-node">1. UI / XML / OWL</div><div class="flow-arrow">↓</div><div class="flow-node">2. Route / contrôleur</div><div class="flow-arrow">↓</div><div class="flow-node signal">3. Python / ORM</div><div class="flow-arrow">↓</div><div class="flow-node">4. Sécurité</div><div class="flow-arrow">↓</div><div class="flow-node">5. Données</div></div>';
+    return '<div class="docs-diagram-label">principes</div><div class="flow"><div class="flow-node signal">Dépendances explicites</div><div class="flow-node">Séparation des responsabilités</div><div class="flow-node">Sécurité minimale nécessaire</div><div class="flow-node">Code extensible</div></div>';
   }
+  function renderDocsSlide(){var total=DOCS_SLIDES.length,c=DOCS_SLIDES[docsState.index];docsProgressLabel.textContent='Module '+(docsState.index+1)+' / '+total;docsProgressFill.style.width=(((docsState.index+1)/total)*100)+'%';docsIconUse.setAttribute('href','#'+c.icon);docsSlideTitle.textContent=c.title;docsSlideIntro.textContent=c.intro;docsPointsEl.innerHTML='';c.points.forEach(function(t){var li=document.createElement('li');li.textContent=t;docsPointsEl.appendChild(li);});docsVersionNoteLabel.textContent='Focus Odoo '+docsState.version;docsVersionNoteText.textContent=c.notes[docsState.version];docsDiagram.innerHTML=diagramHTML(c.diagram);renderDocsDots();docsPrevBtn.disabled=docsState.index===0;docsNextBtn.textContent=docsState.index===total-1?'Terminer':'Suivant';}
+  function startDocs(){docsState.index=0;showDocsStep('slides');renderDocsSlide();}
+  function finishDocs(){docsDoneMsg.textContent='Vous avez parcouru '+DOCS_SLIDES.length+' modules du lab en mode '+(docsState.level==='fundamentals'?'fondamentaux':docsState.level==='developer'?'développeur':'avancé')+' pour Odoo '+docsState.version+'. Le parcours est conçu pour comprendre les relations entre architecture, code, interface et sécurité.';showDocsStep('done');}
+  function goDocsNext(){if(docsState.index<DOCS_SLIDES.length-1){docsState.index++;renderDocsSlide();}else finishDocs();}
+  function goDocsPrev(){if(docsState.index>0){docsState.index--;renderDocsSlide();}}
+  if(document.getElementById('docsStart'))document.getElementById('docsStart').addEventListener('click',startDocs);
+  if(docsNextBtn)docsNextBtn.addEventListener('click',goDocsNext);if(docsPrevBtn)docsPrevBtn.addEventListener('click',goDocsPrev);
+  if(document.getElementById('docsRetry'))document.getElementById('docsRetry').addEventListener('click',function(){showDocsStep('setup');});
+  if(document.getElementById('docsContactBtn'))document.getElementById('docsContactBtn').addEventListener('click',closeDocs);
+  if(document.getElementById('docsCompareBtn'))document.getElementById('docsCompareBtn').addEventListener('click',function(){showDocsStep('setup');docsState.mode='compare';document.querySelectorAll('#docsModeTabs .docs-mode-tab').forEach(function(x){x.classList.toggle('is-selected',x.getAttribute('data-docs-mode')==='compare');});document.getElementById('docsLearnSetup').hidden=true;document.getElementById('docsCompareSetup').hidden=false;renderComparison();});
+  document.addEventListener('keydown',function(e){if(!docsOverlay||!docsOverlay.classList.contains('is-open'))return;var step=docsOverlay.querySelector('[data-docs-step="slides"]');if(step&&!step.hidden){if(e.key==='ArrowRight')goDocsNext();else if(e.key==='ArrowLeft')goDocsPrev();}});
 
-  function openDocs(){
-    if(!docsOverlay) return;
-    docsOverlay.classList.add('is-open');
-    docsOverlay.setAttribute('aria-hidden','false');
-    document.body.style.overflow = 'hidden';
-    showDocsStep('setup');
-    var closeBtn = document.getElementById('docsClose');
-    if(closeBtn){ closeBtn.focus(); }
-  }
-  function closeDocs(){
-    if(!docsOverlay) return;
-    docsOverlay.classList.remove('is-open');
-    docsOverlay.setAttribute('aria-hidden','true');
-    document.body.style.overflow = '';
-  }
-
-  var docsTriggers = document.querySelectorAll('[data-docs-open]');
-  docsTriggers.forEach(function(btn){
-    btn.addEventListener('click', function(){
-      closeNav();
-      openDocs();
-    });
-  });
-
-  var docsCloseBtn = document.getElementById('docsClose');
-  if(docsCloseBtn){ docsCloseBtn.addEventListener('click', closeDocs); }
-  if(docsOverlay){
-    docsOverlay.addEventListener('click', function(e){
-      if(e.target === docsOverlay){ closeDocs(); }
-    });
-  }
-  document.addEventListener('keydown', function(e){
-    if(e.key === 'Escape' && docsOverlay && docsOverlay.classList.contains('is-open')){ closeDocs(); }
-  });
-
-  var docsVersionPills = document.querySelectorAll('.docs-pill');
-  docsVersionPills.forEach(function(p){
-    p.addEventListener('click', function(){
-      docsVersionPills.forEach(function(x){ x.classList.remove('is-selected'); });
-      p.classList.add('is-selected');
-      docsState.version = p.getAttribute('data-docs-version');
-    });
-  });
-
-  var docsProgressLabel = document.getElementById('docsProgressLabel');
-  var docsProgressFill = document.getElementById('docsProgressFill');
-  var docsIconUse = document.getElementById('docsIconUse');
-  var docsSlideTitle = document.getElementById('docsSlideTitle');
-  var docsSlideIntro = document.getElementById('docsSlideIntro');
-  var docsPointsEl = document.getElementById('docsPoints');
-  var docsVersionNoteLabel = document.getElementById('docsVersionNoteLabel');
-  var docsVersionNoteText = document.getElementById('docsVersionNoteText');
-  var docsDotsEl = document.getElementById('docsDots');
-  var docsPrevBtn = document.getElementById('docsPrev');
-  var docsNextBtn = document.getElementById('docsNext');
-  var docsDoneMsg = document.getElementById('docsDoneMsg');
-
-  function renderDocsDots(){
-    docsDotsEl.innerHTML = '';
-    DOCS_SLIDES.forEach(function(_, i){
-      var dot = document.createElement('span');
-      dot.className = 'docs-dot' + (i === docsState.index ? ' is-active' : '');
-      docsDotsEl.appendChild(dot);
-    });
-  }
-
-  function renderDocsSlide(){
-    var total = DOCS_SLIDES.length;
-    var current = DOCS_SLIDES[docsState.index];
-    docsProgressLabel.textContent = 'Slide ' + (docsState.index + 1) + ' / ' + total;
-    docsProgressFill.style.width = (((docsState.index + 1) / total) * 100) + '%';
-    docsIconUse.setAttribute('href', '#' + current.icon);
-    docsSlideTitle.textContent = current.title;
-    docsSlideIntro.textContent = current.intro;
-    docsPointsEl.innerHTML = '';
-    current.points.forEach(function(text){
-      var li = document.createElement('li');
-      li.textContent = text;
-      docsPointsEl.appendChild(li);
-    });
-    docsVersionNoteLabel.textContent = 'Spécifique à Odoo ' + docsState.version;
-    docsVersionNoteText.textContent = current.notes[docsState.version];
-    renderDocsDots();
-    docsPrevBtn.disabled = (docsState.index === 0);
-    docsNextBtn.textContent = (docsState.index === total - 1) ? 'Terminer' : 'Suivant';
-  }
-
-  function startDocs(){
-    docsState.index = 0;
-    showDocsStep('slides');
-    renderDocsSlide();
-  }
-
-  function finishDocs(){
-    docsDoneMsg.textContent = "Vous avez parcouru l'essentiel du développement technique Odoo " + docsState.version + " : écosystème, structure de module, ORM, vues XML, sécurité, QWeb et OWL. De quoi attaquer sereinement le développement ou la revue d'un module.";
-    showDocsStep('done');
-  }
-
-  function goDocsNext(){
-    if(docsState.index < DOCS_SLIDES.length - 1){ docsState.index++; renderDocsSlide(); }
-    else { finishDocs(); }
-  }
-  function goDocsPrev(){
-    if(docsState.index > 0){ docsState.index--; renderDocsSlide(); }
-  }
-
-  var docsStartBtn = document.getElementById('docsStart');
-  if(docsStartBtn){ docsStartBtn.addEventListener('click', startDocs); }
-  if(docsNextBtn){ docsNextBtn.addEventListener('click', goDocsNext); }
-  if(docsPrevBtn){ docsPrevBtn.addEventListener('click', goDocsPrev); }
-
-  var docsRetryBtn = document.getElementById('docsRetry');
-  if(docsRetryBtn){ docsRetryBtn.addEventListener('click', function(){ showDocsStep('setup'); }); }
-
-  var docsContactBtn = document.getElementById('docsContactBtn');
-  if(docsContactBtn){ docsContactBtn.addEventListener('click', closeDocs); }
-
-  document.addEventListener('keydown', function(e){
-    if(!docsOverlay || !docsOverlay.classList.contains('is-open')) return;
-    var slidesStep = docsOverlay.querySelector('[data-docs-step="slides"]');
-    if(!slidesStep || slidesStep.hidden) return;
-    if(e.key === 'ArrowRight'){ goDocsNext(); }
-    else if(e.key === 'ArrowLeft'){ goDocsPrev(); }
-  });
+  var compareFrom=document.getElementById('compareFrom'),compareTo=document.getElementById('compareTo'),compareSummary=document.getElementById('compareSummary'),compareContent=document.getElementById('compareContent');
+  function compareKey(){return compareFrom.value+'-'+compareTo.value;}
+  function renderComparison(){if(!compareFrom||!compareTo)return;var a=compareFrom.value,b=compareTo.value;if(a===b){compareSummary.textContent='Choisissez deux versions différentes pour afficher les changements.';compareContent.innerHTML='';return;}var key=compareKey(),rows=VERSION_COMPARISONS[key];if(!rows){var reverse=VERSION_COMPARISONS[b+'-'+a];rows=reverse?reverse.map(function(r){return[r[0],r[2],r[1],r[3]];}):[];}compareSummary.textContent='Lecture rapide : voici les évolutions déjà présentes dans le contenu technique du portfolio pour passer de Odoo '+a+' à Odoo '+b+'. L’objectif est de repérer les points à vérifier lors d’une migration.';compareContent.innerHTML='<table class="compare-table"><thead><tr><th>Zone</th><th>Version '+a+'</th><th>Version '+b+'</th><th>À vérifier</th></tr></thead><tbody>'+rows.map(function(r){return'<tr><td><strong>'+r[0]+'</strong></td><td class="diff-old">'+r[1]+'</td><td class="diff-new">'+r[2]+'<br><span class="diff-tag">évolution</span></td><td>'+r[3]+'</td></tr>';}).join('')+'</tbody></table>';}
+  if(compareFrom)compareFrom.addEventListener('change',renderComparison);if(compareTo)compareTo.addEventListener('change',renderComparison);
+  if(document.getElementById('compareBack'))document.getElementById('compareBack').addEventListener('click',function(){docsState.mode='learn';document.querySelectorAll('#docsModeTabs .docs-mode-tab').forEach(function(x){x.classList.toggle('is-selected',x.getAttribute('data-docs-mode')==='learn');});document.getElementById('docsLearnSetup').hidden=false;document.getElementById('docsCompareSetup').hidden=true;});
 
   /* ---------- three.js network background ---------- */
   var canvas = document.getElementById('bg-canvas');
